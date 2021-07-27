@@ -1,0 +1,227 @@
+\chapter{FFT-based methods for mechanical problems}
+
+In the following, an overview of the literature on FFT-based methods for the determination of the overall and local response of a composite material from actual images or morphological simulations of its microstructure is presented.
+
+To establish some context, let the microstructure of the material be represented by a periodic cell \(\Omega\).
+The material response at a point \(\bm x \in \Omega\) is specified by the constitutive relation \(\bm \sigma(\bm x, \bm\varepsilon(\bm x))\) assigning the stress response \(\bm\sigma\) to a given strain \(\bm\varepsilon\) locally at \(\bm x\).
+Furthermore, the total strain \(\bm\varepsilon\) is split into a homogeneous average strain tensor \(\boldsymbol{E}\) and an \(\Omega\) -periodic fluctuating strain field \(\bm\varepsilon^{*}\), i.e.
+\begin{equation}
+\bm \varepsilon(\boldsymbol{x})=\boldsymbol{E}+\bm\varepsilon^{*}(\boldsymbol{x}) \text { for } \boldsymbol{x} \in \Omega, \quad \int_{\Omega} \bm\varepsilon^{*}(\boldsymbol{x}) \mathrm{d} \boldsymbol{x}=\mathbf{0} .
+\end{equation}
+The average strain \(\bm E\) represents a given macro-scale excitation, while the fluctuating micro-scale strain field \(\pmb \varepsilon^{*}\) is the primary unknown.
+
+The fluctuating strain field \(\bm \varepsilon^{*}\) is determined by the stress equilibrium and strain compatibility conditions, which under quasi-static assumptions and in small strains read as,
+\begin{gather}
+-\bm{\nabla} \cdot \bm\sigma\left(\bm x, \bm E+\bm\varepsilon^{*}(\bm x)\right)=0 \text { for } \bm x \in \Omega,\label{eq:equilibrium_equation}\\
+\bm\varepsilon^{*} \in \pazocal{E}=\left\{\boldsymbol{\nabla}_{\mathrm{s}} \boldsymbol{u}^{*}, \text{\(\boldsymbol{u}^{*}\) is an \(\Omega\)-periodic displacement field}\right\} \label{eq:compatibility_equation},
+\end{gather}
+ where \(\nabla \cdot\) stands for the divergence operator and \(\nabla_{\mathrm{s}}\) stands for the symmetrized gradient operator.
+ The goal of the methods presented in the following is to solve Equation~\eqref{eq:equilibrium_equation} under the compatibility restriction expressed by Equation~\eqref{eq:compatibility_equation}.
+
+The FFT based methods, first introduced by \cite{moulinec_fast_1994, moulinec_fft-based_1995}, enjoy wide usage across many domains.
+They have been integrated into efficient and robust two-scale FE-FFT-based computatinal approaches \citep{kochmann_efficient_2018-1} and now even figure in comercial software such as DAMASK \citep{roters_damaskdusseldorf_2019} and FeelMath \citep{schwichow_geodict_2020, fraunhofer_itwm_feelmath_2020}.
+Their application ranges from crystal plasticity (e.g. \cite{lebensohn_n-site_2001, shanthraj_numerically_2015, kochmann_efficient_2018, lebensohn_spectral_2020, wicht_efficient_2020}), hypoelasticity (e.g. \cite{ma_fft-based_2019}), failure and damage (e.g. \cite{ernesti_fast_2020, ernesti_fft-based_2021, geus_damage_2016, magri_fft_2021, wang_progressive_2018}) and multi-physics simulations (e.g. \cite{vinogradov_accelerated_2008,brenner_computational_2010,shanthraj_spectral_2019, gokuzum_multiscale_2019, zhou_accelerated_2020,wicht_computing_2020}).
+They have also been used in the contex of reduced order models (e.g. \cite{kochmann_simple_2019, gierden_geometrically_2021}).
+
+Comparisons between the FEM and the FFT-based methods can be found in \cite{michel_effective_1999} and \cite{vondrejc_energy-based_2020}.
+The first focuses on the "basic scheme" and concludes that the FFT-based method is much faster than FEM when the contrast between phase properties is not too large.
+This advantage decreases as the contrast increases, in favor of the FEM.
+In the second contribution, Galerkin-based formulations are considered.
+The advantage of FEM for the case of rough data with jumps in material coefficients regarding both memory usage and speed is reasserted.
+The results for continuous material coefficients are inconclusive.
+
+
+The main classification scheme adopted follows \cite{zeman_finite_2017} and is based on the discretization approach.
+The first set of methods, which include the original contribution from \cite{moulinec_fast_1994}, are labeled as "Conventional FFT" and the second class as "Variational FFT".
+In the last section, a few methods not fitting this classification scheme are also presented.
+
+
+\section{Conventional FFT}
+
+% Lippmann-Schwinger
+Following \cite{zeman_finite_2017}, the "Conventional FFT" methods, based on the basic scheme by \cite{moulinec_fast_1994}, are derived from the following integral equation for the fluctuating strains \(\bm\varepsilon^{*} \in \pazocal{E}\),
+\begin{equation} \label{eq:int_lippmann_schwinger}
+\int_{\Omega} \Gamma^{\mathrm{ref}}(\boldsymbol{x}-\boldsymbol{y}): \boldsymbol{\sigma}\left(\boldsymbol{y}, \boldsymbol{E}+\bm \varepsilon^{*}(\boldsymbol{y})\right) \mathrm{d} \boldsymbol{y}=\mathbf{0} \text { for all } \boldsymbol{x} \in \Omega,
+\end{equation}
+where \(\Gamma^{\text {ref }}\) is the Green function of the reference problem.
+This reference problem is an auxiliary local problem with the homogeneous constitutive relation
+\begin{equation}
+\sigma(\boldsymbol{x}, \varepsilon(\boldsymbol{x}))=C^{\mathrm{ref}}: \bm\varepsilon(\boldsymbol{x}) \text { for } \boldsymbol{x} \in \Omega.
+\end{equation}
+% normal
+In the seminal contribution by \cite{moulinec_fast_1994, moulinec_fft-based_1995}, Equation~\eqref{eq:int_lippmann_schwinger} is solved using a fixed-point iteration scheme after discretizing it through a point collocation method, the basis function being trigonometric polynomials \citep{zeman_finite_2017}.
+It is originally formulated for linear elasticity and small strains.
+In \cite{michel_computational_2000, michel_computational_2001}, the authors extend this scheme to materials with non-linear mechanical behavior laws.
+
+It has become very popular as a method used for the determination of local fields and effective properties since it does not require meshing.
+Thus, it allows the direct use of experimental images obtained by advanced imaging techniques such as micro-computed tomography.
+Besides, from a computational standpoint, it is also a very fast and memory-efficient method.
+It enjoys from current implementations of the Fast Fourier transform, which are extremely powerful.
+Moreover, the scheme supports matrix-free solvers, even for strongly non-linear materials.
+Lastly, the method is also simple to code and use.
+
+Despite all these favorable characteristics, the method also has some drawbacks.
+It is not suitable for composites with infinite contrast between the phases and near interfaces between phases where large differences in the material properties are found, spurious features have also been reported \citep{ma_numerical_2021}.
+Furthermore, the convergence rate as a function of the material contrast is only linear.
+
+% paragraph mesh
+As already mentioned, this class of methods uses a regular mesh, where the basis functions are trigonometric polynomials.
+Exceptions are \cite{bonnet_effective_2007}, \cite{monchiet_polarization-based_2012}, \cite{monchiet_combining_2015} and \cite{nguyen_derivation_2021}.
+In the first three, the exact Fourier transforms of the elasticity tensor are used.
+This can be achieved because the Fourier transforms of the characteristic functions of the inclusion phases are known, being limited to circles and ellipses.
+The last work uses the approximate Fourier transform of the elasticity tensor, but the phases are not limited to circles and ellipses.
+More complex phase domains are approximated through the union of polygon and polyhedra (e.g. flower-shaped inclusions in 2D and torus-shaped inclusion in 3D) for which the Fourier transforms of the characteristic functions are known.
+
+
+A further classification of the "Conventional methods" can be introduced, according to \cite{schneider_barzilai-borwein_2019}.
+For the first kind, each iterate satisfies the mechanical compatibility condition, whereas, for the second kind, compatibility is only ensured upon convergence.
+The polarization schemes and solvers based on the Hashin-Shtrikman principle constitute the former kind.
+The latter includes the conjugate gradient method, the Newton-scheme (coupled to different linear solvers), and the fast gradient methods.
+
+% polarization
+Regarding the contributions based on polarization, the original work is due to \cite{eyre_fast_1999}.
+It is developed in the context of electrical conductivity, hence the use of the term "polarization" in connection with these schemes.
+Accordingly, the procedure iterates on the polarization field, and not on the strain field, as per usual.
+Combined with the rewriting of the expression for the original scheme, this leads to faster convergence rates, superlinear, when compared with the "basic scheme", as a function of the material contrast.
+In \cite{michel_computational_2001} this approach is extended to linear elasticity, and a related approach based on an augmented Lagrangian is also introduced.
+Convergence for infinite contrast is achieved for this last method.
+Lastly, in \cite{monchiet_polarization-based_2012} a further extension is proposed, with the scheme suggested including both of the polarization-based works previously mentioned.
+Convergence for infinite contrast is likewise achieved.
+In \cite{schneider_polarization-based_2019} two flaws in these methods are pointed out in the non-linear context.
+Firstly, the optimal choice of algorithmic parameters is only known for the linear elastic case.
+Secondly, in its original version, each iteration of the polarization scheme requires solving a nonlinear system of equations for each voxel.
+The authors cast these methods into a simpler form using the Douglas-Rachford splitting, thus, avoiding the solution of non-linear equations in each iteration.
+In \cite{moulinec_comparison_2014}, \cite{moulinec_comparison_2014-1} and \cite{schneider_polarization-based_2019} comparisons between these methods and others can be found.
+Finally, the linear solvers of \cite{brisard_fft-based_2010, brisard_combining_2012} also belong to the class of polarization schemes, although they operate on a different polarization \citep{schneider_lippmannschwinger_2020}.
+
+Beyond the "basic scheme" of \cite{moulinec_fast_1994} further improvements within the same framework have been proposed.
+% linear small strain
+In the first place improvements still dealing with linear behavior at small strains are introduced.
+In the original approach, a fixed point iteration/Richardson iteration/Neumann series-based scheme is used (see \cite{moulinec_convergence_2018} for an in-depth convergence analysis).
+It is the most memory-efficient method available in its class and is also robust, but slow for highly contrasted problems.
+Moreover, the only role of the (material-dependent) reference problem is to ensure the convergence of the Richardson iteration scheme used to solve the resulting system of linear equations.
+As an alternative, \cite{zeman_accelerating_2010} propose a conjugate gradient-based approach.
+It proceeds from the discretization of the governing integral equation by the trigonometric collocation method to give a linear system that can be efﬁciently solved by conjugate gradient methods.
+The authors claim a signiﬁcant increase of the convergence rate for problems with high-contrast coefﬁcients at a low overhead per iteration.
+The scheme is also independent of the reference problem.
+
+%non-linear
+According to \cite{kabel_efficient_2014}, regarding non-linear problems, be it concerning small or large strain, there are two solution strategies.
+Firstly, a fixed point iteration can be employed to solve the nonlinear equation introduced in \cite{moulinec_numerical_1998} for small deformations and extended to large deformations in \cite{eisenlohr_spectral_2013}.
+Also for small deformations, \cite{schneider_fft-based_2017} and \cite{schneider_dynamical_2020} present the use of the fast gradient methods (Nesterov's method, heavy-ball method, and Fletcher-Reeves CG), which also forego the linearization of the nonlinear equations.
+The fast gradient methods combine fast convergence with a low memory footprint.
+However, they suffer from a delicate parameter selection \citep{schneider_dynamical_2020}.
+
+Alternatively, one can use the Newton or quasi-Newton methods to tackle the nonlinear problem by solving a sequence of linear problems.
+% small strain
+% newton
+% conjugate gradient
+In the context of small strains, \cite{gelebart_non-linear_2013} solve the linearized equations found through the Newton method using the conjugate gradient scheme.
+Low sensitivity to the reference material and an improved efﬁciency, for a soft or a stiff inclusion, when compared to the "basic scheme" is reported.
+In addition to prescribed macroscopic strain, the proposed method is extended to mixed loadings.
+
+% large strain
+% newton
+% fixed-point
+Concerning large strains, using Newton methods to linearize the nonlinear equations, \cite{lahellec_analysis_2003} present a scheme where a fixed-point approach is used to solve the linearized equations.
+% newton-krylov
+In \cite{kabel_efficient_2014}, fixed-point schemes are also considered, in addition to Newton-Raphson and Netwon-Krylov/conjugate gradient methods.
+In connection to the last method, a memory-efficient version is also presented.
+
+% quasi-newton
+Quasi-Newton methods are available in the literature, as well.
+% lbfgs
+In \cite{wicht_quasinewton_2019} two algorithms based on the Broyden-Fletcher-Goldfarb-Shanno (BFGS) method, one of the most powerful Quasi-Newton schemes, are introduced.
+More specifically, the BFGS update formula is utilized to approximate the global Hessian or the local material tangent stiffness.
+Both for Newton and Quasi-Newton methods, a globalization technique is necessary to ensure global convergence.
+Specific to the FFT-based context, a Dong-type line search is promoted, avoiding function evaluations altogether.
+% Anderson acceleration
+Another Quasi-Newton method, mentioned in \cite{wicht_quasinewton_2019} and extended to polarization methods in \cite{wicht_anderson-accelerated_2021}, is the Anderson acceleration method.
+It is a method for improving the convergence behavior of fixed-point iterations, where derivatives of the fixed-point mapping are not available.
+Based on a limited number (the so-called depth) of previous iterates, Anderson acceleration generates the next iterate based on a mixture of previous iterates, where the mixing coefficients
+solve an associated low-dimensional optimization problem.
+% Barzilai-Borwein
+In \cite{schneider_barzilai-borwein_2019} the Barzilai-Borwein is applied to the problem at hand.
+It may be interpreted as the basic scheme with adaptive time-stepping (or, equivalently, adaptive reference material).
+Thus, it has a low memory footprint but is competitive in terms of convergence speed when compared to the solvers mentioned above.
+However, it is an intrinsically non-monotone method, ie, the residual is not monotonically decreasing from one iteration to the next.
+This behavior is unfamiliar and may limit the applicability for industrial applications.
+
+Table~\ref{tab:methods} reproduces a Table found in \cite{wicht_quasinewton_2019} detailing the memory footprint and other characteristics regarding the different solvers available.
+
+
+\begin{table}
+\caption{Summary of the performance comparison between the investigated solution schemes \citep{wicht_quasinewton_2019}}
+\label{tab:methods}
+ \begin{tabular}{l l l}
+ \hline
+ Solution scheme & \makecell{Memory footprint\\ (strain-like fields)} & Summary and remarks\\
+ \hline\hline
+ Basic scheme & 1 & \makecell[l]{\textbullet\ Gradient descent method\\ \textbullet\ Lowest memory requirements \\ \textbullet\ Slowest among the studied solvers}\\
+ \hline
+ Anderson acceleration & \(2m+2\) & \makecell[l]{\textbullet\ Limited-memory Quasi-Newton\\ method\\ \textbullet\ Optimal depth \(m\) between 2 and 5 \\ \textbullet\ Accelerates the basic scheme but\\ slower than the remaining\\ algorithms}\\
+ \hline
+ L-BFGS & \(2m+4\) & \makecell[l]{\textbullet\ Limited-memory Quasi-Newton\\ method\\ \textbullet\ Optimal depth \(m\) between 2 and 5 \\ \textbullet\ Outperformed by the more memory-\\-efficient Barzilai-Borwein method}\\
+ \hline
+ Barzilai-Borwein & \(2\) & \makecell[l]{\textbullet\ Gradient descent with step size\\ based on Quasi-Newton methods\\ \textbullet\ Nonmonotonic convergence\\ behavior \\ \textbullet\ Fastest choice for inexpensive\\ material laws}\\
+ \hline
+ Newton-CG & \(8.5\) & \makecell[l]{\textbullet\ Inexact Newton method\\ \textbullet\ Highest efficiency in combination\\ with Eisenstat and Walker's\\ forcing-term choice 2\\ \textbullet\ Requires computing the\\ material tangent\\ \textbullet\ Fastest choice for expensive\\ material laws}\\
+ \hline
+ BFGS-CG & \(10.5\) & \makecell[l]{\textbullet\ Inexact Quasi-Newton method\\ \textbullet\ Uses the BFGS update to approximate\\ the material tangent\\ \textbullet\ Matches performance of\\ Newton-CG for small load steps,\\ slightly slower otherwise}\\
+ \hline\hline
+\end{tabular}
+\footnotesize{\(\vphantom{\Big \vert}\)Abbreviations: BFGS, Broyden-Fletcher-Goldfarb-Shanno; CG, conjugate gradient.}
+\end{table}
+
+\section{Variational FFT}
+
+According to \cite{zeman_finite_2017} the so-called "Variational FFT" schemes, are based on the weak form of the equilibrium equation
+\begin{equation} \label{eq:weak_equilibrium_equations}
+\int_{\Omega} \delta \bm\varepsilon^{*}(\boldsymbol{x}): \boldsymbol{\sigma}\left(\boldsymbol{x}, \boldsymbol{E}+\bm\varepsilon^{*}(\boldsymbol{x})\right) \mathrm{d} \boldsymbol{x}=0,
+\end{equation}
+with the compatibility constraint enforced by
+\begin{equation}
+\delta \bm\varepsilon^{*}(\bm x)=[\bm G * \bm\zeta](\bm x)=\int_{\Omega} \bm G(\bm x-\bm y): \bm\zeta(\bm y) \mathrm{d} \bm y \text { for } \bm x \in \Omega,
+\end{equation}
+where \(\bm G\) is a projection operator, \(\bm \zeta\) is a test function and \(*\) stands for the convolution.
+
+Vondřejc and co-workers first established the connection between FFT-based schemes and Finite Elements in the framework of conventional Galerkin methods with a specific choice of basis functions and numerical quadrature \citep{vondrejc_fft-based_2014}  or exact integration \citep{vondrejc_guaranteed_2015} for small strains.
+The main advantage of this approach is the fact that it does not rely on the notion of a reference problem.
+Such a feature is particularly attractive for non-linear problems, for which the concept of the Green functions cannot be used.
+From a conceptual standpoint, this framework has the benefit that discretization, quadrature, constitutive linearization, and the
+solution of a linear system can be properly distinguished and optimized individually (see e.g. \cite{mishra_block_2015}, \cite{mishra_comparative_2016} and \cite{vondrejc_energy-based_2020}).
+
+\cite{zeman_finite_2017} offers a very clear presentation of this approach and supplies the demonstrations regarding robust convergence for several types of non-linear constitutive behavior in small strains.
+In \cite{de_geus_finite_2017} the extension to finite strain is achieved, and the corresponding Python code of only 59 lines (without comments) is also supplied for a linear hyperelastic material.
+A further extension is advanced in \cite{lucarini_algorithm_2019}, where stress and mixed control of the macroscopic load history is achieved using a direct method based on a modified project operator and preserving the computational performance of the original method.
+
+Having arrived at the set of non-linear equations found from the descritization of Equation~\eqref{eq:weak_equilibrium_equations}, the methods used to solve them can, in principle, be the ones detailed above for the "Conventional FFT".
+
+\section{Other methods}
+
+This section collects together all the contributions that do not fit into the above categories of "Conventional FFT" and "Variational FFT".
+
+% discretization of the Green operator
+
+% finite differences
+Following Willot and co-workers \citep{willot_fast_2008, willot_fourier-based_2014, willot_fourier-based_2015} the equilibrium equations are discretized using finite differences, and these discretized equations are solved using the "basic scheme".
+The only difference is found in the Green operator, nevertheless, it leads to much more accurate local fields, particularly in the very stiff or soft inclusions and in the vicinity of interfaces.
+The convergence rate is also found to be much faster compared with the different methods employing the original operator, in particular for highly-contrasted media.
+Different finite difference and finite element discretizations have also been introduced \citep{schneider_computational_2016, schneider_fft-based_2017, djaka_field_2017, eloh_development_2019}.
+\cite{brisard_fft-based_2010, brisard_combining_2012} introduced a discretization by voxel-wise constant finite elements based on the Hashin-Shtrikman variational principle \citep{hashin_variational_1962}.
+Also based on the same principle, \cite{tu_implementation_2020} discretizes the problem using splines instead.
+
+In \cite{yvonnet_fast_2012}, unlike other algorithms presented so far based on the Fourier transform, the scheme put forth strictly operates in the real-space domain and removes the numerical Fourier and inverse Fourier transforms at each iteration. For this purpose, the linear operator related to the Lippmann–Schwinger equation is constructed numerically employing transformation tensors in the real-space domain.
+
+Concerning the approximate discretization of microstructure features, more precisely of the voxels which include the interface between phases, \cite{mareau_different_2017} proposes the use of composite voxel methods.
+These methods use simple homogenization rules to calculate the effective behavior of heterogeneous voxels, capturing more accurately, the fact they contain material that belongs to different phases.
+Another example of similar techniques can be found in \cite{kabel_composite_2017}.
+
+\cite{lucarini_dbfft_2019} present a method completely distinct from the ones presented so far in that the unknown field is not the strain field but the displacement field.
+It is shown that the algorithm does not require the definition of a reference medium and that the linear systems which arise in the method are fully ranked and therefore admit the use of preconditioners.
+Furthermore, in the iterative solution procedure, the convergence rate is higher than the FFT-based variational approach, and the memory usage lower.
+% displacement
+
+In \cite{to_fft_2020} an FFT-based numerical scheme to compute the effective conductivity of porous materials is developed.
+To avoid the convergence issues due to the nonuniqueness of the full field solution, the problem is reformulated using the temperature field in the skeleton as an unknown variable.
+Thus, in the derived governing equation, the internal temperature field can be computed from the value on the pore boundary.

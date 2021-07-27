@@ -1,0 +1,100 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+Reallocating 'name_of_file' (item size: 1) to 9 items.
+The style file: humannat.bst
+Reallocating 'name_of_file' (item size: 1) to 17 items.
+A level-1 auxiliary file: introduction.aux
+Reallocating 'name_of_file' (item size: 1) to 29 items.
+A level-1 auxiliary file: fft_based_homogenization.aux
+Reallocating 'name_of_file' (item size: 1) to 20 items.
+A level-1 auxiliary file: variational_fft.aux
+Reallocating 'name_of_file' (item size: 1) to 25 items.
+A level-1 auxiliary file: numerical_validation.aux
+Reallocating 'name_of_file' (item size: 1) to 27 items.
+A level-1 auxiliary file: numerical_applications.aux
+Reallocating 'name_of_file' (item size: 1) to 16 items.
+A level-1 auxiliary file: conclusions.aux
+Reallocating 'name_of_file' (item size: 1) to 14 items.
+A level-1 auxiliary file: annex_fdm.aux
+Reallocating 'name_of_file' (item size: 1) to 14 items.
+A level-1 auxiliary file: annex_fem.aux
+Reallocating 'name_of_file' (item size: 1) to 19 items.
+Database file #1: mybibliography.bib
+Warning--I didn't find a database entry for ""
+Warning--empty journal in djaka_field_2017
+Warning--empty journal in eisenlohr_spectral_2013
+Warning--empty journal in eloh_development_2019
+Warning--empty journal in ernesti_fast_2020
+Warning--empty journal in geus_damage_2016
+Warning--empty journal in gokuzum_multiscale_2019
+Warning--empty journal in kabel_efficient_2014
+Warning--empty journal in kochmann_efficient_2018-1
+Warning--empty journal in kochmann_efficient_2018
+Warning--empty journal in lebensohn_n-site_2001
+Warning--empty journal in lebensohn_spectral_2020
+Warning--empty journal in lucarini_algorithm_2019
+Warning--empty journal in lucarini_dbfft_2019
+Warning--empty journal in ma_fft-based_2019
+Warning--empty journal in mareau_different_2017
+Warning--empty journal in mishra_block_2015
+Warning--empty journal in mishra_comparative_2016
+Warning--empty journal in monchiet_combining_2015
+Warning--empty journal in moulinec_comparison_2014
+Warning--empty journal in moulinec_comparison_2014-1
+Warning--empty journal in schneider_lippmannschwinger_2020
+Warning--empty journal in schneider_fft-based_2017
+Warning--empty journal in schneider_computational_2016
+Warning--empty journal in schneider_polarization-based_2019
+Warning--empty journal in shanthraj_spectral_2019
+Warning--empty journal in to_fft_2020
+Warning--empty journal in vondrejc_guaranteed_2015
+Warning--empty journal in vondrejc_energy-based_2020
+Warning--empty journal in wang_progressive_2018
+Warning--empty journal in wicht_quasinewton_2019
+Warning--empty journal in wicht_computing_2020
+Warning--empty journal in wicht_efficient_2020
+Warning--empty journal in willot_fourier-based_2015
+Warning--empty journal in zhou_accelerated_2020
+You've used 73 entries,
+            2155 wiz_defined-function locations,
+            841 strings with 17857 characters,
+and the built_in function-call counts, 28087 in all, are:
+= -- 2689
+> -- 1209
+< -- 37
++ -- 480
+- -- 430
+* -- 2523
+:= -- 4985
+add.period$ -- 215
+call.type$ -- 73
+change.case$ -- 580
+chr.to.int$ -- 69
+cite$ -- 107
+duplicate$ -- 1020
+empty$ -- 1796
+format.name$ -- 545
+if$ -- 5281
+int.to.chr$ -- 5
+int.to.str$ -- 0
+missing$ -- 71
+newline$ -- 362
+num.names$ -- 219
+pop$ -- 532
+preamble$ -- 1
+purify$ -- 580
+quote$ -- 0
+skip$ -- 801
+stack$ -- 0
+substring$ -- 1741
+swap$ -- 146
+text.length$ -- 4
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 438
+warning$ -- 34
+while$ -- 213
+width$ -- 0
+write$ -- 901
+(There were 35 warnings)

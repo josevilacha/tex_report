@@ -1,0 +1,10 @@
+\chapter{Homogenization}
+
+When modeling geometric and material nonlinearities in heterogeneous materials, analyzing realistic microstructures is critical for achieving high-fidelity predictive capabilities.
+Heterogeneous materials may contain a variety of heterogeneous phases (voids, particles, fibers, crystals, etc.) of varying composition, size, and shape arranged in complex spatial distributions (Matouš et al., 2017).
+Therefore, it is crucial to develop a representative computational domain of the microstructure to perform accurate and efficient multiscale simulations, i.e., a domain that accurately predicts the effective material behavior (physically meaningful) and preserves the geometrical and morphological complexity of the microstructure (statistically representative).
+Hill (1963) was the first to propose the so-called representative volume element (RVE), defined as a volume of material sufficiently large such that it contains enough morphological and topological information about the microstructure heterogeneities to be representative in an average sense.
+Given its influence in the solution of the microscale equilibrium problem, the choice of the appropriate boundary conditions to be imposed on the RVE has been a topic of a lengthy discussion, e.g. (Ostoja-Starzewski, 1998; Pecullan et al., 1999; Jiang et al., 2001; Mesarovic and Padbidri, 2005; Shen and Brinson, 2006; Drago and Pindera, 2007; Nilenius et al., 2014).
+In particular, the periodic boundary condition is often applied due to its bounded nature (Suquet, 1985; Hollister and Kikuchi, 1992; Nemat-Nasser and Hori, 1995; Terada et al., 2000; Miehe, 2002) and because the resulting homogenized properties converge faster to their real values as the RVE size increases (Terada et al., 2000; Kanit et al., 2003).
+The basic assumption behind this boundary condition is that the microstructure can be reproduced by a pattern of identical RVEs.
+Therefore, the ability to computationally generate periodic microstructures is especially relevant.
