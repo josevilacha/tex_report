@@ -25,6 +25,7 @@
 \usepackage[widespace]{fourier}
 
 % Tables
+\usepackage{array}
 \usepackage{caption}
 \usepackage[figuresright]{rotating}
 \usepackage{multirow}
@@ -97,13 +98,16 @@
 
 
 % Images
+\usepackage[labelformat=simple]{subcaption}
+\renewcommand\thesubfigure{(\alph{subfigure})}
+\renewcommand\thesubtable{(\alph{subtable})}
 \usepackage{graphicx}
 \graphicspath{ {figures/} }
 \usepackage{array}
 \usepackage[section]{placeins}
 \usepackage{color}
 % \usepackage{subcaption}
-\usepackage{subfig}
+% \usepackage{subfig}
 
 
 
@@ -239,6 +243,7 @@
 %% Matrices and vectors
 \newcommand{\vect}[1]{\bm{#1}}
 \newcommand{\mat}[1]{\bm{#1}}
+\newcommand{\boldsf}[1]{\boldsymbol{\mathsf{#1}}}
 
 \DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
 
@@ -355,7 +360,8 @@
 \include{fft_based_homogenization}
 \include{variational_fft}
 \include{numerical_validation}
-\include{numerical_applications}
+\include{numerical_results_elasticity}
+\include{numerical_results_elastoplasticity}
 \include{conclusions}
 \appendix
 \include{annex_fdm}

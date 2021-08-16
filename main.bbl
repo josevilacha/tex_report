@@ -31,6 +31,12 @@ Brisard, S. and L.~Dormieux\leavevmode\nopagebreak\newline 2012.
 \newblock {\em Computer Methods in Applied Mechanics and Engineering},
   217-220:197--212.
 
+\bibitem[\protect\astroncite{Cardoso~Coelho}{2019}]{cardoso_coelho_election_2019}
+Cardoso~Coelho, R.~P.\leavevmode\nopagebreak\newline 2019.
+\newblock {Selection}, {Implementation} and {Benchmarking} of {New} {Direct}
+  and {Iterative} {Solvers} in {LINKS}.
+\newblock {CM2S} {Technical} report, University of Porto.
+
 \bibitem[\protect\astroncite{De~Geus et~al.}{2017}]{de_geus_finite_2017}
 De~Geus, T., J.~Vondřejc, J.~Zeman, R.~Peerlings, and
   M.~Geers\leavevmode\nopagebreak\newline 2017.
@@ -38,6 +44,11 @@ De~Geus, T., J.~Vondřejc, J.~Zeman, R.~Peerlings, and
 \newblock {\em Computer Methods in Applied Mechanics and Engineering},
   318:412--430.
 \newblock Publisher: Elsevier.
+
+\bibitem[\protect\astroncite{de~Souza~Neto et~al.}{2008}]{de2008computational}
+de~Souza~Neto, E., D.~Peric, and D.~Owen\leavevmode\nopagebreak\newline 2008.
+\newblock {\em Computational Methods for Plasticity: Theory and Applications}.
+\newblock Wiley.
 
 \bibitem[\protect\astroncite{Djaka et~al.}{2017}]{djaka_field_2017}
 Djaka, K.~S., A.~Villani, V.~Taupin, L.~Capolungo, and
@@ -76,6 +87,12 @@ Eyre, D.~J. and G.~W. Milton\leavevmode\nopagebreak\newline 1999.
 \newblock {\em The European Physical Journal Applied Physics}, 6(1):41--47.
 \newblock Publisher: EDP Sciences.
 
+\bibitem[\protect\astroncite{Ferreira}{2020}]{ferreira_accurate_2020}
+Ferreira, B.\leavevmode\nopagebreak\newline 2020.
+\newblock Accurate and efficient multi-scale analyses of nonlinear
+  heterogeneous materials based on clustering-based reduced order models.
+\newblock {PhD} {Seminar}, FEUP.
+
 \bibitem[\protect\astroncite{FraunhoferITWM}{2020}]{fraunhofer_itwm_feelmath_2020}
 FraunhoferITWM\leavevmode\nopagebreak\newline 2020.
 \newblock {FeelMath} - {Fraunhofer} {ITWM}.
@@ -107,6 +124,18 @@ Gélébart, L. and R.~Mondon-Cancel\leavevmode\nopagebreak\newline 2013.
   gradients to evaluate the mechanical behavior of composite materials.
 \newblock {\em Computational Materials Science}, 77:430--439.
 \newblock Publisher: Elsevier.
+
+\bibitem[\protect\astroncite{Gupta}{2002a}]{gupta_improved_2002}
+Gupta, A.\leavevmode\nopagebreak\newline 2002a.
+\newblock Improved {Symbolic} and {Numerical} {Factorization} {Algorithms} for
+  {Unsymmetric} {Sparse} {Matrices}.
+\newblock {\em SIAM Journal on Matrix Analysis and Applications}, 24.
+
+\bibitem[\protect\astroncite{Gupta}{2002b}]{gupta_wsmp_2002}
+Gupta, A.\leavevmode\nopagebreak\newline 2002b.
+\newblock {WSMP}: {Watson} {Sparse} {Matrix} {Package} {Part} {II} - direct
+  solution of general sparse systems.
+\newblock {\em Future Generation Computer Systems.}
 
 \bibitem[\protect\astroncite{Hashin and
   Shtrikman}{1962}]{hashin_variational_1962}
@@ -319,6 +348,18 @@ Roters, F., M.~Diehl, P.~Shanthraj, P.~Eisenlohr, C.~Reuber, S.~L. Wong,
   phenomena from the single crystal up to the component scale.
 \newblock {\em Computational Materials Science}, 158:420--478.
 \newblock Publisher: Elsevier.
+
+\bibitem[\protect\astroncite{Schenk and G{\"a}rtner}{2004}]{schenk2004solving}
+Schenk, O. and K.~G{\"a}rtner\leavevmode\nopagebreak\newline 2004.
+\newblock Solving unsymmetric sparse systems of linear equations with pardiso.
+\newblock {\em Future Generation Computer Systems}, 20(3):475--487.
+
+\bibitem[\protect\astroncite{Schenk et~al.}{2001}]{schenk2001pardiso}
+Schenk, O., K.~G{\"a}rtner, W.~Fichtner, and
+  A.~Stricker\leavevmode\nopagebreak\newline 2001.
+\newblock Pardiso: a high-performance serial and parallel sparse linear solver
+  in semiconductor device simulation.
+\newblock {\em Future Generation Computer Systems}, 18(1):69--78.
 
 \bibitem[\protect\astroncite{Schneider}{2019}]{schneider_barzilai-borwein_2019}
 Schneider, M.\leavevmode\nopagebreak\newline 2019.

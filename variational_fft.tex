@@ -376,7 +376,7 @@ where \({\bm{F}_\mu}^{(i)}\) are the last known iterative values of the deformat
 Note that \(\delta\) is now used to indicate a small variation.
 The stresses are linearized around \({\bm{F}_\mu}^{(i)}\).
 In a material point this corresponds to
-\begin{equation}
+\begin{equation} \label{eq:newton_increment}
 \delta \bm{P}_\mu=\bm{K}^{(i)}: \delta \bm{F}_\mu.
 \end{equation}
 
@@ -472,13 +472,50 @@ Box~\ref{box:alg_newton_cg_finite_strains} presents the pseudo-code for the Newt
 \end{center}
 \end{framedbox}
 
+\section{Convergence criteria}
 
-% Models available:
-% - Small strains:
-%   . non-linear elasticity
-%   . elasto-plasticity (von Mises - exponential isotropic hardening)
-%   . visco-plasticity
-%
-% - Large strains
-%   . "linear" hyper-elasticity (not Hencky) - formulated in the reference configuration
-%   . Simo elasto-plasticity, defined in the current configuration
+Two different convergence criteria are considered in this work and described in what follows.
+They include a criterion for the Conjugate Gradient procedure (interior loop) and a criterion for the Newton-Raphson procedure (exterior loop).
+Let \(i\) and \(j\) be the current Newton and Conjugate Gradient iteration steps, respectively.
+
+\paragraph{Criterion I}
+
+Criterion I follows from the most common criterion for the Conjugate Gradient.
+Since equilibrium is described by Equation~\eqref{}, repeated here for clarity sake,
+\begin{equation}
+  \bm G * \bm \sigma_\mu = 0,
+\end{equation}
+the linearized version reads
+\begin{equation}
+\bm G * \bm \sigma_\mu^{(i)} + [\bm G * \bm K^{(i)}]:\delta \tilde{\bm \varepsilon}_\mu^{(i+1)} = 0.
+\end{equation}
+Thus, the Conjugate Gradient will converge only when
+\begin{equation}
+\frac{\displaystyle{\left\|[\bm{G}* \bm{K}^{(i)}]: \delta \tilde{\bm{\varepsilon} }_\mu^{(i+1)}+\bm{G}* \bm{\sigma_\mu}^{(i)}\right\|}}{\displaystyle{\left\|\bm{G}* \bm{\sigma_\mu}^{(i)}\right\|}}<\eta^{\mathrm{CG}},
+\end{equation}
+using as the reference value \(\bm G*\bm \sigma_\mu^{(i)}\).
+
+Regarding the Newton-Raphson procedure, the tangent stiffness is updated and the same expression is used, such that the scheme has converged only when
+\begin{equation}
+\frac{\displaystyle{\left\|[\bm{G}* \bm{K}^{(i+1)}]: \delta \tilde{\bm{\varepsilon} }_\mu^{(i+1)}+\bm{G}* \bm{\sigma_\mu}^{(i)}\right\|}}{\displaystyle{\left\|\bm{G}* \bm{\sigma_\mu}^{(i)}\right\|}}<\eta^{\mathrm{NW}}.
+\end{equation}
+
+The application of this criterion to the case of large strain is straightforward, needing only the small strain tensor and the Cauchy stress to be replaced by the deformation gradient the first Piola-Kirchhoff stress tensor, respectively.
+
+\paragraph{Criterion II}
+
+Criterion II uses the consequtive values of the stress tensor to ascertain if both procedure have converged.
+
+For the Conjugate Gradient it reads
+\begin{equation}
+\frac{\displaystyle{\left\|\bm \sigma_\mu^{(i,j)}-\bm \sigma_\mu^{(i,j+1)}\right\|}}{\displaystyle{\left\|\bm \sigma_\mu^{(i,j+1)}\right\|}}<\eta^{\mathrm{CG}},
+\end{equation}
+where the \(\bm \sigma_\mu^{(i,j+1)}\) is computed as
+\begin{equation}
+  \bm \sigma_\mu^{(i,j+1)} = \bm \sigma_\mu^{(i,j)}+ \bm K^{(i)} \delta \tilde{\bm \varepsilon}_\mu^{(i+1,j)}.
+\end{equation}
+
+For the Newton-Raphson procedure, the consequitve values for the stress in the current and the next iteration are used as follows
+\begin{equation}
+\frac{\displaystyle{\left\|\bm \sigma_\mu^{(i+1)}-\bm \sigma_\mu^{(i)}\right\|/}}{\displaystyle{\left\|\bm \sigma_\mu^{(i+1)}\right\|}}<\eta^{\mathrm{NW}}.
+\end{equation}

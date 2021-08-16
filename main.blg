@@ -11,8 +11,10 @@ Reallocating 'name_of_file' (item size: 1) to 20 items.
 A level-1 auxiliary file: variational_fft.aux
 Reallocating 'name_of_file' (item size: 1) to 25 items.
 A level-1 auxiliary file: numerical_validation.aux
-Reallocating 'name_of_file' (item size: 1) to 27 items.
-A level-1 auxiliary file: numerical_applications.aux
+Reallocating 'name_of_file' (item size: 1) to 33 items.
+A level-1 auxiliary file: numerical_results_elasticity.aux
+Reallocating 'name_of_file' (item size: 1) to 39 items.
+A level-1 auxiliary file: numerical_results_elastoplasticity.aux
 Reallocating 'name_of_file' (item size: 1) to 16 items.
 A level-1 auxiliary file: conclusions.aux
 Reallocating 'name_of_file' (item size: 1) to 14 items.
@@ -56,45 +58,45 @@ Warning--empty journal in wicht_computing_2020
 Warning--empty journal in wicht_efficient_2020
 Warning--empty journal in willot_fourier-based_2015
 Warning--empty journal in zhou_accelerated_2020
-You've used 73 entries,
+You've used 80 entries,
             2155 wiz_defined-function locations,
-            841 strings with 17857 characters,
-and the built_in function-call counts, 28087 in all, are:
-= -- 2689
-> -- 1209
-< -- 37
-+ -- 480
-- -- 430
-* -- 2523
-:= -- 4985
-add.period$ -- 215
-call.type$ -- 73
-change.case$ -- 580
-chr.to.int$ -- 69
-cite$ -- 107
-duplicate$ -- 1020
-empty$ -- 1796
-format.name$ -- 545
-if$ -- 5281
-int.to.chr$ -- 5
+            878 strings with 19138 characters,
+and the built_in function-call counts, 30352 in all, are:
+= -- 2910
+> -- 1284
+< -- 42
++ -- 507
+- -- 456
+* -- 2711
+:= -- 5404
+add.period$ -- 236
+call.type$ -- 80
+change.case$ -- 629
+chr.to.int$ -- 75
+cite$ -- 114
+duplicate$ -- 1109
+empty$ -- 1954
+format.name$ -- 580
+if$ -- 5709
+int.to.chr$ -- 6
 int.to.str$ -- 0
-missing$ -- 71
-newline$ -- 362
-num.names$ -- 219
-pop$ -- 532
+missing$ -- 77
+newline$ -- 397
+num.names$ -- 240
+pop$ -- 569
 preamble$ -- 1
-purify$ -- 580
+purify$ -- 628
 quote$ -- 0
-skip$ -- 801
+skip$ -- 870
 stack$ -- 0
-substring$ -- 1741
-swap$ -- 146
+substring$ -- 1869
+swap$ -- 158
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 438
+type$ -- 478
 warning$ -- 34
-while$ -- 213
+while$ -- 231
 width$ -- 0
-write$ -- 901
+write$ -- 990
 (There were 35 warnings)
