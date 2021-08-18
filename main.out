@@ -29,7 +29,9 @@
 \BOOKMARK [1][-]{section.4.2}{4.2 Comparison between FFT and FEM-based homogenization}{chapter.4}% 29
 \BOOKMARK [2][-]{subsection.4.2.1}{4.2.1 Small strain}{section.4.2}% 30
 \BOOKMARK [2][-]{subsection.4.2.2}{4.2.2 Large strain}{section.4.2}% 31
-\BOOKMARK [2][-]{subsection.4.2.3}{4.2.3 Elastic}{section.4.2}% 32
-\BOOKMARK [2][-]{subsection.4.2.4}{4.2.4 Saint Venant-Kirchhoff}{section.4.2}% 33
-\BOOKMARK [2][-]{subsection.4.2.5}{4.2.5 Hencky}{section.4.2}% 34
-\BOOKMARK [0][-]{appendix*.35}{Bibliography}{}% 35
+\BOOKMARK [0][-]{chapter.5}{5 Numerical Results - Elastoplasticity}{}% 32
+\BOOKMARK [1][-]{section.5.1}{5.1 Material characterization}{chapter.5}% 33
+\BOOKMARK [2][-]{subsection.5.1.1}{5.1.1 von Mises - small strains}{section.5.1}% 34
+\BOOKMARK [2][-]{subsection.5.1.2}{5.1.2 von Mises - large strains}{section.5.1}% 35
+\BOOKMARK [1][-]{section.5.2}{5.2 Comparison between FFT and FEM-based homogenization}{chapter.5}% 36
+\BOOKMARK [0][-]{appendix*.53}{Bibliography}{}% 37

@@ -92,7 +92,7 @@ wherein \(\boldsf{D}^e\) is the standard fourth-order elastic stiffness tensor
 \begin{equation}
 \boldsf{D}^e\equiv\lambda \boldsymbol{I} \otimes \boldsymbol{I}+2 \mu \boldsf{I}_{S},
 \end{equation}
-with Lamé's constants \(\lambda\) and \(\mu .\) In terms of Young's modulus, \(E\), and Poisson's ratio, \(\nu\), they read
+with Lamé's constants \(\lambda\) and \(\mu\). In terms of Young's modulus, \(E\), and Poisson's ratio, \(\nu\), they read
 \begin{equation}
 \lambda=\frac{E \nu}{(1+\nu)(1-2 \nu)}, \qquad \mu=\frac{E}{2(1+\nu)}.
 \end{equation}
@@ -203,9 +203,9 @@ Extensive preliminary research has shown that these are the overall (solver time
 \subsection{Small strain}
 
 \paragraph{Comparison of the convergence criteria}
-The following numerical results are obtained to provide a better understanding of the differences in efficiency and accuracy between the two convergence criteria detailed in Section~\ref{}.
+The following numerical results are obtained to provide a better understanding of the differences in efficiency and accuracy between the two convergence criteria detailed in Section~\ref{sec:criteria}.
 
-Both phases are assumed linear elastic (see Table~\ref{tab:mat_properties} for the properties), periodic boundary conditions are adopted and the following two macroscale strain loading cases are considered
+Both phases are assumed linear elastic (see Table~\ref{tab:mat_properties} for the properties), periodic boundary conditions are adopted and the following macroscale strain loading case is considered
 \begin{equation}
 \text { uniaxial: } \bm{\varepsilon}=\left[\begin{array}{lll}
 5 & 0 & 0 \\
@@ -216,16 +216,14 @@ Both phases are assumed linear elastic (see Table~\ref{tab:mat_properties} for t
 being enforced in a single load increment.
 Note that in the 2D plane strain case, only the inplane \(O_{x y}\) macroscale strain components are enforced.
 
-
-
 The numerical results of the fiber-reinforced linear elastic composite equilibrium problem using the two criteria under analysis are shown in Figure~\ref{fig:linear_2D_normal_comparison_crit} for the uniaxial loading case.
 Figure~\ref{subfig:linear_2D_normal_comparison_crit_homo_stress_11_vs_n_voxels} shows that both FFT techniques converge to the same value at approximately the same rate as a function of the number of voxels in the discritization.
 Also, no noticeable difference can be seen between the two convergence criteria considered.
 Regarding the CPU time expended to reach an error of \num{1e-6}, presented in Figure~\ref{subfig:linear_2D_normal_comparison_crit_cpu_time_vs_n_voxels}, Criterion I leads to faster convergence.
 This effect is stronger for the FFT Basic scheme.
 
-\begin{figure}[hbt]
-\centering
+\begin{figure}[hbt] % fig:linear_2D_normal_comparison_crit
+  \centering
 	\begin{subfigure}[b]{0.51\textwidth}
     \centering
     \includegraphics[width=\textwidth]{figures/linear_2D_normal_comparison_crit_homo_stress_11_vs_n_voxels}
@@ -238,21 +236,24 @@ This effect is stronger for the FFT Basic scheme.
     \caption{}
     \label{subfig:linear_2D_normal_comparison_crit_cpu_time_vs_n_voxels}
   \end{subfigure}
-\caption{Comparison between the Criterion I and II for FFT-based homogenization approaches, Galerkin and Basic, in the
-solution of the fiber-reinforced linear elastic composite equilibrium problem under uniaxial
-strain loading conditions: \subref{subfig:linear_2D_normal_comparison_crit_homo_stress_11_vs_n_voxels} Homogenized stress; \subref{subfig:linear_2D_normal_comparison_crit_cpu_time_vs_n_voxels} Computational time.}
-\label{fig:linear_2D_normal_comparison_crit}
+  \caption{Comparison between the Criterion I and II for FFT-based homogenization
+  approaches, Galerkin and Basic, in the solution of the fiber-reinforced linear elastic
+  composite equilibrium problem under uniaxial strain loading conditions:
+  \subref{subfig:linear_2D_normal_comparison_crit_homo_stress_11_vs_n_voxels} Homogenized
+  stress; \subref{subfig:linear_2D_normal_comparison_crit_cpu_time_vs_n_voxels}
+  Computational time.}
+  \label{fig:linear_2D_normal_comparison_crit}
 \end{figure}
 
 The numerical results of the particle-reinforced linear elastic composite equilibrium problem are shown in Figure~\ref{fig:linear_3D_normal_comparison_crit} for the uniaxial loading case.
 The results mirror the ones found for the two-dimensional example.
 Figure~\ref{subfig:linear_3D_normal_comparison_crit_homo_stress_11_vs_n_voxels} shows that both FFT techniques converge to the same value at approximately the same rate as a function of the number of voxels in the discritization.
 Also, no noticeable difference can be seen between the two convergence criteria considered.
-Regarding the CPU time expended to reach an error of \num{1e-6}, presented in Figure~\ref{subfig:linear_3D_normal_comparison_crit_cpu_time_vs_n_voxels}, Criterion I leads to faster convergence.
+Regarding the CPU time expended to reach an error of \num{1e-5}, presented in Figure~\ref{subfig:linear_3D_normal_comparison_crit_cpu_time_vs_n_voxels}, Criterion I leads to faster convergence.
 This effect is stronger for the FFT Basic scheme.
 
-\begin{figure}[hbt]
-\centering
+\begin{figure}[hbt] % fig:linear_3D_normal_comparison_crit
+  \centering
 	\begin{subfigure}[b]{0.52\textwidth}
     \centering
     \includegraphics[width=\textwidth]{figures/linear_3D_normal_comparison_crit_homo_stress_11_vs_n_voxels}
@@ -265,11 +266,15 @@ This effect is stronger for the FFT Basic scheme.
     \caption{}
     \label{subfig:linear_3D_normal_comparison_crit_cpu_time_vs_n_voxels}
   \end{subfigure}
-\caption{Comparison between the Criterion I and II for FFT-based homogenization approaches, Galerkin and Basic, in the
-solution of the particle-reinforced linear elastic composite equilibrium problem under uniaxial
-strain loading conditions: \subref{subfig:linear_3D_normal_comparison_crit_homo_stress_11_vs_n_voxels} Homogenized stress; \subref{subfig:linear_3D_normal_comparison_crit_cpu_time_vs_n_voxels} Computational time.}
-\label{fig:linear_3D_normal_comparison_crit}
+  \caption{Comparison between the Criterion I and II for FFT-based homogenization
+  approaches, Galerkin and Basic, in the solution of the particle-reinforced linear elastic
+  composite equilibrium problem under uniaxial strain loading conditions:
+  \subref{subfig:linear_3D_normal_comparison_crit_homo_stress_11_vs_n_voxels} Homogenized
+  stress; \subref{subfig:linear_3D_normal_comparison_crit_cpu_time_vs_n_voxels}
+  Computational time.} \label{fig:linear_3D_normal_comparison_crit}
 \end{figure}
+
+\FloatBarrier
 
 \paragraph{Accuracy validation}
 Both phases are assumed linear elastic (see Table~\ref{tab:mat_properties} for the properties), periodic boundary conditions are adopted and the following two macroscale strain loading cases are considered
@@ -282,15 +287,22 @@ Both phases are assumed linear elastic (see Table~\ref{tab:mat_properties} for t
 0 & 5 & 5 \\
 5 & 0 & 5 \\
 5 & 5 & 0
-\end{array}\right] \times 10^{-3}
+\end{array}\right] \times 10^{-3},
 \end{equation}
 being enforced in a single load increment.
 Note that in the 2D plane strain case, only the inplane \(O_{x y}\) macroscale strain components are enforced.
+The convergence criterion used is Criterion II, as described in Section~\ref{sec:criteria}.
 
-The convergence criterion used is Criterion II, as described in Section~\ref{}.
+The numerical results of the fiber-reinforced linear elastic composite equilibrium problem are shown in Figures~\ref{fig:linear_2D_normal} and \ref{fig:shear_2D_normal} for the uniaxial and pure shear loading cases, respectively.
+In both cases there is an excellent agreement between the FFT and FEM-based homogenization solutions concerning both the homogenized response (see Figures~\ref{subfig:linear_2D_normal_homo_stress_11_vs_n_voxels} and \ref{subfig:linear_2D_shear_homo_stress_12_vs_n_voxels} and the local strain fields (see Figures \ref{subfig:linear_2D_normal_strain_11} and \ref{subfig:linear_2D_shear_strain_12}.
+In terms of computational performance, Figures~\ref{subfig:linear_2D_normal_cpu_time_vs_n_voxels} and \ref{subfig:linear_2D_shear_cpu_time_vs_n_voxels} show that the FFT-based homogenization Galerkin scheme outperforms the FEM-based homogenization with speedups of around 2 relative to the direct solver with linear finite elements.
+There is however a caveat, regarding this direct comparison.
+The Python libraries used in the implementation of the FFT-based homogenization Galerkin scheme are parallelized and used all the cores available in the machine at the time.
+On the other hand, the FEM simulations are run using only one core.
+When compared with the FFT-based homogenization basic scheme, the CPU time expended differs by more than an order of magnitude, with the Galerkin scheme being slower.
 
-\begin{figure}[hbt]
-\centering
+\begin{figure}[hbt] % fig:linear_2D_normal
+  \centering
 	\begin{subfigure}[b]{0.49\textwidth}
     \centering
     \includegraphics[width=\textwidth]{figures/linear_2D_normal_homo_stress_11_vs_n_voxels}
@@ -309,16 +321,19 @@ The convergence criterion used is Criterion II, as described in Section~\ref{}.
     \caption{}
     \label{subfig:linear_2D_normal_strain_11}
   \end{subfigure}
-\caption{Comparison between the FFT and FEM-based homogenization approaches in the
-solution of the fiber-reinforced linear elastic composite equilibrium problem under pure shear
-strain loading conditions: \subref{subfig:linear_2D_normal_homo_stress_11_vs_n_voxels} Homogenized stress; \subref{subfig:linear_2D_normal_cpu_time_vs_n_voxels} Computational time; \subref{subfig:linear_2D_normal_strain_11} Local strain field
-(\(n_v = 600 \times 600\) discretization). Notation: linear element (L), quadratic element (Q), direct solver
-(DS) and iterative solver (IS)}
-\label{fig:linear_3D_normal_comparison_crit}
+  \caption{Comparison between the FFT and FEM-based homogenization approaches in the
+  solution of the fiber-reinforced linear elastic composite equilibrium problem under pure
+  shear strain loading conditions:
+  \subref{subfig:linear_2D_normal_homo_stress_11_vs_n_voxels} Homogenized stress;
+  \subref{subfig:linear_2D_normal_cpu_time_vs_n_voxels} Computational time;
+  \subref{subfig:linear_2D_normal_strain_11} Local strain field (\(n_v = 600 \times 600\)
+  discretization). Notation: linear element (L), quadratic element (Q), direct solver (DS)
+  and iterative solver (IS)}
+  \label{fig:linear_2D_normal}
 \end{figure}
 
-\begin{figure}[hbt]
-\centering
+\begin{figure}[hbt] % fig:linear_2D_shear
+  \centering
 	\begin{subfigure}[b]{0.49\textwidth}
     \centering
     \includegraphics[width=\textwidth]{figures/linear_2D_shear_homo_stress_12_vs_n_voxels}
@@ -337,21 +352,28 @@ strain loading conditions: \subref{subfig:linear_2D_normal_homo_stress_11_vs_n_v
     \caption{}
     \label{subfig:linear_2D_shear_strain_12}
   \end{subfigure}
-\caption{Comparison between the FFT and FEM-based homogenization approaches in the
-solution of the fiber-reinforced linear elastic composite equilibrium problem under pure shear
-strain loading conditions: \subref{subfig:linear_2D_normal_homo_stress_11_vs_n_voxels} Homogenized stress; \subref{subfig:linear_2D_normal_cpu_time_vs_n_voxels} Computational time; \subref{subfig:linear_2D_normal_strain_11} Local strain field
-(\(n_v = 600 \times 600\) discretization). Notation: linear element (L), quadratic element (Q), direct solver
-(DS) and iterative solver (IS)}
-\label{fig:linear_3D_normal_comparison_crit}
+  \caption{Comparison between the FFT and FEM-based homogenization approaches in the
+  solution of the fiber-reinforced linear elastic composite equilibrium problem under pure
+  shear strain loading conditions:
+  \subref{subfig:linear_2D_normal_homo_stress_11_vs_n_voxels} Homogenized stress;
+  \subref{subfig:linear_2D_normal_cpu_time_vs_n_voxels} Computational time;
+  \subref{subfig:linear_2D_normal_strain_11} Local strain field (\(n_v = 600 \times 600\)
+  discretization). Notation: linear element (L), quadratic element (Q), direct solver (DS)
+  and iterative solver (IS)}
+  \label{fig:linear_2D_shear}
 \end{figure}
 
-The numerical results of the fiber-reinforced linear elastic composite equilibrium problem are shown in Figures \(12.4\) and \(12.5\) for the uniaxial and pure shear loading cases, respectively.
-In both cases there is an excellent agreement between the FFT and FEM-based homogenization solutions concerning both the homogenized response (see Figures \(12.4(\mathrm{a})\) and \(12.5(\mathrm{a}))\) and the local strain fields (see Figures \(12.4(\mathrm{c})\) and \(12.5(\mathrm{c}))\).
-In terms of computational performance, Figures \(12.4(\mathrm{~b})\) and \(12.5(\mathrm{~b})\) show that the FFT-based homogenization basic scheme outperforms the FEM-based homogenization with speedups of around 5 and 40 relative to the direct solver with linear and quadratic finite elements, respectively.
-Furthermore, the expected solution convergence is observed with the increasing discretization refinement, being the resolution of \(n_{v}=600 \times 600\) deemed acceptable (difference below \(1 \%\) relative to more refined discretization).
+The numerical results of the particle-reinforced linear elastic composite equilibrium problem are shown in Figures~\ref{fig:linear_3D_normal} and \ref{fig:linear_3D_shear} for the uniaxial and pure shear loading cases, respectively.
+Once again there is an excellent agreement between the FFT and FEM-based homogenization solutions concerning both the homogenized response (see Figures \ref{subfig:linear_3D_normal_homo_stress_11_vs_n_voxels} and \ref{subfig:linear_3D_shear_homo_stress_12_vs_n_voxels} and the local strain fields (see Figures~\ref{subfig:linear_3D_normal_strain_11} and \ref{subfig:linear_3D_shear_strain_12}.
+In terms of computational performance, Figures~\ref{subfig:linear_3D_normal_cpu_time_vs_n_voxels} and \ref{subfig:linear_3D_shear_cpu_time_vs_n_voxels} show that the FFT-based homogenization Galerkin scheme outperforms the FEM-based homogenization with speedups ranging from around 10 and 100 relative to the iterative solver with linear and quadratic finite elements, respectively.
+The same remark concerning the number of cores used in each method mention previous also applies here.
+Comparing the two FFT-based schemes, the basic scheme is faster by an order of magnitude than Galerkin scheme.
+Adding to this, the 3D cases highlight another important aspect concerning FEM-based homogenization. When attempting to run the direct solver simulations with \(n_{e}=80 \times 80 \times 80\) (linear finite element mesh) and \(n_{e}=50 \times 50 \times 50\) (quadratic finite element mesh) the memory required to build the global tangent stiffness matrix (stored in compressed sparse row (CSR) format) exceeds the available 128 GB!
+Despite reaching a significantly lower peak memory than the direct solver, the iterative solver suffered from the same limitation for a simulation over \(n_{e}=100 \times 100 \times 100\) (linear finite element mesh) and \(n_{e}=70 \times 70 \times 70\) (quadratic finite element mesh).
+In comparison, the FFT-based homogenization memory footprint is almost negligible as it does not require the computation of a global tangent stiffness matrix.
 
-\begin{figure}[hbt]
-\centering
+\begin{figure}[hbt] % fig:linear_3D_normal
+  \centering
 	\begin{subfigure}[b]{0.49\textwidth}
     \centering
     \includegraphics[width=\textwidth]{figures/linear_3D_normal_homo_stress_11_vs_n_voxels}
@@ -370,14 +392,16 @@ Furthermore, the expected solution convergence is observed with the increasing d
     \caption{}
     \label{subfig:linear_3D_normal_strain_11}
   \end{subfigure}
-\caption{Comparison between the Criterion I and II for FFT-based homogenization approaches, Galerkin and Basic, in the
-solution of the particle-reinforced linear elastic composite equilibrium problem under uniaxial
-strain loading conditions: \subref{subfig:linear_3D_normal_comparison_crit_homo_stress_11_vs_n_voxels} Homogenized stress; \subref{subfig:linear_3D_normal_comparison_crit_cpu_time_vs_n_voxels} Computational time.}
-\label{fig:linear_3D_normal_comparison_crit}
+  \caption{Comparison between the FFT and FEM-based homogenization approaches in the
+  solution of the particle-reinforced linear elastic composite equilibrium problem under normal
+  strain loading conditions: \subref{subfig:linear_3D_normal_homo_stress_11_vs_n_voxels} Homogenized stress; \subref{subfig:linear_3D_normal_cpu_time_vs_n_voxels} Computational time; \subref{subfig:linear_3D_normal_strain_11} Local strain field
+  (\(n_v = 70 \times 70\times 70\) discretization). Notation: linear element (L), quadratic element (Q), direct solver
+  (DS) and iterative solver (IS)}
+  \label{fig:linear_3D_normal}
 \end{figure}
 
-\begin{figure}[hbt]
-\centering
+\begin{figure}[hbt] % fig:linear_3D_shear
+  \centering
 	\begin{subfigure}[b]{0.49\textwidth}
     \centering
     \includegraphics[width=\textwidth]{figures/linear_3D_shear_homo_stress_12_vs_n_voxels}
@@ -396,35 +420,35 @@ strain loading conditions: \subref{subfig:linear_3D_normal_comparison_crit_homo_
     \caption{}
     \label{subfig:linear_3D_shear_strain_12}
   \end{subfigure}
-\caption{Comparison between the Criterion I and II for FFT-based homogenization approaches, Galerkin and Basic, in the
-solution of the particle-reinforced linear elastic composite equilibrium problem under uniaxial
-strain loading conditions: \subref{subfig:linear_3D_normal_comparison_crit_homo_stress_11_vs_n_voxels} Homogenized stress; \subref{subfig:linear_3D_normal_comparison_crit_cpu_time_vs_n_voxels} Computational time.}
-\label{fig:linear_3D_normal_comparison_crit}
+  \caption{Comparison between the FFT and FEM-based homogenization approaches in the
+  solution of the fiber-reinforced linear elastic composite equilibrium problem under pure shear
+  strain loading conditions: \subref{subfig:linear_3D_shear_homo_stress_12_vs_n_voxels} Homogenized stress; \subref{subfig:linear_3D_normal_cpu_time_vs_n_voxels} Computational time; \subref{subfig:linear_3D_normal_strain_11} Local strain field
+  (\(n_v = 70 \times 70 \times 70\) discretization). Notation: linear element (L), quadratic element (Q), direct solver
+  (DS) and iterative solver (IS).}
+  \label{fig:linear_3D_shear}
 \end{figure}
 
-The numerical results of the particle-reinforced linear elastic composite equilibrium problem are shown in Figures \(12.6\) and \(12.7\) for the uniaxial and pure shear loading cases, respectively.
-Once again there is an excellent agreement between the FFT and FEM-based homogenization solutions concerning both the homogenized response (see Figures \(12.6(\mathrm{a})\) and \(12.7(\mathrm{a}))\) and the local strain fields (see Figures \(12.6(\mathrm{c})\) and \(12.7(\mathrm{c})) .\)
-In terms of computational performance, Figures \(12.6(\mathrm{~b})\) and \(12.7(\mathrm{~b})\) show that the FFT-based homogenization basic scheme outperforms the FEM-based homogenization with speedups ranging from around 5 to 35 and 140 to 500 relative to the iterative solver with linear and quadratic finite elements, respectively.
-Adding to this, the 3D cases highlight another important aspect concerning FEM-based homogenization. When attempting to run the direct solver simulations with \(n_{e}=80 \times 80 \times 80\) (linear finite element mesh) and \(n_{e}=50 \times 50 \times 50\) (quadratic finite element mesh) the memory required to build the global tangent stiffness matrix (stored in compressed sparse row (CSR) format) exceeds the available 128 GB!
-Despite reaching a significantly lower peak memory than the direct solver, the iterative solver suffered from the same limitation for a simulation over \(n_{e}=100 \times 100 \times 100\) (linear finite element mesh) and \(n_{e}=70 \times 70 \times 70\) (quadratic finite element mesh).
-In comparison, the FFT-based homogenization memory footprint is almost negligible as it does not require the computation of a global tangent stiffness matrix.
-Nonetheless, it is again observed the solution convergence with the increasing discretization refinement, being the resolution of \(n_{v}=70 \times 70 \times 70\) deemed acceptable (difference below \(1 \%\) relative to more refined discretization).
-
-From the previous results, several conclusions and remarks are established:
+From the results present, a few conclusions and remarks are in order:
 \begin{itemize}
-  \item The FFT-based homogenization basic scheme implementation is validated since the obtained solutions (both homogenized results and local fields) are in excellent agreement with ones obtained with the FEM-based homogenization from LINKS;
-  \item In the linear elastic regime, the FFT-based homogenization basic scheme outperforms the FEM-based homogenization both in terms of speed and memory footprint. Therefore, this approach is hereafter adopted as a suitable choice to compute the local elastic strain concentration tensors in the SCA's offline stage;
+  \item The FFT-based homogenization Galerkin scheme implementation is validated as solutions obtained (both homogenized results and local fields) are in excellent agreement with ones obtained with the FEM-based homogenization from LINKS and the FFT-based homogenization basic scheme;
+  \item In the linear elastic regime, the FFT-based homogenization Galerkin scheme outperforms the FEM-based homogenization both in terms of speed and memory footprint.
+  However, it must be kept in the mind that some of the Python libraries employed in the implementation of the FFT-based homogenization Galerkin scheme are parallelized and only one core was used in the LINKS simulations.
+  \item In the linear elastic regime, the FFT-based homogenization basic scheme outperforms the FFT-based homogenization Galerkin scheme in terms of CPU time expended.
+  Yet, consider that the implementation of the basic scheme used in the comparison \cite{} has already undergone some perfomance optimization.
+  This is not the case for the Galerkin scheme.
   \item Given the solution convergence with the increasing sampling/meshing refinement, the spatial discretizations of \(n_{v}=600 \times 600\) (fiber-reinforced composite 2D RVE) and \(n_{v}=70 \times\) \(70 \times 70\) (particle-reinforced composite 3D RVE) are considered hereafter unless otherwise stated;
-  \item In the following numerical studies, which will cover both the linear elastic and nonlinear elastoplastic constitutive behavior, the reference DNS solution is obtained considering quadratic finite elements (QUAD8 and HEXA20) and the fastest solver time (MKL PARDISO in the 2D case and WSMP-SSOR in the \(3 \mathrm{D}\) case) unless otherwise stated.
+  \item In the following numerical studies, the reference DNS solution is obtained considering quadratic finite elements (QUAD8 and HEXA20) and the fastest solver time (MKL PARDISO in the 2D case and WSMP-SSOR in the \(3 \mathrm{D}\) case) unless otherwise stated.
 \end{itemize}
 
+\FloatBarrier
 
 \paragraph{Extreme stiffness ratios between phases}
 
-To better understand ...
+The following set of results is presented to better comprehend the limitations of the FFT-based methods regarding the stiffness ratio between the phases, widely reported in the literature \cite{}.
+As previously, FEM solutions are used as a standard.
 
-Both phases are assumed linear elastic having the same Poisson's ratio.
-The Young modulus of the matrix is fixed at \SI{100}{\mega\pascal} and the ratio between the stiffness of the particles and the matrix is made to vary from \num{e-6} to \num{e4} in increments of \(\times 10\).
+Both phases are assumed linear elastic having the same Poisson's ratio, \(\nu=0.3\).
+The Young modulus of the matrix is fixed at \(E_1=\SI{100}{\mega\pascal}\) and the ratio between the stiffness of the particles and the matrix, \(K=E_1/E_2\), is made to vary from \num{e-6} to \num{e4} in increments of \(\times \sqrt{10}\).
 Periodic boundary conditions are adopted and the following macroscale strain loading case is considered
 \begin{equation}
 \text { uniaxial: } \bm{\varepsilon}=\left[\begin{array}{lll}
@@ -436,50 +460,67 @@ Periodic boundary conditions are adopted and the following macroscale strain loa
 being enforced in a single load increment.
 Note that in the 2D plane strain case, only the inplane \(O_{x y}\) macroscale strain components are enforced.
 
-The discretization is fixed at \(n_v=500\times 500\) for 2D simulations and \(n_v=?\times?\times?\) for 3D simulations.
+The numerical results of the fiber-reinforced linear elastic composite equilibrium problem are shown in Figures~\ref{fig:linear_2D_normal_stiff_contrast} for the uniaxial loading case.
+There is an excellent agreement between the FFT and FEM-based homogenization solutions concerning the homogenized response as attested by Figure~\ref{subfig:linear_2D_normal_stress_avg_vs_stiff_ratio}.
+In terms of computational performance, Figure~\ref{subfig:linear_2D_normal_stress_avg_cpu_time_vs_n_voxels} shows that the FFT-based homogenization Galerkin scheme outperforms the FEM-based homogenization with speedups from around 20 at low stiffness contrast to around 2 at the hightest stiffness contrasts, both high and low, relative to the direct solver with linear finite elements.
+As before, the caveat regarding the parallelization of the Python libraries still applies.
+When compared with the FFT-based homogenization basic scheme, the CPU time expended differs from one to two orders of magnitude across the stiffness ranges considered, with the Galerkin scheme being slower.
+However, the basic scheme is unable to reach the preset tolerance \((\num{e-6})\) for stiffness ratios beyond the range \([\num{e-3},\num{e3}]\).
+
+Concerning the local field, an excellent agreement can be observed at both high \((K=E_1/E_2=\num{e4})\) and low \((K=E_1/E_2=\num{e-4})\) stiffness ratios in the matrix phase, as can be seen in Figures~\ref{fig:linear_2D_stiff_contrast_normal_strain_11} and \ref{fig:linear_2D_stiff_contrast_normal_stress_11}.
+There is also good agreement regarding the local field in the particle phase for the strain field at the low stiffness ratio and the stress field at the high stiffness ratio.
+On the other hand, the strain field at the low stiffness ratio and the strain field at the high stiffness ratio exihibt strong oscillations in the particle phase.
+This phenomenon is often denominated by "ringing" and is widely reported in the literature as being a consequence of very high or low stiffness ratios.
+Figure~\ref{} provides a more detailed representation of the variation of the strain field \(\varepsilon_{\mu,xx}\) inside the particle pahse at a stiffness ratio equal to \num{e-4}.
+
 
 \begin{figure}[hbt]
-\centering
-	\begin{subfigure}[b]{0.49\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{figures/linear_2D_normal_stress_avg_vs_stiff_ratio}
-    \caption{}
-    \label{subfig:linear_2D_normal_stress_avg_vs_stiff_ratio}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.49\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{figures/linear_2D_normal_stress_avg_cpu_time_vs_n_voxels}
-    \caption{}
-    \label{subfig:linear_2D_normal_stress_avg_cpu_time_vs_n_voxels}
-  \end{subfigure}
-\caption{Comparison between the Criterion I and II for FFT-based homogenization approaches, Galerkin and Basic, in the
-solution of the particle-reinforced linear elastic composite equilibrium problem under uniaxial
-strain loading conditions: \subref{subfig:linear_3D_normal_comparison_crit_homo_stress_11_vs_n_voxels} Homogenized stress; \subref{subfig:linear_3D_normal_comparison_crit_cpu_time_vs_n_voxels} Computational time.}
-\label{fig:linear_3D_normal_comparison_crit}
+  \centering
+  	\begin{subfigure}[b]{0.49\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{figures/linear_2D_normal_stress_avg_vs_stiff_ratio}
+      \caption{}
+      \label{subfig:linear_2D_normal_stress_avg_vs_stiff_ratio}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.49\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{figures/linear_2D_normal_stress_avg_cpu_time_vs_n_voxels}
+      \caption{}
+      \label{subfig:linear_2D_normal_stress_avg_cpu_time_vs_n_voxels}
+    \end{subfigure}
+  \caption{Comparison between the FFT and FEM-based homogenization approaches in the solution
+  of the fiber-reinforced linear elastic composite equilibrium problem under normal strain
+  loading conditions: \subref{subfig:linear_2D_normal_stress_avg_vs_stiff_ratio} Homogenized
+  stress; \subref{subfig:linear_2D_normal_stress_avg_cpu_time_vs_n_voxels} Computational time;
+  Notation: linear element (L), quadratic element (Q).}
+\label{fig:linear_2D_normal_stiff_contrast}
 \end{figure}
 
 \begin{figure}[hbt]
-\centering
+  \centering
 	\begin{subfigure}[b]{\textwidth}
     \centering
     \includegraphics[width=\textwidth]{figures/linear_2D_ratio_-4_normal_strain_11}
     \caption{}
-    \label{subfig:linear_2D_ratio_4_normal_strain_11}
+    \label{subfig:linear_2D_ratio_-4_normal_strain_11}
   \end{subfigure}
   \begin{subfigure}[b]{\textwidth}
     \centering
     \includegraphics[width=\textwidth]{figures/linear_2D_ratio_4_normal_strain_11}
     \caption{}
-    \label{subfig:linear_2D_ratio_-4_normal_strain_11}
+    \label{subfig:linear_2D_ratio_4_normal_strain_11}
   \end{subfigure}
-\caption{Comparison between the Criterion I and II for FFT-based homogenization approaches, Galerkin and Basic, in the
-solution of the particle-reinforced linear elastic composite equilibrium problem under uniaxial
-strain loading conditions: \subref{subfig:linear_3D_normal_comparison_crit_homo_stress_11_vs_n_voxels} Homogenized stress; \subref{subfig:linear_3D_normal_comparison_crit_cpu_time_vs_n_voxels} Computational time.}
-\label{fig:linear_3D_normal_comparison_crit}
+  \caption{Comparison between the local strain field \(\varepsilon_{\mu,xx}\) obtained using
+  FFT and FEM-based homogenization approaches in the solution of the fiber-reinforced
+  linear elastic composite equilibrium problem under normal strain loading conditions:
+  \subref{subfig:linear_2D_ratio_-4_normal_strain_11} Stiffness ratio \(K=E_1/E_2=\num{e-4}\);
+  \subref{subfig:linear_2D_ratio_4_normal_strain_11} Stiffness ratio \(K=E_1/E_2=\num{e1.5}\);
+  Notation: quadratic element (Q).}
+\label{fig:linear_2D_stiff_contrast_normal_strain_11}
 \end{figure}
 
 \begin{figure}[hbt]
-\centering
+  \centering
 	\begin{subfigure}[b]{\textwidth}
     \centering
     \includegraphics[width=\textwidth]{figures/linear_2D_ratio_-4_normal_stress_11}
@@ -492,48 +533,129 @@ strain loading conditions: \subref{subfig:linear_3D_normal_comparison_crit_homo_
     \caption{}
     \label{subfig:linear_2D_ratio_-4_normal_stress_11}
   \end{subfigure}
-\caption{Comparison between the Criterion I and II for FFT-based homogenization approaches, Galerkin and Basic, in the
-solution of the particle-reinforced linear elastic composite equilibrium problem under uniaxial
-strain loading conditions: \subref{subfig:linear_3D_normal_comparison_crit_homo_stress_11_vs_n_voxels} Homogenized stress; \subref{subfig:linear_3D_normal_comparison_crit_cpu_time_vs_n_voxels} Computational time.}
-\label{fig:linear_3D_normal_comparison_crit}
+  \caption{Comparison between the local stress field \(\sigma_{\mu,xx}\) obtained using
+  FFT and FEM-based homogenization approaches in the solution of the fiber-reinforced
+  linear elastic composite equilibrium problem under normal strain loading conditions:
+  \subref{subfig:linear_2D_ratio_-4_normal_stress_11} Stiffness ratio \(K=E_1/E_2=\num{e-4}\);
+  \subref{subfig:linear_2D_ratio_4_normal_stress_11} Stiffness ratio \(K=E_1/E_2=\num{e1.5}\);
+  Notation: quadratic element (Q).}
+\label{fig:linear_2D_stiff_contrast_normal_stress_11}
 \end{figure}
+
+\begin{figure}[hbt]
+  \centering
+  	\begin{subfigure}[b]{0.49\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{figures/linear_2D_ratio_-4_normal_strain_11_particle_1}
+      \caption{}
+      \label{subfig:linear_2D_ratio_-4_normal_strain_11_particle_1}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.49\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{figures/linear_2D_ratio_-4_normal_strain_11_particle_2}
+      \caption{}
+      \label{subfig:linear_2D_ratio_-4_normal_strain_11_particle_2}
+    \end{subfigure}
+  \caption{Comparison between the FFT and FEM-based homogenization approaches in the solution
+  of the fiber-reinforced linear elastic composite equilibrium problem under pure shear strain
+  loading conditions: \subref{subfig:linear_2D_normal_stress_avg_vs_stiff_ratio} Homogenized
+  stress; \subref{subfig:linear_2D_normal_stress_avg_cpu_time_vs_n_voxels} Computational time;
+  Notation: linear element (L), quadratic element (Q).}
+\label{fig:linear_2D_ratio_-4_normal_strain_11_particles}
+\end{figure}
+
+The numerical results of the particle-reinforced linear elastic composite equilibrium problem are shown in Figures~\ref{fig:linear_3D_normal_stiff_contrast} for the uniaxial loading case.
+There is an excellent agreement between the FFT-based homogenization Galerkin scheme and the FEM-based homogenization solutions concerning the homogenized response as attested by Figure~\ref{subfig:linear_3D_normal_stress_avg_vs_stiff_ratio}.
+Same cannot be said for the FFT-based homogenization Galerkin scheme as the stiffness ratio becomes more extreme.
+In terms of computational performance, Figure~\ref{subfig:linear_3D_normal_stress_avg_cpu_time_vs_n_voxels} shows that the FFT-based homogenization Galerkin scheme outperforms the FEM-based homogenization with speedups from around 100 at minor stiffness contrast to around 3 at the lowest stiffness contrast, relative to the direct solver with linear finite elements.
+As before, the caveat regarding the parallelization of the Python libraries still applies.
+When compared with the FFT-based homogenization basic scheme, the CPU time expended differs from one to two orders of magnitude across the stiffness ranges considered, with the Galerkin scheme being slower.
+It must be added that for higher stiffness ratios the WSMP-SSOR solver was not able to converge.
+
+Concerning the local field, an excellent agreement can be observed at both high \((K=E_1/E_2=10^{1.5})\) and low \((K=E_1/E_2=\num{e-4})\) stiffness ratios in the matrix phase, as can be seen in Figures~\ref{fig:linear_3D_stiff_contrast_normal_strain_11} and \ref{fig:linear_3D_stiff_contrast_normal_stress_11}.
+There is also good agreement regarding the local field in the particle phase for the strain field at the low stiffness ratio and the stress field at the high stiffness ratio.
+On the other hand, the strain field at the low stiffness ratio and the strain field at the high stiffness ratio exihibt strong oscillations in the particle phase.
+This mirrors the previous results concerning two dimensional microstructures.
+
+\begin{figure}[hbt]
+  \centering
+  	\begin{subfigure}[b]{0.49\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{figures/linear_3D_normal_stress_avg_vs_stiff_ratio}
+      \caption{}
+      \label{subfig:linear_3D_normal_stress_avg_vs_stiff_ratio}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.49\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{figures/linear_3D_normal_stress_avg_cpu_time_vs_n_voxels}
+      \caption{}
+      \label{subfig:linear_3D_normal_stress_avg_cpu_time_vs_n_voxels}
+    \end{subfigure}
+  \caption{Comparison between the FFT and FEM-based homogenization approaches in the solution
+  of the particle-reinforced linear elastic composite equilibrium problem under normal strain
+  loading conditions: \subref{subfig:linear_3D_normal_stress_avg_vs_stiff_ratio} Homogenized
+  stress; \subref{subfig:linear_3D_normal_stress_avg_cpu_time_vs_n_voxels} Computational time;
+  Notation: linear element (L), quadratic element (Q).}
+\label{fig:linear_3D_normal_stiff_contrast}
+\end{figure}
+
+\begin{figure}[hbt]
+  \centering
+	\begin{subfigure}[b]{\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/linear_3D_ratio_-4_normal_strain_11}
+    \caption{}
+    \label{subfig:linear_3D_ratio_-4_normal_strain_11}
+  \end{subfigure}
+  \begin{subfigure}[b]{\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/linear_3D_ratio_1_5_normal_strain_11}
+    \caption{}
+    \label{subfig:linear_3D_ratio_1_5_normal_strain_11}
+  \end{subfigure}
+  \caption{Comparison between the local strain field \(\varepsilon_{\mu,xx}\) obtained using
+  FFT and FEM-based homogenization approaches in the solution of the particle-reinforced
+  linear elastic composite equilibrium problem under normal strain loading conditions:
+  \subref{subfig:linear_3D_ratio_-4_normal_strain_11} Stiffness ratio \(K=E_1/E_2=\num{e-4}\);
+  \subref{subfig:linear_3D_ratio_1_5_normal_strain_11} Stiffness ratio \(K=E_1/E_2=\num{e1.5}\);
+  Notation: quadratic element (Q).}
+\label{fig:linear_3D_stiff_contrast_normal_strain_11}
+\end{figure}
+
+\begin{figure}[hbt]
+  \centering
+	\begin{subfigure}[b]{\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/linear_3D_ratio_-4_normal_stress_11}
+    \caption{}
+    \label{subfig:linear_3D_ratio_1_5_normal_stress_11}
+  \end{subfigure}
+  \begin{subfigure}[b]{\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/linear_3D_ratio_1_5_normal_stress_11}
+    \caption{}
+    \label{subfig:linear_3D_ratio_-4_normal_stress_11}
+  \end{subfigure}
+  \caption{Comparison between the local stress field \(\sigma_{\mu,xx}\) obtained using
+  FFT and FEM-based homogenization approaches in the solution of the particle-reinforced
+  linear elastic composite equilibrium problem under normal strain loading conditions:
+  \subref{subfig:linear_3D_ratio_-4_normal_stress_11} Stiffness ratio \(K=E_1/E_2=\num{e-4}\);
+  \subref{subfig:linear_3D_ratio_1_5_normal_stress_11} Stiffness ratio \(K=E_1/E_2=\num{e1.5}\);
+  Notation: quadratic element (Q).}
+\label{fig:linear_3D_stiff_contrast_normal_stress_11}
+\end{figure}
+
+
+\FloatBarrier
 
 \subsection{Large strain}
 
 \paragraph{Accuracy validation}
 
-SVK
+\subparagraph{Hencky}
 
 \begin{figure}[hbt]
-\centering
-	\begin{subfigure}[b]{0.49\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{figures/svk_2D_normal_homo_stress_11_vs_n_voxels}
-    \caption{}
-    \label{subfig:svk_2D_normal_homo_stress_11_vs_n_voxels}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.49\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{figures/svk_2D_normal_cpu_time_vs_n_voxels}
-    \caption{}
-    \label{subfig:svk_2D_normal_cpu_time_vs_n_voxels}
-  \end{subfigure}
-  \begin{subfigure}[b]{\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{figures/svk_2D_normal_strain_11}
-    \caption{}
-    \label{subfig:svk_2D_normal_strain_11}
-  \end{subfigure}
-\caption{Comparison between the Criterion I and II for FFT-based homogenization approaches, Galerkin and Basic, in the
-solution of the particle-reinforced svk elastic composite equilibrium problem under uniaxial
-strain loading conditions: \subref{subfig:svk_2D_normal_comparison_crit_homo_stress_11_vs_n_voxels} Homogenized stress; \subref{subfig:svk_2D_normal_comparison_crit_cpu_time_vs_n_voxels} Computational time.}
-\label{fig:svk_2D_normal_comparison_crit}
-\end{figure}
-
-Hencky
-
-\begin{figure}[hbt]
-\centering
+  \centering
 	\begin{subfigure}[b]{0.49\textwidth}
     \centering
     \includegraphics[width=\textwidth]{figures/hencky_2D_normal_homo_stress_11_vs_n_voxels}
@@ -552,15 +674,14 @@ Hencky
     \caption{}
     \label{subfig:hencky_2D_normal_strain_11}
   \end{subfigure}
-
-\caption{Comparison between the Criterion I and II for FFT-based homogenization approaches, Galerkin and Basic, in the
-solution of the particle-reinforced hencky elastic composite equilibrium problem under uniaxial
-strain loading conditions: \subref{subfig:hencky_2D_shear_comparison_crit_homo_stress_12_vs_n_voxels} Homogenized stress; \subref{subfig:hencky_2D_shear_comparison_crit_cpu_time_vs_n_voxels} Computational time.}
-\label{fig:hencky_2D_shear_comparison_crit}
+  \caption{Comparison between the Criterion I and II for FFT-based homogenization approaches, Galerkin and Basic, in the
+  solution of the particle-reinforced hencky elastic composite equilibrium problem under uniaxial
+  strain loading conditions: \subref{subfig:hencky_2D_shear_comparison_crit_homo_stress_12_vs_n_voxels} Homogenized stress; \subref{subfig:hencky_2D_shear_comparison_crit_cpu_time_vs_n_voxels} Computational time.}
+\label{fig:hencky_2D_normal}
 \end{figure}
 
 \begin{figure}[hbt]
-\centering
+  \centering
 	\begin{subfigure}[b]{0.49\textwidth}
     \centering
     \includegraphics[width=\textwidth]{figures/hencky_2D_shear_homo_stress_12_vs_n_voxels}
@@ -579,12 +700,69 @@ strain loading conditions: \subref{subfig:hencky_2D_shear_comparison_crit_homo_s
     \caption{}
     \label{subfig:hencky_2D_shear_strain_12}
   \end{subfigure}
-\caption{f}
-\label{fig:linear_2D_shear_comparison_crit}
+  \caption{f}
+\label{fig:hencky_2D_shear}
 \end{figure}
 
+\begin{figure}[hbt] % incomplete
+\label{fig:hencky_mat_res_2D_normal}
+\end{figure}
+
+\begin{figure}[hbt] % incomplete
+\label{fig:hencky_mat_res_2D_shear}
+\end{figure}
+
+\begin{figure}[hbt] % incomplete
+\label{fig:hencky_mat_res_3D_normal}
+\end{figure}
+
+\begin{figure}[hbt] % incomplete
+\label{fig:hencky_mat_res_3D_shear}
+\end{figure}
+
+\FloatBarrier
+
+\subparagraph{Saint Venant-Kirchhoff model}
+
 \begin{figure}[hbt]
-\centering
+  \centering
+	\begin{subfigure}[b]{0.49\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/svk_2D_normal_homo_stress_11_vs_n_voxels}
+    \caption{}
+    \label{subfig:svk_2D_normal_homo_stress_11_vs_n_voxels}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.49\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/svk_2D_normal_cpu_time_vs_n_voxels}
+    \caption{}
+    \label{subfig:svk_2D_normal_cpu_time_vs_n_voxels}
+  \end{subfigure}
+  \begin{subfigure}[b]{\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/svk_2D_normal_strain_11}
+    \caption{}
+    \label{subfig:svk_2D_normal_strain_11}
+  \end{subfigure}
+  \caption{Comparison between the Criterion I and II for FFT-based homogenization
+  approaches, Galerkin and Basic, in the solution of the particle-reinforced svk elastic
+  composite equilibrium problem under uniaxial strain loading conditions:
+  \subref{subfig:svk_2D_normal_comparison_crit_homo_stress_11_vs_n_voxels} Homogenized
+  stress; \subref{subfig:svk_2D_normal_comparison_crit_cpu_time_vs_n_voxels} Computational
+  time.}
+\label{fig:svk_2D_normal}
+\end{figure}
+
+\FloatBarrier
+
+\paragraph{Extreme stiffness ratios between phases}
+
+\subparagraph{Hencky}
+
+\subparagraph{Saint Venant-Kirchhoff model}
+
+\begin{figure}[hbt]
+  \centering
 	\begin{subfigure}[b]{0.49\textwidth}
     \centering
     \includegraphics[width=\textwidth]{figures/svk_2D_normal_stress_avg_vs_stiff_ratio}
@@ -597,14 +775,14 @@ strain loading conditions: \subref{subfig:hencky_2D_shear_comparison_crit_homo_s
     \caption{}
     \label{subfig:svk_2D_normal_stress_avg_cpu_time_vs_n_voxels}
   \end{subfigure}
-\caption{Comparison between the Criterion I and II for FFT-based homogenization approaches, Galerkin and Basic, in the
-solution of the particle-reinforced svk elastic composite equilibrium problem under uniaxial
-strain loading conditions: \subref{subfig:svk_3D_normal_comparison_crit_homo_stress_11_vs_n_voxels} Homogenized stress; \subref{subfig:svk_3D_normal_comparison_crit_cpu_time_vs_n_voxels} Computational time.}
-\label{fig:svk_3D_normal_comparison_crit}
+  \caption{Comparison between the Criterion I and II for FFT-based homogenization approaches, Galerkin and Basic, in the
+  solution of the particle-reinforced svk elastic composite equilibrium problem under uniaxial
+  strain loading conditions: \subref{subfig:svk_3D_normal_comparison_crit_homo_stress_11_vs_n_voxels} Homogenized stress; \subref{subfig:svk_3D_normal_comparison_crit_cpu_time_vs_n_voxels} Computational time.}
+\label{fig:svk_2D_normal_stiff_contrast}
 \end{figure}
 
 \begin{figure}[hbt]
-\centering
+  \centering
 	\begin{subfigure}[b]{\textwidth}
     \centering
     \includegraphics[width=\textwidth]{figures/svk_2D_ratio_-4_normal_strain_11}
@@ -617,52 +795,10 @@ strain loading conditions: \subref{subfig:svk_3D_normal_comparison_crit_homo_str
     \caption{}
     \label{subfig:svk_2D_ratio_-4_normal_strain_11}
   \end{subfigure}
-\caption{Comparison between the Criterion I and II for FFT-based homogenization approaches, Galerkin and Basic, in the
-solution of the particle-reinforced svk elastic composite equilibrium problem under uniaxial
-strain loading conditions: \subref{subfig:svk_3D_normal_comparison_crit_homo_stress_11_vs_n_voxels} Homogenized stress; \subref{subfig:svk_3D_normal_comparison_crit_cpu_time_vs_n_voxels} Computational time.}
-\label{fig:svk_3D_normal_comparison_crit}
+  \caption{Comparison between the Criterion I and II for FFT-based homogenization approaches, Galerkin and Basic, in the
+  solution of the particle-reinforced svk elastic composite equilibrium problem under uniaxial
+  strain loading conditions: \subref{subfig:svk_3D_normal_comparison_crit_homo_stress_11_vs_n_voxels} Homogenized stress; \subref{subfig:svk_3D_normal_comparison_crit_cpu_time_vs_n_voxels} Computational time.}
+\label{fig:svk_2D_stiff_contrast_normal_strain_11}
 \end{figure}
 
-\subsection{Elastic}
-
-\subsection{Saint Venant-Kirchhoff}
-
-\subsection{Hencky}
-
-\begin{figure}[hbt]
-\centering
-	\begin{subfigure}[b]{0.49\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{figures/von_mises_small_strain_2D_normal_homo_stress_11_vs_n_voxels}
-    \caption{}
-    \label{subfig:hencky_2D_normal_homo_stress_12_vs_n_voxels}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.49\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{figures/von_mises_small_strain_2D_normal_cpu_time_vs_n_voxels}
-    \caption{}
-    \label{subfig:hencky_2D_normal_cpu_time_vs_n_voxels}
-  \end{subfigure}
-\caption{f}
-\label{fig:linear_2D_normal_comparison_crit}
-\end{figure}
-
-\begin{figure}[hbt]
-\centering
-	\begin{subfigure}[b]{\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{figures/von_mises_small_strain_2D_normal_strain_11}
-    \caption{}
-    \label{subfig:svk_2D_ratio_4_normal_strain_11}
-  \end{subfigure}
-  \begin{subfigure}[b]{\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{figures/von_mises_small_strain_2D_normal_e_p}
-    \caption{}
-    \label{subfig:svk_2D_ratio_-4_normal_strain_11}
-  \end{subfigure}
-\caption{Comparison between the Criterion I and II for FFT-based homogenization approaches, Galerkin and Basic, in the
-solution of the particle-reinforced svk elastic composite equilibrium problem under uniaxial
-strain loading conditions: \subref{subfig:svk_3D_normal_comparison_crit_homo_stress_11_vs_n_voxels} Homogenized stress; \subref{subfig:svk_3D_normal_comparison_crit_cpu_time_vs_n_voxels} Computational time.}
-\label{fig:svk_3D_normal_comparison_crit}
-\end{figure}
+\FloatBarrier

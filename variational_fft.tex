@@ -262,6 +262,23 @@ until the desired accuracy \(\eta^{CG}\) is reached.
 \end{center}
 \end{framedbox}
 
+\begin{tabular}{lccc}
+\multicolumn{4}{c} { Table 1: Comparison of FFT-based and Finite Element methods. } \\
+\hline & Finite elements & Conventional FFT & Variational FFT \\
+\hline Discretization approach & Galerkin & collocation & Galerkin \\
+Computational grid & general & regular & regular \\
+Basis functions & Lagrange & trigonometric & trigonometric \\
+Unknown & displacement & strain & strain \\
+Compatibility of solution & automatic & linear solver & linear solver \\
+Compatibility of test fields & automatic & \(\times\) & projection matrix \(\underline{G}\) \\
+Equilibrium & static matrix \(\underline{\boldsymbol{B}}^{\mathrm{T}}\) & Green matrix \(\underline{\boldsymbol{\Gamma}}^{\text {ref }}\) & projection matrix \(\underline{G}\) \\
+Reference problem & \multirow{2}{*} {\(\times\)} & yes & \\
+Quadrature & Gauss & \(\times\) & trapezoidal \\
+Linear system & regular symmetric, & singular non-symmetric, & singular non-symmetric, \\
+& sparse & structurally sparse & structurally sparse \\
+Linear system solver & direct/iterative & iterative & iterative \\
+\hline
+\end{tabular}
 
 \section{Extension to finite strain}
 
@@ -472,7 +489,7 @@ Box~\ref{box:alg_newton_cg_finite_strains} presents the pseudo-code for the Newt
 \end{center}
 \end{framedbox}
 
-\section{Convergence criteria}
+\section{Convergence criteria} \label{sec:criteria}
 
 Two different convergence criteria are considered in this work and described in what follows.
 They include a criterion for the Conjugate Gradient procedure (interior loop) and a criterion for the Newton-Raphson procedure (exterior loop).

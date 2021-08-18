@@ -1,0 +1,197 @@
+\chapter{Numerical Results - Elastoplasticity}
+
+In the following chapter, results pertaining to elastoelasticity are presented.
+The validation of the FFT-based Galerkin formulation is performed on elastoplastic materials at
+small strains and large strains.
+The constitutive model considered is von Mises material model.
+
+As in the previous chapter, all the numerical results shown in this chapter are obtained
+in the same machine with the specifications provided in Table~\ref{tab:specifications}.
+
+\begin{table}[htbp]
+\caption{Specifications of the numerical testing machine.}
+\label{tab:specifications}
+\centering
+\begin{tabular}{clc}
+\hline\hline & \vphantom{\Big |}Model & \(2 \times\) Intel Xeon E5-2650 v4 \\
+& \vphantom{\Big |}Microarchitecture & Broadwell \\
+& \vphantom{\Big |}Base/Max Frequency & \(2.20 / 2.90 \mathrm{GHz}\) \\
+\multirow{2}{*} {CPU} & \vphantom{\Big |}Num. of cores/threads & \(24 / 48(2 \times 12 / 24)\) \\
+& \vphantom{\Big |}Ll Cache & \(718 \mathrm{KiB}(2 \times 384 \mathrm{KiB})\) \\
+& \vphantom{\Big |}L2 Cache & \(6 \mathrm{MiB}(2 \times 3 \mathrm{MiB})\) \\
+& \vphantom{\Big |}L3 Cache & \(60 \mathrm{MiB}(2 \times 30 \mathrm{MiB})\) \\
+& \vphantom{\Big |}Numerical features & SSE3 SSSE3 AVX2 \\
+\hline \multirow{2}{*} {Memory } & \vphantom{\Big |}Capacity & \(128 \mathrm{~GB}(8 \times 16 \mathrm{~GB})\) \\
+& \vphantom{\Big |}Specification & DDR4 @ \(2400 \mathrm{MHz}\) \\
+\hline\hline
+\end{tabular}
+\end{table}
+
+\section{Material characterization}
+
+The microstructures can be found in \ref{}
+only hardening
+
+\subsection{von Mises - small strains}
+
+\paragraph{Constitutive model}
+The model considered here for the elastoplastic behavior of the material is the von Mises model with associative potential and isotropic harderning, also knwon as standard \(J_{2}\)-plasticity.
+In this model the total strain, \(\bm \varepsilon\), is additively split into an elastic part, \(\bm \varepsilon^e\), and a plastic part, \(\bm \varepsilon^p\), i.e.
+\begin{equation}
+\bm \varepsilon=\bm \varepsilon^e+\bm \varepsilon^p,
+\end{equation}
+The stress, \(\bm\sigma\), depends on the elastic strain, \(\bm \varepsilon^{e}\), through the standard linear relation
+\begin{equation}
+\bm \sigma=\boldsf{D}^{e}:\left(\bm \varepsilon-\bm\varepsilon^p\right), \quad \text { with } \quad \boldsf D^e=K \bm{I} \otimes \bm{I}+2 G \boldsf{I}_{d}
+\end{equation}
+wherein \(K\) is the bulk modulus, \(G\) is the shear modulus and \(\boldsf I_d\) is (?)\footnote{The (?) is defined as \((\mathsf I_d)_{ijkl}=(?)\).}.
+The elastic domain is bounded by the plastic admissibility condition
+\begin{equation}
+\Phi\left(\bm \sigma, \bar{\varepsilon}^p\right) =\sigma_\text{eq} - \sigma_y(\bar{\varepsilon}^p)\leq 0,
+\end{equation}
+where \(\sigma_y\) is the hardening curve.
+The deformation history enters this expression via the accumulated plastic strain, \(\bar{\varepsilon}^p\), which equals zero in the initial stress-free state.
+
+Finally, the von Mises equivalent stress, \(\sigma_{\text {eq }}\), is defined as
+\begin{equation}
+\sigma_\text{eq}=\sqrt{\frac{3}{2} \bm s: \bm s}
+\end{equation}
+with \(\bm s\) the stress deviator.
+The plastic strain rate follows from the associative potential or normality as
+\begin{equation}
+\dot{\varepsilon}^p=\dot{\gamma} \bm{N}=\dot{\gamma} \frac{\partial \Phi}{\partial \boldsymbol{\sigma}}=\dot{\gamma} \sqrt{\frac{3}{2}} \frac{\bm s}{\|\bm s\|}.
+\end{equation}
+
+The accumulated plastic strain is determined from
+\begin{equation}
+\bar{\varepsilon}^p=\int_{0}^{t} \dot{\varepsilon}^p \mathrm{d} t, \quad \text { with } \quad \dot{\varepsilon}^p=\sqrt{\frac{2}{3} \dot{\varepsilon}^p: \dot{\varepsilon}^p}=\dot{\gamma}
+\end{equation}
+
+The model is discretized in time using the, unconditionally stable, backward Euler scheme.
+The stress update is implemented using an elastic-predictor plastic-corrector scheme, whereby the amount of plastic flow is determined in two steps.
+First, a trial state is calculated by assuming the increment in strain to be fully elastic, the elastic predictor.
+Second, if necessary, a return-map is used that quantifies the plastic strain increment, the plastic corrector.
+
+Given an increment in total strain
+\begin{equation}
+\Delta \bm \varepsilon=\bm\varepsilon_{n+1}-\bm \varepsilon_n,
+\end{equation}
+corresponding to a typical pseudo-time increment \([t_n, t_{n+1}]\), the trial state, or elastic predictor, denoted by \((\bullet)^\text{trial}\), is computed by assuming that \(\Delta \bm \varepsilon\) gives rise to a purely elastic strain increment, i.e.,
+\begin{align}
+\bm \varepsilon_{n+1}^{e \text { trial }}&=\bm \varepsilon_{n}^{e}+\Delta \bm \varepsilon, \\
+\bar{\varepsilon}_{n+1}^{p \text { trial }}&=\bar{\varepsilon}_{n}^{p}.
+\end{align}
+The corresponding trial stress is computed as
+\begin{equation}
+\sigma_{n+1}^{\text {trial }}=\boldsf{D}^{e}: \varepsilon_{n+1}^{e \text { trial }}.
+\end{equation}
+
+The trial yield stress is simply
+\begin{equation}
+\sigma_{y\:n+1}^{\text {trial }}=\sigma_{y}\left(\bar{\varepsilon}_{n}^{p}\right)={\sigma_{y}}_n,
+\end{equation}
+Having computed the elastic trial state, the next step in the algorithm is to check whether \(\sigma_{n+1}^{\text {trial }}\) lies inside or outside of the trial yield surface.
+If \(\bm \sigma_{n+1}^{\text {trial }}\) lies inside of the trial yield surface, i.e. if
+\begin{equation}
+\Phi\left(\bm \sigma_{n+1}^{\text {trial }},\bar{\varepsilon}_{n+1}^{p \text { trial }} \right) \leq 0,
+\end{equation}
+then the process within the interval \(\left[t_{n}, t_{n+1}\right]\) is purely elastic and the elastic trial state itself is the solution to the integration problem. In this case,
+\begin{align}
+\bm\varepsilon_{n+1}^{e}&=\bm\varepsilon_{n+1}^{e \text { trial }} \\
+\bm\sigma_{n+1}&=\bm\sigma_{n+1}^{\text {trial }} \\
+\bar{\varepsilon}_{n+1}^{p}&=\bar{\varepsilon}_{n+1}^{p \text { trial }}=\bar{\varepsilon}_{n}^{p} \\
+\sigma_{y\:n+1}&=\sigma_{y\:n+1}^{\text {trial }}={\sigma_{y}}_n
+\end{align}
+is updated.
+
+Otherwise, the process is elastoplastic within the interval \(\left[t_{n}, t_{n+1}\right]\) and the return mapping procedure has to be applied to return the trial state to an admissible state.
+For this state, the equality needs to hold in the yield function, given the actual stress that in turn depends on the plastic flow.
+Due to the assumed associative potential or normality, this non-linear system of equations can be rewritten as a single scalar equation
+\begin{equation}
+\bar{\Phi}(\Delta \gamma)= \sigma_{\text{eq}\:n}^\text{trial}-3 G \Delta \gamma-\sigma_y(\bar{\epsilon}_n^p+\Delta \gamma)=0,
+\end{equation}
+which has to be solved for \(\Delta \gamma\).
+
+The resulting state can is then determined as
+\begin{align}
+\bm\varepsilon^p_{n+1}&=\bm\varepsilon^p_n+\Delta \gamma \bm{N}^\text{trial}, \\
+\bar{\varepsilon}^p_{n+1}&=\bar{\varepsilon}^p_n+\Delta \gamma,\\
+\bm\sigma_{n+1}&=\boldsf D^e:\left(\bm\varepsilon_{n+1}-\bm\varepsilon^p_ {n+1}\right).
+\end{align}
+
+
+
+\paragraph{Consistent constitutive tangent}
+The tangent is derived by linearizing the stress update procedure.
+If the trial state is elastic, i.e. when \(\Phi^\text{trial} \leq 0\), the result is trivially \(\boldsf{D}=\boldsf{D}^e\).
+Otherwise, the stress update needs to be linearized, giving
+\begin{equation}
+\begin{aligned}
+\boldsf D^\text{ep} &=\frac{\partial \bm{\sigma}_ {n+1}}{\partial \bm \varepsilon_ {n+1}} \\
+&=\boldsf D^e-\frac{6 G^{2} \Delta \gamma}{\sigma_{\mathrm{eq}\:n}^\text{trial}} \boldsf{I}_{\mathrm{d}}+4 G^{2}\left(\frac{\Delta \gamma}{\sigma_{\mathrm{eq}\:n}^\text{trial}}-\frac{1}{3 G+ \displaystyle{\frac{\partial \sigma_y}{\partial \bar{\varepsilon}^p}}(\bar{\epsilon}_p+\Delta \gamma)}\right)\bm N^\text{trial} \otimes\bm N^\text{trial}.
+\end{aligned}
+\end{equation}
+
+\subsection{von Mises - large strains}
+
+The extension of the von Mises constitutive model from the context of small strains to large strains rest sollely on a pre- and post-processing step.
+The remaining procedure regarding the state update and the consistent constitutive tangent is the same.
+
+\paragraph{Pre-processing}
+
+To enforce a multiplicative split of the elastic and plastic parts of the deformation gradient, the strain measure used instead of the small strain tensor is the Eulerian logarithmic strain tensor
+\begin{equation}
+  \bm \varepsilon \equiv \ln \bm V = \frac{1}{2}\ln \bm B,
+\end{equation}
+where \(\bm B = \bm F\bm F^T\) is left Cauchy-Green strain tensor, and \(\bm F\) the deformation gradient.
+
+\paragraph{Post-processing}
+
+The post-processing concerns the state update and the consistent tangent.
+For the state update, the first Piola-Kirchhoff stress tensor can be obtained as
+\begin{equation}
+\bm P = \bm \tau \bm F^{-T},
+\end{equation}
+keeping in mind that the stress measure outputed having used the pre-processing is the Kirchhof stress tensor \(\bm \tau\).
+
+Regarding the spatial consistent tangent, it is obtained using the expression in Equation~\eqref{}, with the only difference being that instead of the elasticity tensor \(\boldsf D^e\) the elastoplastic tensor \(\boldsf D^\text{ep}\) is used.
+
+\section{Comparison between FFT and FEM-based homogenization}
+
+\begin{figure}[hbt]
+\centering
+	\begin{subfigure}[b]{0.49\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/von_mises_small_strain_2D_normal_homo_stress_11_vs_n_voxels}
+    \caption{}
+    \label{subfig:hencky_2D_normal_homo_stress_12_vs_n_voxels}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.49\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/von_mises_small_strain_2D_normal_cpu_time_vs_n_voxels}
+    \caption{}
+    \label{subfig:hencky_2D_normal_cpu_time_vs_n_voxels}
+  \end{subfigure}
+\caption{f}
+\label{fig:linear_2D_normal_comparison_crit}
+\end{figure}
+
+\begin{figure}[hbt]
+\centering
+	\begin{subfigure}[b]{\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/von_mises_small_strain_2D_normal_strain_11}
+    \caption{}
+    \label{subfig:svk_2D_ratio_4_normal_strain_11}
+  \end{subfigure}
+  \begin{subfigure}[b]{\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/von_mises_small_strain_2D_normal_e_p}
+    \caption{}
+    \label{subfig:svk_2D_ratio_-4_normal_strain_11}
+  \end{subfigure}
+\caption{Comparison between the Criterion I and II for FFT-based homogenization approaches, Galerkin and Basic, in the
+solution of the particle-reinforced svk elastic composite equilibrium problem under uniaxial
+strain loading conditions: \subref{subfig:svk_3D_normal_comparison_crit_homo_stress_11_vs_n_voxels} Homogenized stress; \subref{subfig:svk_3D_normal_comparison_crit_cpu_time_vs_n_voxels} Computational time.}
+\label{fig:svk_3D_normal_comparison_crit}
+\end{figure}
