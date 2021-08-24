@@ -101,8 +101,8 @@ In the original approach, a fixed point iteration/Richardson iteration/Neumann s
 It is the most memory-efficient method available in its class and is also robust, but slow for highly contrasted problems.
 Moreover, the only role of the (material-dependent) reference problem is to ensure the convergence of the Richardson iteration scheme used to solve the resulting system of linear equations.
 As an alternative, \cite{zeman_accelerating_2010} propose a conjugate gradient-based approach.
-It proceeds from the discretization of the governing integral equation by the trigonometric collocation method to give a linear system that can be efﬁciently solved by conjugate gradient methods.
-The authors claim a signiﬁcant increase of the convergence rate for problems with high-contrast coefﬁcients at a low overhead per iteration.
+It proceeds from the discretization of the governing integral equation by the trigonometric collocation method to give a linear system that can be efficiently solved by conjugate gradient methods.
+The authors claim a significant increase of the convergence rate for problems with high-contrast coefficients at a low overhead per iteration.
 The scheme is also independent of the reference problem.
 
 %non-linear
@@ -117,7 +117,7 @@ Alternatively, one can use the Newton or quasi-Newton methods to tackle the nonl
 % newton
 % conjugate gradient
 In the context of small strains, \cite{gelebart_non-linear_2013} solve the linearized equations found through the Newton method using the conjugate gradient scheme.
-Low sensitivity to the reference material and an improved efﬁciency, for a soft or a stiff inclusion, when compared to the "basic scheme" is reported.
+Low sensitivity to the reference material and an improved efficiency, for a soft or a stiff inclusion, when compared to the "basic scheme" is reported.
 In addition to prescribed macroscopic strain, the proposed method is extended to mixed loadings.
 
 % large strain

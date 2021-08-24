@@ -1,28 +1,17 @@
-This is BibTeX, Version 0.99d
-Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: main.aux
-Reallocating 'name_of_file' (item size: 1) to 9 items.
 The style file: humannat.bst
-Reallocating 'name_of_file' (item size: 1) to 17 items.
 A level-1 auxiliary file: introduction.aux
-Reallocating 'name_of_file' (item size: 1) to 29 items.
 A level-1 auxiliary file: fft_based_homogenization.aux
-Reallocating 'name_of_file' (item size: 1) to 20 items.
 A level-1 auxiliary file: variational_fft.aux
-Reallocating 'name_of_file' (item size: 1) to 25 items.
 A level-1 auxiliary file: numerical_validation.aux
-Reallocating 'name_of_file' (item size: 1) to 33 items.
 A level-1 auxiliary file: numerical_results_elasticity.aux
-Reallocating 'name_of_file' (item size: 1) to 39 items.
 A level-1 auxiliary file: numerical_results_elastoplasticity.aux
-Reallocating 'name_of_file' (item size: 1) to 16 items.
 A level-1 auxiliary file: conclusions.aux
-Reallocating 'name_of_file' (item size: 1) to 14 items.
 A level-1 auxiliary file: annex_fdm.aux
-Reallocating 'name_of_file' (item size: 1) to 14 items.
 A level-1 auxiliary file: annex_fem.aux
-Reallocating 'name_of_file' (item size: 1) to 19 items.
-Database file #1: mybibliography.bib
+Database file #1: mybibliography.bib.bib
 Warning--I didn't find a database entry for ""
 Warning--empty journal in djaka_field_2017
 Warning--empty journal in eisenlohr_spectral_2013
@@ -50,8 +39,8 @@ Warning--empty journal in schneider_computational_2016
 Warning--empty journal in schneider_polarization-based_2019
 Warning--empty journal in shanthraj_spectral_2019
 Warning--empty journal in to_fft_2020
-Warning--empty journal in vondrejc_guaranteed_2015
 Warning--empty journal in vondrejc_energy-based_2020
+Warning--empty journal in vondrejc_guaranteed_2015
 Warning--empty journal in wang_progressive_2018
 Warning--empty journal in wicht_quasinewton_2019
 Warning--empty journal in wicht_computing_2020

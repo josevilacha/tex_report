@@ -111,20 +111,6 @@ Gierden, C., J.~Waimann, B.~Svendsen, and
   microstructure simulation.
 \newblock {\em arXiv preprint arXiv:2103.10203}.
 
-\bibitem[\protect\astroncite{Göküzüm et~al.}{2019}]{gokuzum_multiscale_2019}
-Göküzüm, F.~S., L.~T.~K. Nguyen, and M.-A.
-  Keip\leavevmode\nopagebreak\newline 2019.
-\newblock A multiscale {FE}-{FFT} framework for electro-active materials at
-  finite strains.
-
-\bibitem[\protect\astroncite{Gélébart and
-  Mondon-Cancel}{2013}]{gelebart_non-linear_2013}
-Gélébart, L. and R.~Mondon-Cancel\leavevmode\nopagebreak\newline 2013.
-\newblock Non-linear extension of {FFT}-based methods accelerated by conjugate
-  gradients to evaluate the mechanical behavior of composite materials.
-\newblock {\em Computational Materials Science}, 77:430--439.
-\newblock Publisher: Elsevier.
-
 \bibitem[\protect\astroncite{Gupta}{2002a}]{gupta_improved_2002}
 Gupta, A.\leavevmode\nopagebreak\newline 2002a.
 \newblock Improved {Symbolic} and {Numerical} {Factorization} {Algorithms} for
@@ -136,6 +122,20 @@ Gupta, A.\leavevmode\nopagebreak\newline 2002b.
 \newblock {WSMP}: {Watson} {Sparse} {Matrix} {Package} {Part} {II} - direct
   solution of general sparse systems.
 \newblock {\em Future Generation Computer Systems.}
+
+\bibitem[\protect\astroncite{Gélébart and
+  Mondon-Cancel}{2013}]{gelebart_non-linear_2013}
+Gélébart, L. and R.~Mondon-Cancel\leavevmode\nopagebreak\newline 2013.
+\newblock Non-linear extension of {FFT}-based methods accelerated by conjugate
+  gradients to evaluate the mechanical behavior of composite materials.
+\newblock {\em Computational Materials Science}, 77:430--439.
+\newblock Publisher: Elsevier.
+
+\bibitem[\protect\astroncite{Göküzüm et~al.}{2019}]{gokuzum_multiscale_2019}
+Göküzüm, F.~S., L.~T.~K. Nguyen, and M.-A.
+  Keip\leavevmode\nopagebreak\newline 2019.
+\newblock A multiscale {FE}-{FFT} framework for electro-active materials at
+  finite strains.
 
 \bibitem[\protect\astroncite{Hashin and
   Shtrikman}{1962}]{hashin_variational_1962}
@@ -438,6 +438,12 @@ Vinogradov, V. and G.~Milton\leavevmode\nopagebreak\newline 2008.
   76(11):1678--1695.
 \newblock Publisher: Wiley Online Library.
 
+\bibitem[\protect\astroncite{Vondrejc and
+  Geus}{2020}]{vondrejc_energy-based_2020}
+Vondrejc, J. and T.~W. J.~d. Geus\leavevmode\nopagebreak\newline 2020.
+\newblock Energy-based comparison between the {Fourier}-{Galerkin} method and
+  the finite element method.
+
 \bibitem[\protect\astroncite{Vondřejc et~al.}{2014}]{vondrejc_fft-based_2014}
 Vondřejc, J., J.~Zeman, and I.~Marek\leavevmode\nopagebreak\newline 2014.
 \newblock An {FFT}-based {Galerkin} method for homogenization of periodic
@@ -449,12 +455,6 @@ Vondřejc, J., J.~Zeman, and I.~Marek\leavevmode\nopagebreak\newline 2014.
 Vondřejc, J., J.~Zeman, and I.~Marek\leavevmode\nopagebreak\newline 2015.
 \newblock Guaranteed upper-lower bounds on homogenized properties by
   {FFT}-based {Galerkin} method.
-
-\bibitem[\protect\astroncite{Vondrejc and
-  Geus}{2020}]{vondrejc_energy-based_2020}
-Vondrejc, J. and T.~W. J.~d. Geus\leavevmode\nopagebreak\newline 2020.
-\newblock Energy-based comparison between the {Fourier}-{Galerkin} method and
-  the finite element method.
 
 \bibitem[\protect\astroncite{Wang et~al.}{2018}]{wang_progressive_2018}
 Wang, B., G.~Fang, S.~Liu, M.~Fu, and J.~Liang\leavevmode\nopagebreak\newline
