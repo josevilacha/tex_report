@@ -1,61 +1,61 @@
 \babel@toc {american}{}
-\contentsline {chapter}{List of Figures}{v}{chapter*.2}
-\contentsline {chapter}{List of Tables}{ix}{chapter*.3}
-\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
-\contentsline {chapter}{\numberline {2}FFT-based methods for mechanical problems}{3}{chapter.2}
-\contentsline {section}{\numberline {2.1}Conventional FFT}{4}{section.2.1}
-\contentsline {section}{\numberline {2.2}Variational FFT}{8}{section.2.2}
-\contentsline {section}{\numberline {2.3}Other methods}{8}{section.2.3}
-\contentsline {chapter}{\numberline {3}Variational formulation}{11}{chapter.3}
-\contentsline {section}{\numberline {3.1}Local problem and its weak form}{11}{section.3.1}
-\contentsline {section}{\numberline {3.2}Compatibility}{11}{section.3.2}
-\contentsline {section}{\numberline {3.3}Basis functions}{13}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Numerical integration}{14}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Convolution}{14}{subsection.3.3.2}
-\contentsline {section}{\numberline {3.4}Discretization}{15}{section.3.4}
-\contentsline {section}{\numberline {3.5}Linearization}{16}{section.3.5}
-\contentsline {section}{\numberline {3.6}Algorithm}{17}{section.3.6}
-\contentsline {section}{\numberline {3.7}Extension to finite strain}{18}{section.3.7}
-\contentsline {subsection}{\numberline {3.7.1}Problem statement}{18}{subsection.3.7.1}
-\contentsline {subsection}{\numberline {3.7.2}Weak form}{18}{subsection.3.7.2}
-\contentsline {subsection}{\numberline {3.7.3}Projection to a compatible solution space}{19}{subsection.3.7.3}
-\contentsline {subsection}{\numberline {3.7.4}Discretization}{19}{subsection.3.7.4}
-\contentsline {subsection}{\numberline {3.7.5}Quadrature}{20}{subsection.3.7.5}
-\contentsline {subsection}{\numberline {3.7.6}Implementation}{21}{subsection.3.7.6}
-\contentsline {paragraph}{Boundary conditions}{21}{section*.5}
-\contentsline {section}{\numberline {3.8}Convergence criteria}{23}{section.3.8}
-\contentsline {paragraph}{Criterion I}{23}{section*.6}
-\contentsline {paragraph}{Criterion II}{23}{section*.7}
-\contentsline {chapter}{\numberline {4}Numerical Results - Elasticity}{25}{chapter.4}
-\contentsline {section}{\numberline {4.1}Material characterization}{25}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Saint Venant-Kirchhoff model}{26}{subsection.4.1.1}
-\contentsline {paragraph}{Constitutive model}{27}{section*.11}
-\contentsline {paragraph}{Consistent tangent}{27}{section*.12}
-\contentsline {subsection}{\numberline {4.1.2}Hencky model}{27}{subsection.4.1.2}
-\contentsline {paragraph}{Constitutive model}{28}{section*.13}
-\contentsline {paragraph}{Consistent tangent}{28}{section*.14}
-\contentsline {section}{\numberline {4.2}Comparison between FFT and FEM-based homogenization}{29}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Small strain}{29}{subsection.4.2.1}
-\contentsline {paragraph}{Comparison of the convergence criteria}{29}{section*.15}
-\contentsline {paragraph}{Accuracy validation}{31}{section*.18}
-\contentsline {paragraph}{Extreme stiffness ratios between phases}{37}{section*.23}
-\contentsline {subsection}{\numberline {4.2.2}Large strain}{44}{subsection.4.2.2}
-\contentsline {paragraph}{Mesh convergency studies}{44}{section*.31}
-\contentsline {subparagraph}{Hencky}{44}{section*.32}
-\contentsline {subparagraph}{Saint Venant-Kirchhoff model}{44}{section*.35}
-\contentsline {paragraph}{Accuracy validation}{44}{section*.37}
-\contentsline {subparagraph}{Hencky}{45}{figure.caption.42}
-\contentsline {subparagraph}{Saint Venant-Kirchhoff model}{51}{figure.caption.47}
-\contentsline {paragraph}{Extreme stiffness ratios between phases}{52}{section*.48}
-\contentsline {subparagraph}{Hencky}{52}{section*.49}
-\contentsline {subparagraph}{Saint Venant-Kirchhoff model}{52}{figure.caption.52}
-\contentsline {chapter}{\numberline {5}Numerical Results - Elastoplasticity}{55}{chapter.5}
-\contentsline {section}{\numberline {5.1}Material characterization}{55}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}von Mises - small strains}{56}{subsection.5.1.1}
-\contentsline {paragraph}{Constitutive model}{56}{section*.54}
-\contentsline {paragraph}{Consistent constitutive tangent}{57}{section*.55}
-\contentsline {subsection}{\numberline {5.1.2}von Mises - large strains}{58}{subsection.5.1.2}
-\contentsline {paragraph}{Pre-processing}{58}{section*.56}
-\contentsline {paragraph}{Post-processing}{58}{section*.57}
-\contentsline {section}{\numberline {5.2}Comparison between FFT and FEM-based homogenization}{58}{section.5.2}
-\contentsline {chapter}{Bibliography}{61}{appendix*.60}
+\contentsline {chapter}{List of Figures}{v}{chapter*.2}%
+\contentsline {chapter}{List of Tables}{ix}{chapter*.3}%
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {2}FFT-based methods for mechanical problems}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Conventional FFT}{4}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Variational FFT}{8}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Other methods}{8}{section.2.3}%
+\contentsline {chapter}{\numberline {3}Variational formulation}{11}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Local problem and its weak form}{11}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Compatibility}{11}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Basis functions}{13}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Numerical integration}{14}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Convolution}{14}{subsection.3.3.2}%
+\contentsline {section}{\numberline {3.4}Discretization}{15}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Linearization}{16}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Algorithm}{17}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Extension to finite strain}{18}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}Problem statement}{18}{subsection.3.7.1}%
+\contentsline {subsection}{\numberline {3.7.2}Weak form}{18}{subsection.3.7.2}%
+\contentsline {subsection}{\numberline {3.7.3}Projection to a compatible solution space}{19}{subsection.3.7.3}%
+\contentsline {subsection}{\numberline {3.7.4}Discretization}{19}{subsection.3.7.4}%
+\contentsline {subsection}{\numberline {3.7.5}Quadrature}{20}{subsection.3.7.5}%
+\contentsline {subsection}{\numberline {3.7.6}Implementation}{21}{subsection.3.7.6}%
+\contentsline {paragraph}{Boundary conditions}{21}{section*.5}%
+\contentsline {section}{\numberline {3.8}Convergence criteria}{23}{section.3.8}%
+\contentsline {paragraph}{Criterion I}{23}{section*.6}%
+\contentsline {paragraph}{Criterion II}{23}{section*.7}%
+\contentsline {chapter}{\numberline {4}Numerical Results - Elasticity}{25}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Material characterization}{25}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Saint Venant-Kirchhoff model}{26}{subsection.4.1.1}%
+\contentsline {paragraph}{Constitutive model}{27}{section*.11}%
+\contentsline {paragraph}{Consistent tangent}{27}{section*.12}%
+\contentsline {subsection}{\numberline {4.1.2}Hencky model}{27}{subsection.4.1.2}%
+\contentsline {paragraph}{Constitutive model}{28}{section*.13}%
+\contentsline {paragraph}{Consistent tangent}{28}{section*.14}%
+\contentsline {section}{\numberline {4.2}Comparison between FFT and FEM-based homogenization}{29}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Small strain}{29}{subsection.4.2.1}%
+\contentsline {paragraph}{Comparison of the convergence criteria}{29}{section*.15}%
+\contentsline {paragraph}{Accuracy validation}{31}{section*.18}%
+\contentsline {paragraph}{Extreme stiffness ratios between phases}{37}{section*.23}%
+\contentsline {subsection}{\numberline {4.2.2}Large strain}{44}{subsection.4.2.2}%
+\contentsline {paragraph}{Mesh convergency studies}{44}{section*.31}%
+\contentsline {subparagraph}{Hencky}{44}{section*.32}%
+\contentsline {subparagraph}{Saint Venant-Kirchhoff model}{47}{section*.35}%
+\contentsline {paragraph}{Accuracy validation}{47}{section*.37}%
+\contentsline {subparagraph}{Hencky}{47}{figure.caption.42}%
+\contentsline {subparagraph}{Saint Venant-Kirchhoff model}{51}{figure.caption.47}%
+\contentsline {paragraph}{Extreme stiffness ratios between phases}{54}{section*.48}%
+\contentsline {subparagraph}{Hencky}{54}{figure.caption.51}%
+\contentsline {subparagraph}{Saint Venant-Kirchhoff model}{54}{figure.caption.54}%
+\contentsline {chapter}{\numberline {5}Numerical Results - Elastoplasticity}{59}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Material characterization}{59}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}von Mises - small strains}{60}{subsection.5.1.1}%
+\contentsline {paragraph}{Constitutive model}{60}{section*.56}%
+\contentsline {paragraph}{Consistent constitutive tangent}{61}{section*.57}%
+\contentsline {subsection}{\numberline {5.1.2}von Mises - large strains}{62}{subsection.5.1.2}%
+\contentsline {paragraph}{Pre-processing}{62}{section*.58}%
+\contentsline {paragraph}{Post-processing}{62}{section*.59}%
+\contentsline {section}{\numberline {5.2}Comparison between FFT and FEM-based homogenization}{62}{section.5.2}%
+\contentsline {chapter}{Bibliography}{65}{appendix*.62}%

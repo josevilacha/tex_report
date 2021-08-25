@@ -650,7 +650,7 @@ This mirrors the previous results concerning two dimensional microstructures.
 
 \subsection{Large strain}
 
-The following results concern large strains with materials being model either by the Henkcy constitutive model or the Saint Venant-Kirchhoff constitutive model.
+The following results concern large strains with materials being modeled either by the Henkcy constitutive model or the Saint Venant-Kirchhoff constitutive model.
 
 \paragraph{Mesh convergency studies}
 
@@ -670,13 +670,12 @@ The convergence criterion used is Criterion II, as described in Section~\ref{sec
 
 \subparagraph{Hencky}
 
-The numerical results of the fiber-reinforced linear elastic composite equilibrium problem are shown in Figures~\ref{fig:linear_2D_normal} and \ref{fig:shear_2D_normal} for the uniaxial and pure shear loading cases, respectively.
-In both cases there is an excellent agreement between the FFT and FEM-based homogenization solutions concerning both the homogenized response (see Figures~\ref{subfig:linear_2D_normal_homo_stress_11_vs_n_voxels} and \ref{subfig:linear_2D_shear_homo_stress_12_vs_n_voxels} and the local strain fields (see Figures \ref{subfig:linear_2D_normal_strain_11} and \ref{subfig:linear_2D_shear_strain_12}.
-In terms of computational performance, Figures~\ref{subfig:linear_2D_normal_cpu_time_vs_n_voxels} and \ref{subfig:linear_2D_shear_cpu_time_vs_n_voxels} show that the FFT-based homogenization Galerkin scheme outperforms the FEM-based homogenization with speedups of around 2 relative to the direct solver with linear finite elements.
+The numerical results of the fiber-reinforced Hencky hyperelastic composite equilibrium problem are shown in Figures~\ref{fig:hencky_2D_normal} and \ref{fig:henkcy_2D_normal} for the uniaxial and pure shear loading cases, respectively.
+In both cases the finest mesh used fails to achieve convergence and there is still some disagreement between the FFT and FEM-based homogenization solutions concerning the homogenized response (see Figures~\ref{subfig:hencky_2D_normal_homo_stress_11_vs_n_voxels} and \ref{subfig:hencky_2D_shear_homo_stress_12_vs_n_voxels}).
+In what concerns, the local strain fields (see Figures \ref{subfig:hencky_2D_normal_strain_11} and \ref{subfig:hencky_2D_shear_strain_12}), visually, there seems to be a good agreement between the two approaches.
+In terms of computational performance, Figures~\ref{subfig:hencky_2D_normal_cpu_time_vs_n_voxels} and \ref{subfig:hencky_2D_shear_cpu_time_vs_n_voxels} show that the FFT-based homogenization Galerkin scheme outperforms the FEM-based homogenization with speedups of around 2 relative to the direct solver with linear finite elements.
 There is however a caveat, regarding this direct comparison.
-The Python libraries used in the implementation of the FFT-based homogenization Galerkin scheme are parallelized and used all the cores available in the machine at the time.
-On the other hand, the FEM simulations are run using only one core.
-When compared with the FFT-based homogenization basic scheme, the CPU time expended differs by more than an order of magnitude, with the Galerkin scheme being slower.
+
 
 \begin{figure}[hbt]
   \centering
@@ -698,9 +697,12 @@ When compared with the FFT-based homogenization basic scheme, the CPU time expen
     \caption{}
     \label{subfig:hencky_2D_normal_strain_11}
   \end{subfigure}
-  \caption{Comparison between the Criterion I and II for FFT-based homogenization approaches, Galerkin and Basic, in the
-  solution of the particle-reinforced hencky elastic composite equilibrium problem under uniaxial
-  strain loading conditions: \subref{subfig:hencky_2D_shear_comparison_crit_homo_stress_12_vs_n_voxels} Homogenized stress; \subref{subfig:hencky_2D_shear_comparison_crit_cpu_time_vs_n_voxels} Computational time.}
+  \caption{Comparison between the FFT (Criterion I and II) and FEM-based homogenization approaches in the
+  solution of the fiber-reinforced hyperelastic (Hencky constitutive model) elastic composite equilibrium problem under normal strain loading conditions:
+  \subref{subfig:hencky_2D_normal_homo_stress_11_vs_n_voxels} Homogenized stress;
+  \subref{subfig:hencky_2D_normal_cpu_time_vs_n_voxels} Computational time;
+  \subref{subfig:hencky_2D_normal_strain_11} Local strain field (\(n_v = 600 \times 600\)
+  discretization). Notation: quadratic element (Q)}
 \label{fig:hencky_2D_normal}
 \end{figure}
 
@@ -724,11 +726,17 @@ When compared with the FFT-based homogenization basic scheme, the CPU time expen
     \caption{}
     \label{subfig:hencky_2D_shear_strain_12}
   \end{subfigure}
-  \caption{f}
+  \caption{Comparison between the FFT (Criterion I and II) and FEM-based homogenization approaches in the
+  solution of the fiber-reinforced hyperelastic (Hencky constitutive model) elastic composite equilibrium problem under pure
+  shear strain loading conditions:
+  \subref{subfig:hencky_2D_shear_homo_stress_12_vs_n_voxels} Homogenized stress;
+  \subref{subfig:hencky_2D_shear_cpu_time_vs_n_voxels} Computational time;
+  \subref{subfig:hencky_2D_shear_strain_12} Local strain field (\(n_v = 600 \times 600\)
+  discretization). Notation: quadratic element (Q)}
 \label{fig:hencky_2D_shear}
 \end{figure}
 
-
+\FloatBarrier
 
 \subparagraph{Saint Venant-Kirchhoff model}
 
@@ -805,7 +813,7 @@ When compared with the FFT-based homogenization basic scheme, the CPU time expen
   \end{subfigure}
   \caption{Comparison between the Criterion I and II for FFT-based homogenization approaches, Galerkin and Basic, in the
   solution of the particle-reinforced hencky elastic composite equilibrium problem under uniaxial
-  strain loading conditions: \subref{subfig:hencky_2D_shear_comparison_crit_homo_stress_12_vs_n_voxels} Homogenized stress; \subref{subfig:hencky_2D_shear_comparison_crit_cpu_time_vs_n_voxels} Computational time.} 
+  strain loading conditions: \subref{subfig:hencky_2D_shear_comparison_crit_homo_stress_12_vs_n_voxels} Homogenized stress; \subref{subfig:hencky_2D_shear_comparison_crit_cpu_time_vs_n_voxels} Computational time.}
 \label{fig:hencky_mat_res_2D_normal}
 \end{figure}
 
@@ -831,7 +839,7 @@ When compared with the FFT-based homogenization basic scheme, the CPU time expen
     \end{subfigure}
     \caption{Comparison between the Criterion I and II for FFT-based homogenization approaches, Galerkin and Basic, in the
     solution of the particle-reinforced hencky elastic composite equilibrium problem under uniaxial
-    strain loading conditions: \subref{subfig:hencky_2D_shear_comparison_crit_homo_stress_12_vs_n_voxels} Homogenized stress; \subref{subfig:hencky_2D_shear_comparison_crit_cpu_time_vs_n_voxels} Computational time.} 
+    strain loading conditions: \subref{subfig:hencky_2D_shear_comparison_crit_homo_stress_12_vs_n_voxels} Homogenized stress; \subref{subfig:hencky_2D_shear_comparison_crit_cpu_time_vs_n_voxels} Computational time.}
 \label{fig:hencky_mat_res_2D_shear}
 \end{figure}
 
@@ -855,49 +863,49 @@ When compared with the FFT-based homogenization basic scheme, the CPU time expen
     \centering
     \includegraphics[width=\textwidth]{figures/svk_2D_normal_material_response}
     \caption{}
-    \label{subfig:svk_2D_normal_homo_stress_11_vs_n_voxels}
+    \label{subfig:svk_2D_normal_material_response}
   \end{subfigure}
   \begin{subfigure}[b]{0.49\textwidth}
     \centering
     \includegraphics[width=\textwidth]{figures/svk_2D_normal_material_response_error}
     \caption{}
-    \label{subfig:svk_2D_normal_cpu_time_vs_n_voxels}
+    \label{subfig:svk_2D_normal_material_response_error}
   \end{subfigure}
   \begin{subfigure}[b]{\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{figures/svk_2D_normal_strain_11}
+    \includegraphics[width=\textwidth]{figures/svk_mat_res_2D_normal_strain_11}
     \caption{}
-    \label{subfig:svk_2D_normal_strain_11}
+    \label{subfig:svk_mat_res_2D_normal_strain_11}
   \end{subfigure}
   \caption{Comparison between the Criterion I and II for FFT-based homogenization approaches, Galerkin and Basic, in the
   solution of the particle-reinforced svk elastic composite equilibrium problem under uniaxial
-  strain loading conditions: \subref{subfig:svk_2D_shear_comparison_crit_homo_stress_12_vs_n_voxels} Homogenized stress; \subref{subfig:svk_2D_shear_comparison_crit_cpu_time_vs_n_voxels} Computational time.} 
+  strain loading conditions: \subref{subfig:svk_2D_shear_comparison_crit_homo_stress_12_vs_n_voxels} Homogenized stress; \subref{subfig:svk_2D_shear_comparison_crit_cpu_time_vs_n_voxels} Computational time.}
 \label{fig:svk_mat_res_2D_normal}
 \end{figure}
 
 \begin{figure}[hbt]
-    \cente111ring
+    \centering
   	\begin{subfigure}[b]{0.49\textwidth}
       \centering
       \includegraphics[width=\textwidth]{figures/svk_2D_shear_material_response}
       \caption{}
-      \label{subfig:svk_2D_shear_homo_stress_12_vs_n_voxels}
+      \label{subfig:svk_2D_shear_material_response}
     \end{subfigure}
     \begin{subfigure}[b]{0.49\textwidth}
       \centering
       \includegraphics[width=\textwidth]{figures/svk_2D_shear_material_response_error}
       \caption{}
-      \label{subfig:svk_2D_shear_cpu_time_vs_n_voxels}
+      \label{subfig:svk_2D_shear_material_response_error}
     \end{subfigure}
     \begin{subfigure}[b]{\textwidth}
       \centering
-      \includegraphics[width=\textwidth]{figures/svk_2D_shear_strain_12}
+      \includegraphics[width=\textwidth]{figures/svk_mat_res_2D_shear_strain_12}
       \caption{}
-      \label{subfig:svk_2D_shear_strain_12}
+      \label{subfig:svk_mat_res_2D_shear_strain_12}
     \end{subfigure}
     \caption{Comparison between the Criterion I and II for FFT-based homogenization approaches, Galerkin and Basic, in the
     solution of the particle-reinforced hencky elastic composite equilibrium problem under uniaxial
-    strain loading conditions: \subref{subfig:hencky_2D_shear_comparison_crit_homo_stress_12_vs_n_voxels} Homogenized stress; \subref{subfig:hencky_2D_shear_comparison_crit_cpu_time_vs_n_voxels} Computational time.} 
+    strain loading conditions: \subref{subfig:hencky_2D_shear_comparison_crit_homo_stress_12_vs_n_voxels} Homogenized stress; \subref{subfig:hencky_2D_shear_comparison_crit_cpu_time_vs_n_voxels} Computational time.}
 \label{fig:svk_mat_res_2D_shear}
 \end{figure}
 
@@ -916,6 +924,47 @@ When compared with the FFT-based homogenization basic scheme, the CPU time expen
 \paragraph{Extreme stiffness ratios between phases}
 
 \subparagraph{Hencky}
+
+\begin{figure}[hbt]
+  \centering
+	\begin{subfigure}[b]{0.49\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/hencky_2D_normal_stress_avg_vs_stiff_ratio}
+    \caption{}
+    \label{subfig:hencky_2D_normal_stress_avg_vs_stiff_ratio}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.49\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/hencky_2D_normal_stress_avg_cpu_time_vs_n_voxels}
+    \caption{}
+    \label{subfig:hencky_2D_normal_stress_avg_cpu_time_vs_n_voxels}
+  \end{subfigure}
+  \caption{Comparison between the Criterion I and II for FFT-based homogenization approaches, Galerkin and Basic, in the
+  solution of the particle-reinforced hencky elastic composite equilibrium problem under uniaxial
+  strain loading conditions: \subref{subfig:hencky_3D_normal_comparison_crit_homo_stress_11_vs_n_voxels} Homogenized stress; \subref{subfig:hencky_3D_normal_comparison_crit_cpu_time_vs_n_voxels} Computational time.}
+\label{fig:hencky_2D_normal_stiff_contrast}
+\end{figure}
+
+\begin{figure}[hbt]
+  \centering
+	\begin{subfigure}[b]{\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/hencky_2D_ratio_-2_normal_strain_11}
+    \caption{}
+    \label{subfig:hencky_2D_ratio_4_normal_strain_11}
+  \end{subfigure}
+  \begin{subfigure}[b]{\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/hencky_2D_ratio_4_normal_strain_11}
+    \caption{}
+    \label{subfig:hencky_2D_ratio_-4_normal_strain_11}
+  \end{subfigure}
+  \caption{Comparison between the Criterion I and II for FFT-based homogenization approaches, Galerkin and Basic, in the
+  solution of the particle-reinforced hencky elastic composite equilibrium problem under uniaxial
+  strain loading conditions: \subref{subfig:hencky_3D_normal_comparison_crit_homo_stress_11_vs_n_voxels} Homogenized stress; \subref{subfig:hencky_3D_normal_comparison_crit_cpu_time_vs_n_voxels} Computational time.}
+\label{fig:hencky_2D_stiff_contrast_normal_strain_11}
+\end{figure}
+
 
 \subparagraph{Saint Venant-Kirchhoff model}
 
