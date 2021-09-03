@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.19)  24 AUG 2021 23:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.19)  3 SEP 2021 17:15
 entering extended mode
 **./main.tex
 (main.tex
@@ -1307,42 +1307,10 @@ LaTeX Warning: Label `eq:final_form_sum' multiply defined.
 
 ) (numerical_validation.aux) (numerical_results_elasticity.aux
 
-LaTeX Warning: Label `subfig:hencky_2D_normal_homo_stress_11_vs_n_voxels' multi
-ply defined.
-
-
-LaTeX Warning: Label `sub@subfig:hencky_2D_normal_homo_stress_11_vs_n_voxels' m
-ultiply defined.
-
-
-LaTeX Warning: Label `subfig:hencky_2D_normal_cpu_time_vs_n_voxels' multiply de
-fined.
-
-
-LaTeX Warning: Label `sub@subfig:hencky_2D_normal_cpu_time_vs_n_voxels' multipl
-y defined.
-
-
 LaTeX Warning: Label `subfig:hencky_2D_normal_strain_11' multiply defined.
 
 
 LaTeX Warning: Label `sub@subfig:hencky_2D_normal_strain_11' multiply defined.
-
-
-LaTeX Warning: Label `subfig:hencky_2D_shear_homo_stress_12_vs_n_voxels' multip
-ly defined.
-
-
-LaTeX Warning: Label `sub@subfig:hencky_2D_shear_homo_stress_12_vs_n_voxels' mu
-ltiply defined.
-
-
-LaTeX Warning: Label `subfig:hencky_2D_shear_cpu_time_vs_n_voxels' multiply def
-ined.
-
-
-LaTeX Warning: Label `sub@subfig:hencky_2D_shear_cpu_time_vs_n_voxels' multiply
- defined.
 
 
 LaTeX Warning: Label `subfig:hencky_2D_shear_strain_12' multiply defined.
@@ -1350,36 +1318,13 @@ LaTeX Warning: Label `subfig:hencky_2D_shear_strain_12' multiply defined.
 
 LaTeX Warning: Label `sub@subfig:hencky_2D_shear_strain_12' multiply defined.
 
+
+LaTeX Warning: Label `fig:hencky_2D_stiff_contrast_normal_strain_11' multiply d
+efined.
+
 ) (numerical_results_elastoplasticity.aux
 
 LaTeX Warning: Label `tab:specifications' multiply defined.
-
-
-LaTeX Warning: Label `subfig:hencky_2D_normal_cpu_time_vs_n_voxels' multiply de
-fined.
-
-
-LaTeX Warning: Label `sub@subfig:hencky_2D_normal_cpu_time_vs_n_voxels' multipl
-y defined.
-
-
-LaTeX Warning: Label `fig:linear_2D_normal_comparison_crit' multiply defined.
-
-
-LaTeX Warning: Label `subfig:svk_2D_ratio_4_normal_strain_11' multiply defined.
-
-
-
-LaTeX Warning: Label `sub@subfig:svk_2D_ratio_4_normal_strain_11' multiply defi
-ned.
-
-
-LaTeX Warning: Label `subfig:svk_2D_ratio_-4_normal_strain_11' multiply defined
-.
-
-
-LaTeX Warning: Label `sub@subfig:svk_2D_ratio_-4_normal_strain_11' multiply def
-ined.
 
 ) (conclusions.aux) (annex_fdm.aux) (annex_fem.aux))
 \openout1 = `main.aux'.
@@ -1595,7 +1540,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<figures/university.png, id=178, 590.205pt x 204.765pt>
+<figures/university.png, id=190, 590.205pt x 204.765pt>
 File: figures/university.png Graphic file (type png)
 <use figures/university.png>
 Package pdftex.def Info: figures/university.png  used on input line 312.
@@ -1616,180 +1561,50 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [5
 
 ]
-Underfull \vbox (badness 4353) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [6]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Warning: Hyper reference `subfig:svk_2D_normal_comparison_crit_homo_stres
-s_11_vs_n_voxels' on page vii undefined on input line 22.
+ [7]
+Underfull \vbox (badness 7722) has occurred while \output is active []
 
+ [8]
 
-LaTeX Warning: Reference `sub@subfig:svk_2D_normal_comparison_crit_homo_stress_
-11_vs_n_voxels' on page vii undefined on input line 22.
+LaTeX Warning: Hyper reference `subfig:linear_2D_shear_stress_avg_cpu_time_vs_n
+_voxels' on page ix undefined on input line 40.
 
 
-LaTeX Warning: Hyper reference `subfig:svk_2D_normal_comparison_crit_cpu_time_v
-s_n_voxels' on page vii undefined on input line 22.
+LaTeX Warning: Reference `sub@subfig:linear_2D_shear_stress_avg_cpu_time_vs_n_v
+oxels' on page ix undefined on input line 40.
 
 
-LaTeX Warning: Reference `sub@subfig:svk_2D_normal_comparison_crit_cpu_time_vs_
-n_voxels' on page vii undefined on input line 22.
+LaTeX Warning: Hyper reference `subfig:von_mises_res_mat_large_strain_2D_shear_
+elastic_strain_11' on page ix undefined on input line 41.
 
 
-LaTeX Warning: Hyper reference `subfig:hencky_2D_shear_comparison_crit_homo_str
-ess_12_vs_n_voxels' on page vii undefined on input line 23.
+LaTeX Warning: Reference `sub@subfig:von_mises_res_mat_large_strain_2D_shear_el
+astic_strain_11' on page ix undefined on input line 41.
 
 
-LaTeX Warning: Reference `sub@subfig:hencky_2D_shear_comparison_crit_homo_stres
-s_12_vs_n_voxels' on page vii undefined on input line 23.
+LaTeX Warning: Hyper reference `subfig:von_mises_res_mat_large_strain_2D_shear_
+palstic_strain_11' on page ix undefined on input line 41.
 
 
-LaTeX Warning: Hyper reference `subfig:hencky_2D_shear_comparison_crit_cpu_time
-_vs_n_voxels' on page vii undefined on input line 23.
-
-
-LaTeX Warning: Reference `sub@subfig:hencky_2D_shear_comparison_crit_cpu_time_v
-s_n_voxels' on page vii undefined on input line 23.
-
-
-LaTeX Warning: Hyper reference `subfig:hencky_2D_shear_comparison_crit_homo_str
-ess_12_vs_n_voxels' on page vii undefined on input line 24.
-
-
-LaTeX Warning: Reference `sub@subfig:hencky_2D_shear_comparison_crit_homo_stres
-s_12_vs_n_voxels' on page vii undefined on input line 24.
-
-
-LaTeX Warning: Hyper reference `subfig:hencky_2D_shear_comparison_crit_cpu_time
-_vs_n_voxels' on page vii undefined on input line 24.
-
-
-LaTeX Warning: Reference `sub@subfig:hencky_2D_shear_comparison_crit_cpu_time_v
-s_n_voxels' on page vii undefined on input line 24.
-
-
-LaTeX Warning: Hyper reference `subfig:svk_2D_shear_comparison_crit_homo_stress
-_12_vs_n_voxels' on page vii undefined on input line 25.
-
-
-LaTeX Warning: Reference `sub@subfig:svk_2D_shear_comparison_crit_homo_stress_1
-2_vs_n_voxels' on page vii undefined on input line 25.
-
-
-LaTeX Warning: Hyper reference `subfig:svk_2D_shear_comparison_crit_cpu_time_vs
-_n_voxels' on page vii undefined on input line 25.
-
-
-LaTeX Warning: Reference `sub@subfig:svk_2D_shear_comparison_crit_cpu_time_vs_n
-_voxels' on page vii undefined on input line 25.
-
-
-LaTeX Warning: Hyper reference `subfig:hencky_2D_shear_comparison_crit_homo_str
-ess_12_vs_n_voxels' on page vii undefined on input line 26.
-
-
-LaTeX Warning: Reference `sub@subfig:hencky_2D_shear_comparison_crit_homo_stres
-s_12_vs_n_voxels' on page vii undefined on input line 26.
-
-
-LaTeX Warning: Hyper reference `subfig:hencky_2D_shear_comparison_crit_cpu_time
-_vs_n_voxels' on page vii undefined on input line 26.
-
-
-LaTeX Warning: Reference `sub@subfig:hencky_2D_shear_comparison_crit_cpu_time_v
-s_n_voxels' on page vii undefined on input line 26.
-
-
-LaTeX Warning: Hyper reference `subfig:hencky_3D_normal_comparison_crit_homo_st
-ress_11_vs_n_voxels' on page vii undefined on input line 27.
-
-
-LaTeX Warning: Reference `sub@subfig:hencky_3D_normal_comparison_crit_homo_stre
-ss_11_vs_n_voxels' on page vii undefined on input line 27.
-
-
-LaTeX Warning: Hyper reference `subfig:hencky_3D_normal_comparison_crit_cpu_tim
-e_vs_n_voxels' on page vii undefined on input line 27.
-
-
-LaTeX Warning: Reference `sub@subfig:hencky_3D_normal_comparison_crit_cpu_time_
-vs_n_voxels' on page vii undefined on input line 27.
-
-
-LaTeX Warning: Hyper reference `subfig:hencky_3D_normal_comparison_crit_homo_st
-ress_11_vs_n_voxels' on page vii undefined on input line 28.
-
-
-LaTeX Warning: Reference `sub@subfig:hencky_3D_normal_comparison_crit_homo_stre
-ss_11_vs_n_voxels' on page vii undefined on input line 28.
-
-
-LaTeX Warning: Hyper reference `subfig:hencky_3D_normal_comparison_crit_cpu_tim
-e_vs_n_voxels' on page vii undefined on input line 28.
-
-
-LaTeX Warning: Reference `sub@subfig:hencky_3D_normal_comparison_crit_cpu_time_
-vs_n_voxels' on page vii undefined on input line 28.
-
-
-LaTeX Warning: Hyper reference `subfig:svk_3D_normal_comparison_crit_homo_stres
-s_11_vs_n_voxels' on page vii undefined on input line 29.
-
-
-LaTeX Warning: Reference `sub@subfig:svk_3D_normal_comparison_crit_homo_stress_
-11_vs_n_voxels' on page vii undefined on input line 29.
-
-
-LaTeX Warning: Hyper reference `subfig:svk_3D_normal_comparison_crit_cpu_time_v
-s_n_voxels' on page vii undefined on input line 29.
-
-
-LaTeX Warning: Reference `sub@subfig:svk_3D_normal_comparison_crit_cpu_time_vs_
-n_voxels' on page vii undefined on input line 29.
-
-
-LaTeX Warning: Hyper reference `subfig:svk_3D_normal_comparison_crit_homo_stres
-s_11_vs_n_voxels' on page vii undefined on input line 30.
-
-
-LaTeX Warning: Reference `sub@subfig:svk_3D_normal_comparison_crit_homo_stress_
-11_vs_n_voxels' on page vii undefined on input line 30.
-
-
-LaTeX Warning: Hyper reference `subfig:svk_3D_normal_comparison_crit_cpu_time_v
-s_n_voxels' on page vii undefined on input line 30.
-
-
-LaTeX Warning: Reference `sub@subfig:svk_3D_normal_comparison_crit_cpu_time_vs_
-n_voxels' on page vii undefined on input line 30.
-
-
-LaTeX Warning: Hyper reference `subfig:svk_3D_normal_comparison_crit_homo_stres
-s_11_vs_n_voxels' on page vii undefined on input line 33.
-
-
-LaTeX Warning: Reference `sub@subfig:svk_3D_normal_comparison_crit_homo_stress_
-11_vs_n_voxels' on page vii undefined on input line 33.
-
-
-LaTeX Warning: Hyper reference `subfig:svk_3D_normal_comparison_crit_cpu_time_v
-s_n_voxels' on page vii undefined on input line 33.
-
-
-LaTeX Warning: Reference `sub@subfig:svk_3D_normal_comparison_crit_cpu_time_vs_
-n_voxels' on page vii undefined on input line 33.
+LaTeX Warning: Reference `sub@subfig:von_mises_res_mat_large_strain_2D_shear_pa
+lstic_strain_11' on page ix undefined on input line 41.
 
 )
 \tf@lof=\write7
 \openout7 = `main.lof'.
 
- [7] [8] (main.lot)
+ [9] [10
+
+] (main.lot)
 \tf@lot=\write8
 \openout8 = `main.lot'.
 
- [9
-
-] [10]
+ [11] [12]
 \openout2 = `introduction.aux'.
 
  (introduction.tex
@@ -1908,27 +1723,27 @@ No file numerical_validation.tex.
 ]
 Chapter 4.
 [25]
-<figures/2d_microstructure.png, id=1025, 1027.84pt x 1027.84pt>
+<figures/2d_microstructure.png, id=1207, 1027.84pt x 1027.84pt>
 File: figures/2d_microstructure.png Graphic file (type png)
 <use figures/2d_microstructure.png>
 Package pdftex.def Info: figures/2d_microstructure.png  used on input line 64.
 (pdftex.def)             Requested size: 161.9989pt x 161.99544pt.
-<figures/3d_microstructure.png, id=1026, 1027.84pt x 1027.84pt>
+<figures/3d_microstructure.png, id=1208, 1027.84pt x 1027.84pt>
 File: figures/3d_microstructure.png Graphic file (type png)
 <use figures/3d_microstructure.png>
 Package pdftex.def Info: figures/3d_microstructure.png  used on input line 70.
 (pdftex.def)             Requested size: 161.9989pt x 161.99544pt.
  [26 <./figures/2d_microstructure.png (PNG copy)> <./figures/3d_microstructure.
 png (PNG copy)>] [27] [28]
-<figures/linear_2D_normal_comparison_crit_homo_stress_11_vs_n_voxels.pdf, id=11
-12, 301.89389pt x 306.27449pt>
+<figures/linear_2D_normal_comparison_crit_homo_stress_11_vs_n_voxels.pdf, id=12
+93, 301.89389pt x 306.27449pt>
 File: figures/linear_2D_normal_comparison_crit_homo_stress_11_vs_n_voxels.pdf G
 raphic file (type pdf)
 <use figures/linear_2D_normal_comparison_crit_homo_stress_11_vs_n_voxels.pdf>
 Package pdftex.def Info: figures/linear_2D_normal_comparison_crit_homo_stress_1
 1_vs_n_voxels.pdf  used on input line 229.
 (pdftex.def)             Requested size: 183.59802pt x 186.26167pt.
-<figures/linear_2D_normal_comparison_crit_cpu_time_vs_n_voxels.pdf, id=1113, 28
+<figures/linear_2D_normal_comparison_crit_cpu_time_vs_n_voxels.pdf, id=1294, 28
 3.10081pt x 306.27449pt>
 File: figures/linear_2D_normal_comparison_crit_cpu_time_vs_n_voxels.pdf Graphic
  file (type pdf)
@@ -1937,15 +1752,15 @@ Package pdftex.def Info: figures/linear_2D_normal_comparison_crit_cpu_time_vs_n
 _voxels.pdf  used on input line 235.
 (pdftex.def)             Requested size: 172.79846pt x 186.94398pt.
  [29]
-<figures/linear_3D_normal_comparison_crit_homo_stress_11_vs_n_voxels.pdf, id=11
-32, 307.01303pt x 306.27449pt>
+<figures/linear_3D_normal_comparison_crit_homo_stress_11_vs_n_voxels.pdf, id=13
+13, 307.01303pt x 306.27449pt>
 File: figures/linear_3D_normal_comparison_crit_homo_stress_11_vs_n_voxels.pdf G
 raphic file (type pdf)
 <use figures/linear_3D_normal_comparison_crit_homo_stress_11_vs_n_voxels.pdf>
 Package pdftex.def Info: figures/linear_3D_normal_comparison_crit_homo_stress_1
 1_vs_n_voxels.pdf  used on input line 259.
 (pdftex.def)             Requested size: 187.20154pt x 186.75705pt.
-<figures/linear_3D_normal_comparison_crit_cpu_time_vs_n_voxels.pdf, id=1133, 28
+<figures/linear_3D_normal_comparison_crit_cpu_time_vs_n_voxels.pdf, id=1314, 28
 3.10081pt x 306.27449pt>
 File: figures/linear_3D_normal_comparison_crit_cpu_time_vs_n_voxels.pdf Graphic
  file (type pdf)
@@ -1964,7 +1779,7 @@ a single page
 LaTeX Warning: Reference `fig:shear_2D_normal' on page 31 undefined on input li
 ne 296.
 
-<figures/linear_2D_normal_homo_stress_11_vs_n_voxels.pdf, id=1191, 279.2974pt x
+<figures/linear_2D_normal_homo_stress_11_vs_n_voxels.pdf, id=1372, 279.2974pt x
  306.27449pt>
 File: figures/linear_2D_normal_homo_stress_11_vs_n_voxels.pdf Graphic file (typ
 e pdf)
@@ -1972,7 +1787,7 @@ e pdf)
 Package pdftex.def Info: figures/linear_2D_normal_homo_stress_11_vs_n_voxels.pd
 f  used on input line 308.
 (pdftex.def)             Requested size: 176.40198pt x 193.44931pt.
-<figures/linear_2D_normal_cpu_time_vs_n_voxels.pdf, id=1192, 280.86458pt x 313.
+<figures/linear_2D_normal_cpu_time_vs_n_voxels.pdf, id=1373, 280.86458pt x 313.
 36607pt>
 File: figures/linear_2D_normal_cpu_time_vs_n_voxels.pdf Graphic file (type pdf)
 
@@ -1980,13 +1795,13 @@ File: figures/linear_2D_normal_cpu_time_vs_n_voxels.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/linear_2D_normal_cpu_time_vs_n_voxels.pdf  use
 d on input line 314.
 (pdftex.def)             Requested size: 176.40198pt x 196.81439pt.
-<figures/linear_2D_normal_strain_11.png, id=1193, 1083.04625pt x 572.1375pt>
+<figures/linear_2D_normal_strain_11.png, id=1374, 1083.04625pt x 572.1375pt>
 File: figures/linear_2D_normal_strain_11.png Graphic file (type png)
 <use figures/linear_2D_normal_strain_11.png>
 Package pdftex.def Info: figures/linear_2D_normal_strain_11.png  used on input 
 line 320.
 (pdftex.def)             Requested size: 360.0pt x 190.17657pt.
-<figures/linear_2D_shear_homo_stress_12_vs_n_voxels.pdf, id=1200, 279.7388pt x 
+<figures/linear_2D_shear_homo_stress_12_vs_n_voxels.pdf, id=1381, 279.7388pt x 
 306.27449pt>
 File: figures/linear_2D_shear_homo_stress_12_vs_n_voxels.pdf Graphic file (type
  pdf)
@@ -1994,14 +1809,14 @@ File: figures/linear_2D_shear_homo_stress_12_vs_n_voxels.pdf Graphic file (type
 Package pdftex.def Info: figures/linear_2D_shear_homo_stress_12_vs_n_voxels.pdf
   used on input line 339.
 (pdftex.def)             Requested size: 176.40198pt x 193.1362pt.
-<figures/linear_2D_shear_cpu_time_vs_n_voxels.pdf, id=1201, 280.86458pt x 313.3
+<figures/linear_2D_shear_cpu_time_vs_n_voxels.pdf, id=1382, 280.86458pt x 313.3
 6607pt>
 File: figures/linear_2D_shear_cpu_time_vs_n_voxels.pdf Graphic file (type pdf)
 <use figures/linear_2D_shear_cpu_time_vs_n_voxels.pdf>
 Package pdftex.def Info: figures/linear_2D_shear_cpu_time_vs_n_voxels.pdf  used
  on input line 345.
 (pdftex.def)             Requested size: 176.40198pt x 196.81439pt.
-<figures/linear_2D_shear_strain_12.png, id=1202, 1083.04625pt x 572.1375pt>
+<figures/linear_2D_shear_strain_12.png, id=1383, 1083.04625pt x 572.1375pt>
 File: figures/linear_2D_shear_strain_12.png Graphic file (type png)
 <use figures/linear_2D_shear_strain_12.png>
 Package pdftex.def Info: figures/linear_2D_shear_strain_12.png  used on input l
@@ -2014,7 +1829,7 @@ pdfTeX warning: pdflatex (file ./figures/linear_3D_normal_comparison_crit_cpu_t
 ime_vs_n_voxels.pdf): PDF inclusion: multiple pdfs with page group included in 
 a single page
 >]
-<figures/linear_3D_normal_homo_stress_11_vs_n_voxels.pdf, id=1255, 271.24721pt 
+<figures/linear_3D_normal_homo_stress_11_vs_n_voxels.pdf, id=1437, 271.24721pt 
 x 306.27449pt>
 File: figures/linear_3D_normal_homo_stress_11_vs_n_voxels.pdf Graphic file (typ
 e pdf)
@@ -2022,7 +1837,7 @@ e pdf)
 Package pdftex.def Info: figures/linear_3D_normal_homo_stress_11_vs_n_voxels.pd
 f  used on input line 379.
 (pdftex.def)             Requested size: 176.40198pt x 199.1882pt.
-<figures/linear_3D_normal_cpu_time_vs_n_voxels.pdf, id=1256, 272.81439pt x 313.
+<figures/linear_3D_normal_cpu_time_vs_n_voxels.pdf, id=1438, 272.81439pt x 313.
 36607pt>
 File: figures/linear_3D_normal_cpu_time_vs_n_voxels.pdf Graphic file (type pdf)
 
@@ -2030,13 +1845,13 @@ File: figures/linear_3D_normal_cpu_time_vs_n_voxels.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/linear_3D_normal_cpu_time_vs_n_voxels.pdf  use
 d on input line 385.
 (pdftex.def)             Requested size: 176.40198pt x 202.61923pt.
-<figures/linear_3D_normal_strain_11.png, id=1257, 1083.04625pt x 572.1375pt>
+<figures/linear_3D_normal_strain_11.png, id=1439, 1083.04625pt x 572.1375pt>
 File: figures/linear_3D_normal_strain_11.png Graphic file (type png)
 <use figures/linear_3D_normal_strain_11.png>
 Package pdftex.def Info: figures/linear_3D_normal_strain_11.png  used on input 
 line 391.
 (pdftex.def)             Requested size: 360.0pt x 190.17657pt.
-<figures/linear_3D_shear_homo_stress_12_vs_n_voxels.pdf, id=1264, 271.68861pt x
+<figures/linear_3D_shear_homo_stress_12_vs_n_voxels.pdf, id=1446, 271.68861pt x
  306.27449pt>
 File: figures/linear_3D_shear_homo_stress_12_vs_n_voxels.pdf Graphic file (type
  pdf)
@@ -2044,14 +1859,14 @@ File: figures/linear_3D_shear_homo_stress_12_vs_n_voxels.pdf Graphic file (type
 Package pdftex.def Info: figures/linear_3D_shear_homo_stress_12_vs_n_voxels.pdf
   used on input line 407.
 (pdftex.def)             Requested size: 176.40198pt x 198.8564pt.
-<figures/linear_3D_shear_cpu_time_vs_n_voxels.pdf, id=1265, 272.81439pt x 313.3
+<figures/linear_3D_shear_cpu_time_vs_n_voxels.pdf, id=1447, 272.81439pt x 313.3
 6607pt>
 File: figures/linear_3D_shear_cpu_time_vs_n_voxels.pdf Graphic file (type pdf)
 <use figures/linear_3D_shear_cpu_time_vs_n_voxels.pdf>
 Package pdftex.def Info: figures/linear_3D_shear_cpu_time_vs_n_voxels.pdf  used
  on input line 413.
 (pdftex.def)             Requested size: 176.40198pt x 202.61923pt.
-<figures/linear_3D_shear_strain_12.png, id=1266, 1083.04625pt x 572.1375pt>
+<figures/linear_3D_shear_strain_12.png, id=1448, 1083.04625pt x 572.1375pt>
 File: figures/linear_3D_shear_strain_12.png Graphic file (type png)
 <use figures/linear_3D_shear_strain_12.png>
 Package pdftex.def Info: figures/linear_3D_shear_strain_12.png  used on input l
@@ -2081,115 +1896,112 @@ df
 pdfTeX warning: pdflatex (file ./figures/linear_3D_shear_cpu_time_vs_n_voxels.p
 df): PDF inclusion: multiple pdfs with page group included in a single page
 > <./figures/linear_3D_shear_strain_12.png>]
-
-LaTeX Warning: Reference `' on page 37 undefined on input line 474.
-
-<figures/linear_2D_normal_stress_avg_vs_stiff_ratio.pdf, id=1427, 271.24721pt x
+<figures/linear_2D_normal_stress_avg_vs_stiff_ratio.pdf, id=1612, 271.24721pt x
  306.27449pt>
 File: figures/linear_2D_normal_stress_avg_vs_stiff_ratio.pdf Graphic file (type
  pdf)
 <use figures/linear_2D_normal_stress_avg_vs_stiff_ratio.pdf>
 Package pdftex.def Info: figures/linear_2D_normal_stress_avg_vs_stiff_ratio.pdf
-  used on input line 481.
+  used on input line 486.
 (pdftex.def)             Requested size: 176.40198pt x 199.1882pt.
-<figures/linear_2D_normal_stress_avg_cpu_time_vs_n_voxels.pdf, id=1428, 272.814
+<figures/linear_2D_normal_stress_avg_cpu_time_vs_n_voxels.pdf, id=1613, 272.814
 39pt x 306.27449pt>
 File: figures/linear_2D_normal_stress_avg_cpu_time_vs_n_voxels.pdf Graphic file
  (type pdf)
 <use figures/linear_2D_normal_stress_avg_cpu_time_vs_n_voxels.pdf>
 Package pdftex.def Info: figures/linear_2D_normal_stress_avg_cpu_time_vs_n_voxe
-ls.pdf  used on input line 487.
+ls.pdf  used on input line 492.
 (pdftex.def)             Requested size: 176.40198pt x 198.03389pt.
-<figures/linear_2D_ratio_-4_normal_strain_11.png, id=1433, 1083.04625pt x 572.1
+<figures/linear_2D_ratio_-4_normal_strain_11.png, id=1618, 1083.04625pt x 572.1
 375pt>
 File: figures/linear_2D_ratio_-4_normal_strain_11.png Graphic file (type png)
 <use figures/linear_2D_ratio_-4_normal_strain_11.png>
 Package pdftex.def Info: figures/linear_2D_ratio_-4_normal_strain_11.png  used 
-on input line 503.
+on input line 508.
 (pdftex.def)             Requested size: 360.0pt x 190.17657pt.
-<figures/linear_2D_ratio_4_normal_strain_11.png, id=1434, 1083.04625pt x 572.13
+<figures/linear_2D_ratio_4_normal_strain_11.png, id=1619, 1083.04625pt x 572.13
 75pt>
 File: figures/linear_2D_ratio_4_normal_strain_11.png Graphic file (type png)
 <use figures/linear_2D_ratio_4_normal_strain_11.png>
 Package pdftex.def Info: figures/linear_2D_ratio_4_normal_strain_11.png  used o
-n input line 509.
+n input line 514.
 (pdftex.def)             Requested size: 360.0pt x 190.17657pt.
-<figures/linear_2D_ratio_-4_normal_stress_11.png, id=1439, 812.28468pt x 429.10
-312pt>
+<figures/linear_2D_ratio_-4_normal_stress_11.png, id=1624, 1083.04625pt x 572.1
+375pt>
 File: figures/linear_2D_ratio_-4_normal_stress_11.png Graphic file (type png)
 <use figures/linear_2D_ratio_-4_normal_stress_11.png>
 Package pdftex.def Info: figures/linear_2D_ratio_-4_normal_stress_11.png  used 
-on input line 526.
-(pdftex.def)             Requested size: 360.0pt x 190.1744pt.
-<figures/linear_2D_ratio_4_normal_stress_11.png, id=1440, 1083.04625pt x 572.13
+on input line 531.
+(pdftex.def)             Requested size: 360.0pt x 190.17657pt.
+<figures/linear_2D_ratio_4_normal_stress_11.png, id=1625, 1083.04625pt x 572.13
 75pt>
 File: figures/linear_2D_ratio_4_normal_stress_11.png Graphic file (type png)
 <use figures/linear_2D_ratio_4_normal_stress_11.png>
 Package pdftex.def Info: figures/linear_2D_ratio_4_normal_stress_11.png  used o
-n input line 532.
+n input line 537.
 (pdftex.def)             Requested size: 360.0pt x 190.17657pt.
-<figures/linear_2D_ratio_-4_normal_strain_11_particle_1.pdf, id=1445, 301.14874
+<figures/linear_2D_ratio_-4_normal_strain_11_particle_1.pdf, id=1630, 301.14874
 pt x 299.18289pt>
 File: figures/linear_2D_ratio_-4_normal_strain_11_particle_1.pdf Graphic file (
 type pdf)
 <use figures/linear_2D_ratio_-4_normal_strain_11_particle_1.pdf>
 Package pdftex.def Info: figures/linear_2D_ratio_-4_normal_strain_11_particle_1
-.pdf  used on input line 549.
+.pdf  used on input line 554.
 (pdftex.def)             Requested size: 176.40198pt x 175.25182pt.
-<figures/linear_2D_ratio_-4_normal_strain_11_particle_2.pdf, id=1446, 298.22075
+<figures/linear_2D_ratio_-4_normal_strain_11_particle_2.pdf, id=1631, 298.22075
 pt x 299.18289pt>
 File: figures/linear_2D_ratio_-4_normal_strain_11_particle_2.pdf Graphic file (
 type pdf)
 <use figures/linear_2D_ratio_-4_normal_strain_11_particle_2.pdf>
 Package pdftex.def Info: figures/linear_2D_ratio_-4_normal_strain_11_particle_2
-.pdf  used on input line 555.
+.pdf  used on input line 560.
 (pdftex.def)             Requested size: 176.40198pt x 176.96832pt.
-[37
+ [37
 
 ]
-<figures/linear_3D_normal_stress_avg_vs_stiff_ratio.pdf, id=1462, 271.24721pt x
+<figures/linear_3D_normal_stress_avg_vs_stiff_ratio.pdf, id=1644, 271.24721pt x
  306.27449pt>
 File: figures/linear_3D_normal_stress_avg_vs_stiff_ratio.pdf Graphic file (type
  pdf)
 <use figures/linear_3D_normal_stress_avg_vs_stiff_ratio.pdf>
 Package pdftex.def Info: figures/linear_3D_normal_stress_avg_vs_stiff_ratio.pdf
-  used on input line 584.
+  used on input line 585.
 (pdftex.def)             Requested size: 176.40198pt x 199.1882pt.
-<figures/linear_3D_normal_stress_avg_cpu_time_vs_n_voxels.pdf, id=1463, 272.814
+<figures/linear_3D_normal_stress_avg_cpu_time_vs_n_voxels.pdf, id=1645, 272.814
 39pt x 306.27449pt>
 File: figures/linear_3D_normal_stress_avg_cpu_time_vs_n_voxels.pdf Graphic file
  (type pdf)
 <use figures/linear_3D_normal_stress_avg_cpu_time_vs_n_voxels.pdf>
 Package pdftex.def Info: figures/linear_3D_normal_stress_avg_cpu_time_vs_n_voxe
-ls.pdf  used on input line 590.
+ls.pdf  used on input line 591.
 (pdftex.def)             Requested size: 176.40198pt x 198.03389pt.
-<figures/linear_3D_ratio_-4_normal_strain_11.png, id=1468, 1083.04625pt x 572.1
+<figures/linear_3D_ratio_-4_normal_strain_11.png, id=1650, 1083.04625pt x 572.1
 375pt>
 File: figures/linear_3D_ratio_-4_normal_strain_11.png Graphic file (type png)
 <use figures/linear_3D_ratio_-4_normal_strain_11.png>
 Package pdftex.def Info: figures/linear_3D_ratio_-4_normal_strain_11.png  used 
-on input line 606.
+on input line 607.
 (pdftex.def)             Requested size: 360.0pt x 190.17657pt.
-<figures/linear_3D_ratio_1_5_normal_strain_11.png, id=1469, 1083.04625pt x 572.
+<figures/linear_3D_ratio_1_5_normal_strain_11.png, id=1651, 1083.04625pt x 572.
 1375pt>
 File: figures/linear_3D_ratio_1_5_normal_strain_11.png Graphic file (type png)
 <use figures/linear_3D_ratio_1_5_normal_strain_11.png>
 Package pdftex.def Info: figures/linear_3D_ratio_1_5_normal_strain_11.png  used
- on input line 612.
+ on input line 613.
 (pdftex.def)             Requested size: 360.0pt x 190.17657pt.
-<figures/linear_3D_ratio_-4_normal_stress_11.png, id=1474, 1083.04625pt x 572.1
+<figures/linear_3D_ratio_-4_normal_stress_11.png, id=1656, 1083.04625pt x 572.1
 375pt>
 File: figures/linear_3D_ratio_-4_normal_stress_11.png Graphic file (type png)
 <use figures/linear_3D_ratio_-4_normal_stress_11.png>
 Package pdftex.def Info: figures/linear_3D_ratio_-4_normal_stress_11.png  used 
-on input line 629.
+on input line 630.
 (pdftex.def)             Requested size: 360.0pt x 190.17657pt.
-<figures/linear_3D_ratio_1_5_normal_stress_11.png, id=1475, 1083.04625pt x 572.
+<figures/linear_3D_ratio_1_5_normal_stress_11.png, id=1657, 1083.04625pt x 572.
 1375pt>
 File: figures/linear_3D_ratio_1_5_normal_stress_11.png Graphic file (type png)
 <use figures/linear_3D_ratio_1_5_normal_stress_11.png>
 Package pdftex.def Info: figures/linear_3D_ratio_1_5_normal_stress_11.png  used
- on input line 635.
+ on input line 636.
 (pdftex.def)             Requested size: 360.0pt x 190.17657pt.
  [38 <./figures/linear_2D_normal_stress_avg_vs_stiff_ratio.pdf> <./figures/line
 ar_2D_normal_stress_avg_cpu_time_vs_n_voxels.pdf
@@ -2219,11 +2031,7 @@ gle page
 >] [42 <./figures/linear_3D_ratio_-4_normal_strain_11.png> <./figures/linear_3D
 _ratio_1_5_normal_strain_11.png>] [43 <./figures/linear_3D_ratio_-4_normal_stre
 ss_11.png> <./figures/linear_3D_ratio_1_5_normal_stress_11.png>]
-
-LaTeX Warning: Reference `fig:henkcy_2D_normal' on page 44 undefined on input l
-ine 673.
-
-<figures/hencky_2D_normal_homo_stress_11_vs_n_voxels.pdf, id=1608, 265.26982pt 
+<figures/hencky_2D_normal_homo_stress_11_vs_n_voxels.pdf, id=1790, 265.26982pt 
 x 290.08473pt>
 File: figures/hencky_2D_normal_homo_stress_11_vs_n_voxels.pdf Graphic file (typ
 e pdf)
@@ -2231,7 +2039,7 @@ e pdf)
 Package pdftex.def Info: figures/hencky_2D_normal_homo_stress_11_vs_n_voxels.pd
 f  used on input line 684.
 (pdftex.def)             Requested size: 176.40198pt x 192.90392pt.
-<figures/hencky_2D_normal_cpu_time_vs_n_voxels.pdf, id=1609, 280.86572pt x 306.
+<figures/hencky_2D_normal_cpu_time_vs_n_voxels.pdf, id=1791, 280.86572pt x 306.
 27313pt>
 File: figures/hencky_2D_normal_cpu_time_vs_n_voxels.pdf Graphic file (type pdf)
 
@@ -2239,13 +2047,13 @@ File: figures/hencky_2D_normal_cpu_time_vs_n_voxels.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/hencky_2D_normal_cpu_time_vs_n_voxels.pdf  use
 d on input line 690.
 (pdftex.def)             Requested size: 176.40198pt x 192.35957pt.
-<figures/hencky_2D_normal_strain_11.png, id=1610, 1083.04625pt x 572.1375pt>
+<figures/hencky_2D_normal_strain_11.png, id=1792, 1083.04625pt x 572.1375pt>
 File: figures/hencky_2D_normal_strain_11.png Graphic file (type png)
 <use figures/hencky_2D_normal_strain_11.png>
 Package pdftex.def Info: figures/hencky_2D_normal_strain_11.png  used on input 
 line 696.
 (pdftex.def)             Requested size: 360.0pt x 190.17657pt.
-<figures/hencky_2D_shear_homo_stress_12_vs_n_voxels.pdf, id=1617, 279.7388pt x 
+<figures/hencky_2D_shear_homo_stress_12_vs_n_voxels.pdf, id=1799, 279.7388pt x 
 306.27449pt>
 File: figures/hencky_2D_shear_homo_stress_12_vs_n_voxels.pdf Graphic file (type
  pdf)
@@ -2253,20 +2061,20 @@ File: figures/hencky_2D_shear_homo_stress_12_vs_n_voxels.pdf Graphic file (type
 Package pdftex.def Info: figures/hencky_2D_shear_homo_stress_12_vs_n_voxels.pdf
   used on input line 713.
 (pdftex.def)             Requested size: 176.40198pt x 193.1362pt.
-<figures/hencky_2D_shear_cpu_time_vs_n_voxels.pdf, id=1618, 280.86458pt x 306.2
+<figures/hencky_2D_shear_cpu_time_vs_n_voxels.pdf, id=1800, 280.86458pt x 306.2
 7449pt>
 File: figures/hencky_2D_shear_cpu_time_vs_n_voxels.pdf Graphic file (type pdf)
 <use figures/hencky_2D_shear_cpu_time_vs_n_voxels.pdf>
 Package pdftex.def Info: figures/hencky_2D_shear_cpu_time_vs_n_voxels.pdf  used
  on input line 719.
 (pdftex.def)             Requested size: 176.40198pt x 192.36041pt.
-<figures/hencky_2D_shear_strain_12.png, id=1619, 1083.04625pt x 572.1375pt>
+<figures/hencky_2D_shear_strain_12.png, id=1801, 1083.04625pt x 572.1375pt>
 File: figures/hencky_2D_shear_strain_12.png Graphic file (type png)
 <use figures/hencky_2D_shear_strain_12.png>
 Package pdftex.def Info: figures/hencky_2D_shear_strain_12.png  used on input l
 ine 725.
 (pdftex.def)             Requested size: 360.0pt x 190.17657pt.
-[44
+ [44
 
 ] [45 <./figures/hencky_2D_normal_homo_stress_11_vs_n_voxels.pdf> <./figures/he
 ncky_2D_normal_cpu_time_vs_n_voxels.pdf
@@ -2280,11 +2088,7 @@ df
 pdfTeX warning: pdflatex (file ./figures/hencky_2D_shear_cpu_time_vs_n_voxels.p
 df): PDF inclusion: multiple pdfs with page group included in a single page
 > <./figures/hencky_2D_shear_strain_12.png>]
-
-LaTeX Warning: Reference `fig:shear_2D_normal' on page 47 undefined on input li
-ne 743.
-
-<figures/svk_2D_normal_homo_stress_11_vs_n_voxels.pdf, id=2026, 279.2974pt x 30
+<figures/svk_2D_normal_homo_stress_11_vs_n_voxels.pdf, id=2204, 279.2974pt x 30
 6.27449pt>
 File: figures/svk_2D_normal_homo_stress_11_vs_n_voxels.pdf Graphic file (type p
 df)
@@ -2292,607 +2096,496 @@ df)
 Package pdftex.def Info: figures/svk_2D_normal_homo_stress_11_vs_n_voxels.pdf  
 used on input line 755.
 (pdftex.def)             Requested size: 176.40198pt x 193.44931pt.
-<figures/svk_2D_normal_cpu_time_vs_n_voxels.pdf, id=2027, 274.9066pt x 306.2744
+<figures/svk_2D_normal_cpu_time_vs_n_voxels.pdf, id=2205, 274.9066pt x 306.2744
 9pt>
 File: figures/svk_2D_normal_cpu_time_vs_n_voxels.pdf Graphic file (type pdf)
 <use figures/svk_2D_normal_cpu_time_vs_n_voxels.pdf>
 Package pdftex.def Info: figures/svk_2D_normal_cpu_time_vs_n_voxels.pdf  used o
 n input line 761.
 (pdftex.def)             Requested size: 176.40198pt x 196.5384pt.
-<figures/svk_2D_normal_strain_11.png, id=2028, 1083.04625pt x 572.1375pt>
+<figures/svk_2D_normal_strain_11.png, id=2206, 1083.04625pt x 572.1375pt>
 File: figures/svk_2D_normal_strain_11.png Graphic file (type png)
 <use figures/svk_2D_normal_strain_11.png>
 Package pdftex.def Info: figures/svk_2D_normal_strain_11.png  used on input lin
 e 767.
 (pdftex.def)             Requested size: 360.0pt x 190.17657pt.
-
-LaTeX Warning: Hyper reference `subfig:svk_2D_normal_comparison_crit_homo_stres
-s_11_vs_n_voxels' on page 47 undefined on input line 776.
-
-
-LaTeX Warning: Reference `sub@subfig:svk_2D_normal_comparison_crit_homo_stress_
-11_vs_n_voxels' on page 47 undefined on input line 776.
-
-
-LaTeX Warning: Hyper reference `subfig:svk_2D_normal_comparison_crit_cpu_time_v
-s_n_voxels' on page 47 undefined on input line 776.
-
-
-LaTeX Warning: Reference `sub@subfig:svk_2D_normal_comparison_crit_cpu_time_vs_
-n_voxels' on page 47 undefined on input line 776.
-
-
-LaTeX Warning: Hyper reference `subfig:svk_2D_normal_comparison_crit_homo_stres
-s_11_vs_n_voxels' on page 47 undefined on input line 776.
-
-
-LaTeX Warning: Reference `sub@subfig:svk_2D_normal_comparison_crit_homo_stress_
-11_vs_n_voxels' on page 47 undefined on input line 776.
-
-
-LaTeX Warning: Hyper reference `subfig:svk_2D_normal_comparison_crit_cpu_time_v
-s_n_voxels' on page 47 undefined on input line 776.
-
-
-LaTeX Warning: Reference `sub@subfig:svk_2D_normal_comparison_crit_cpu_time_vs_
-n_voxels' on page 47 undefined on input line 776.
-
-
-LaTeX Warning: Reference `fig:shear_2D_normal' on page 47 undefined on input li
-ne 784.
-
-<figures/hencky_2D_normal_material_response.pdf, id=2037, 269.78082pt x 299.182
-89pt>
-File: figures/hencky_2D_normal_material_response.pdf Graphic file (type pdf)
-<use figures/hencky_2D_normal_material_response.pdf>
-Package pdftex.def Info: figures/hencky_2D_normal_material_response.pdf  used o
-n input line 798.
-(pdftex.def)             Requested size: 176.40198pt x 195.63525pt.
-<figures/hencky_2D_normal_material_response_error.pdf, id=2038, 278.56479pt x 2
-99.18289pt>
-File: figures/hencky_2D_normal_material_response_error.pdf Graphic file (type p
-df)
-<use figures/hencky_2D_normal_material_response_error.pdf>
-Package pdftex.def Info: figures/hencky_2D_normal_material_response_error.pdf  
-used on input line 804.
-(pdftex.def)             Requested size: 176.40198pt x 189.45859pt.
-File: figures/hencky_2D_normal_strain_11.png Graphic file (type png)
-<use figures/hencky_2D_normal_strain_11.png>
-Package pdftex.def Info: figures/hencky_2D_normal_strain_11.png  used on input 
-line 810.
-(pdftex.def)             Requested size: 360.0pt x 190.17657pt.
-
-LaTeX Warning: Hyper reference `subfig:hencky_2D_shear_comparison_crit_homo_str
-ess_12_vs_n_voxels' on page 47 undefined on input line 816.
-
-
-LaTeX Warning: Reference `sub@subfig:hencky_2D_shear_comparison_crit_homo_stres
-s_12_vs_n_voxels' on page 47 undefined on input line 816.
-
-
-LaTeX Warning: Hyper reference `subfig:hencky_2D_shear_comparison_crit_cpu_time
-_vs_n_voxels' on page 47 undefined on input line 816.
-
-
-LaTeX Warning: Reference `sub@subfig:hencky_2D_shear_comparison_crit_cpu_time_v
-s_n_voxels' on page 47 undefined on input line 816.
-
-
-LaTeX Warning: Hyper reference `subfig:hencky_2D_shear_comparison_crit_homo_str
-ess_12_vs_n_voxels' on page 47 undefined on input line 816.
-
-
-LaTeX Warning: Reference `sub@subfig:hencky_2D_shear_comparison_crit_homo_stres
-s_12_vs_n_voxels' on page 47 undefined on input line 816.
-
-
-LaTeX Warning: Hyper reference `subfig:hencky_2D_shear_comparison_crit_cpu_time
-_vs_n_voxels' on page 47 undefined on input line 816.
-
-
-LaTeX Warning: Reference `sub@subfig:hencky_2D_shear_comparison_crit_cpu_time_v
-s_n_voxels' on page 47 undefined on input line 816.
-
-<figures/hencky_2D_shear_material_response.pdf, id=2039, 270.22223pt x 299.2765
-7pt>
-File: figures/hencky_2D_shear_material_response.pdf Graphic file (type pdf)
-<use figures/hencky_2D_shear_material_response.pdf>
-Package pdftex.def Info: figures/hencky_2D_shear_material_response.pdf  used on
- input line 824.
-(pdftex.def)             Requested size: 176.40198pt x 195.3677pt.
-<figures/hencky_2D_shear_material_response_error.pdf, id=2040, 284.42078pt x 29
-9.27657pt>
-File: figures/hencky_2D_shear_material_response_error.pdf Graphic file (type pd
-f)
-<use figures/hencky_2D_shear_material_response_error.pdf>
-Package pdftex.def Info: figures/hencky_2D_shear_material_response_error.pdf  u
-sed on input line 830.
-(pdftex.def)             Requested size: 176.40198pt x 185.62262pt.
-File: figures/hencky_2D_shear_strain_12.png Graphic file (type png)
-<use figures/hencky_2D_shear_strain_12.png>
-Package pdftex.def Info: figures/hencky_2D_shear_strain_12.png  used on input l
-ine 836.
-(pdftex.def)             Requested size: 360.0pt x 190.17657pt.
-
-LaTeX Warning: Hyper reference `subfig:hencky_2D_shear_comparison_crit_homo_str
-ess_12_vs_n_voxels' on page 47 undefined on input line 842.
-
-
-LaTeX Warning: Reference `sub@subfig:hencky_2D_shear_comparison_crit_homo_stres
-s_12_vs_n_voxels' on page 47 undefined on input line 842.
-
-
-LaTeX Warning: Hyper reference `subfig:hencky_2D_shear_comparison_crit_cpu_time
-_vs_n_voxels' on page 47 undefined on input line 842.
-
-
-LaTeX Warning: Reference `sub@subfig:hencky_2D_shear_comparison_crit_cpu_time_v
-s_n_voxels' on page 47 undefined on input line 842.
-
-
-LaTeX Warning: Hyper reference `subfig:hencky_2D_shear_comparison_crit_homo_str
-ess_12_vs_n_voxels' on page 47 undefined on input line 842.
-
-
-LaTeX Warning: Reference `sub@subfig:hencky_2D_shear_comparison_crit_homo_stres
-s_12_vs_n_voxels' on page 47 undefined on input line 842.
-
-
-LaTeX Warning: Hyper reference `subfig:hencky_2D_shear_comparison_crit_cpu_time
-_vs_n_voxels' on page 47 undefined on input line 842.
-
-
-LaTeX Warning: Reference `sub@subfig:hencky_2D_shear_comparison_crit_cpu_time_v
-s_n_voxels' on page 47 undefined on input line 842.
-
-[47
+ [47
 
 ] [48 <./figures/svk_2D_normal_homo_stress_11_vs_n_voxels.pdf> <./figures/svk_2
 D_normal_cpu_time_vs_n_voxels.pdf
 
 pdfTeX warning: pdflatex (file ./figures/svk_2D_normal_cpu_time_vs_n_voxels.pdf
 ): PDF inclusion: multiple pdfs with page group included in a single page
-> <./figures/svk_2D_normal_strain_11.png>] [49 <./figures/hencky_2D_normal_mate
-rial_response.pdf> <./figures/hencky_2D_normal_material_response_error.pdf
+> <./figures/svk_2D_normal_strain_11.png>]
+<figures/hencky_2D_normal_material_response.pdf, id=2256, 269.78082pt x 299.182
+89pt>
+File: figures/hencky_2D_normal_material_response.pdf Graphic file (type pdf)
+<use figures/hencky_2D_normal_material_response.pdf>
+Package pdftex.def Info: figures/hencky_2D_normal_material_response.pdf  used o
+n input line 824.
+(pdftex.def)             Requested size: 176.40198pt x 195.63525pt.
+<figures/hencky_2D_normal_material_response_error.pdf, id=2257, 278.56479pt x 2
+99.18289pt>
+File: figures/hencky_2D_normal_material_response_error.pdf Graphic file (type p
+df)
+<use figures/hencky_2D_normal_material_response_error.pdf>
+Package pdftex.def Info: figures/hencky_2D_normal_material_response_error.pdf  
+used on input line 830.
+(pdftex.def)             Requested size: 176.40198pt x 189.45859pt.
+File: figures/hencky_2D_normal_strain_11.png Graphic file (type png)
+<use figures/hencky_2D_normal_strain_11.png>
+Package pdftex.def Info: figures/hencky_2D_normal_strain_11.png  used on input 
+line 836.
+(pdftex.def)             Requested size: 360.0pt x 190.17657pt.
+<figures/hencky_2D_shear_material_response.pdf, id=2264, 270.22223pt x 299.2765
+7pt>
+File: figures/hencky_2D_shear_material_response.pdf Graphic file (type pdf)
+<use figures/hencky_2D_shear_material_response.pdf>
+Package pdftex.def Info: figures/hencky_2D_shear_material_response.pdf  used on
+ input line 851.
+(pdftex.def)             Requested size: 176.40198pt x 195.3677pt.
+<figures/hencky_2D_shear_material_response_error.pdf, id=2265, 284.42078pt x 29
+9.27657pt>
+File: figures/hencky_2D_shear_material_response_error.pdf Graphic file (type pd
+f)
+<use figures/hencky_2D_shear_material_response_error.pdf>
+Package pdftex.def Info: figures/hencky_2D_shear_material_response_error.pdf  u
+sed on input line 857.
+(pdftex.def)             Requested size: 176.40198pt x 185.62262pt.
+File: figures/hencky_2D_shear_strain_12.png Graphic file (type png)
+<use figures/hencky_2D_shear_strain_12.png>
+Package pdftex.def Info: figures/hencky_2D_shear_strain_12.png  used on input l
+ine 863.
+(pdftex.def)             Requested size: 360.0pt x 190.17657pt.
+ [49
+
+] [50] [51 <./figures/hencky_2D_normal_material_response.pdf> <./figures/hencky
+_2D_normal_material_response_error.pdf
 
 pdfTeX warning: pdflatex (file ./figures/hencky_2D_normal_material_response_err
 or.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 
->] [50 <./figures/hencky_2D_shear_material_response.pdf> <./figures/hencky_2D_s
+>] [52 <./figures/hencky_2D_shear_material_response.pdf> <./figures/hencky_2D_s
 hear_material_response_error.pdf
 
 pdfTeX warning: pdflatex (file ./figures/hencky_2D_shear_material_response_erro
 r.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-<figures/svk_2D_normal_material_response.pdf, id=2120, 275.6368pt x 299.18289pt
+<figures/svk_2D_normal_material_response.pdf, id=2339, 275.6368pt x 299.18289pt
 >
 File: figures/svk_2D_normal_material_response.pdf Graphic file (type pdf)
 <use figures/svk_2D_normal_material_response.pdf>
 Package pdftex.def Info: figures/svk_2D_normal_material_response.pdf  used on i
-nput line 864.
+nput line 971.
 (pdftex.def)             Requested size: 176.40198pt x 191.4764pt.
-<figures/svk_2D_normal_material_response_error.pdf, id=2121, 278.56479pt x 299.
+<figures/svk_2D_normal_material_response_error.pdf, id=2340, 278.56479pt x 299.
 18289pt>
 File: figures/svk_2D_normal_material_response_error.pdf Graphic file (type pdf)
 
 <use figures/svk_2D_normal_material_response_error.pdf>
 Package pdftex.def Info: figures/svk_2D_normal_material_response_error.pdf  use
-d on input line 870.
+d on input line 977.
 (pdftex.def)             Requested size: 176.40198pt x 189.45859pt.
-<figures/svk_mat_res_2D_normal_strain_11.png, id=2122, 1083.04625pt x 572.1375p
+<figures/svk_mat_res_2D_normal_strain_11.png, id=2341, 1083.04625pt x 572.1375p
 t>
 File: figures/svk_mat_res_2D_normal_strain_11.png Graphic file (type png)
 <use figures/svk_mat_res_2D_normal_strain_11.png>
 Package pdftex.def Info: figures/svk_mat_res_2D_normal_strain_11.png  used on i
-nput line 876.
+nput line 983.
 (pdftex.def)             Requested size: 360.0pt x 190.17657pt.
-
-
-LaTeX Warning: Hyper reference `subfig:svk_2D_shear_comparison_crit_homo_stress
-_12_vs_n_voxels' on page 51 undefined on input line 882.
-
-
-LaTeX Warning: Reference `sub@subfig:svk_2D_shear_comparison_crit_homo_stress_1
-2_vs_n_voxels' on page 51 undefined on input line 882.
-
-
-LaTeX Warning: Hyper reference `subfig:svk_2D_shear_comparison_crit_cpu_time_vs
-_n_voxels' on page 51 undefined on input line 882.
-
-
-LaTeX Warning: Reference `sub@subfig:svk_2D_shear_comparison_crit_cpu_time_vs_n
-_voxels' on page 51 undefined on input line 882.
-
-
-LaTeX Warning: Hyper reference `subfig:svk_2D_shear_comparison_crit_homo_stress
-_12_vs_n_voxels' on page 51 undefined on input line 882.
-
-
-LaTeX Warning: Reference `sub@subfig:svk_2D_shear_comparison_crit_homo_stress_1
-2_vs_n_voxels' on page 51 undefined on input line 882.
-
-
-LaTeX Warning: Hyper reference `subfig:svk_2D_shear_comparison_crit_cpu_time_vs
-_n_voxels' on page 51 undefined on input line 882.
-
-
-LaTeX Warning: Reference `sub@subfig:svk_2D_shear_comparison_crit_cpu_time_vs_n
-_voxels' on page 51 undefined on input line 882.
-
-<figures/svk_2D_shear_material_response.pdf, id=2123, 270.22223pt x 299.27657pt
+<figures/svk_2D_shear_material_response.pdf, id=2348, 270.22223pt x 299.27657pt
 >
 File: figures/svk_2D_shear_material_response.pdf Graphic file (type pdf)
 <use figures/svk_2D_shear_material_response.pdf>
 Package pdftex.def Info: figures/svk_2D_shear_material_response.pdf  used on in
-put line 890.
+put line 995.
 (pdftex.def)             Requested size: 176.40198pt x 195.3677pt.
-<figures/svk_2D_shear_material_response_error.pdf, id=2124, 278.56479pt x 299.2
+<figures/svk_2D_shear_material_response_error.pdf, id=2349, 278.56479pt x 299.2
 7657pt>
 File: figures/svk_2D_shear_material_response_error.pdf Graphic file (type pdf)
 <use figures/svk_2D_shear_material_response_error.pdf>
 Package pdftex.def Info: figures/svk_2D_shear_material_response_error.pdf  used
- on input line 896.
+ on input line 1001.
 (pdftex.def)             Requested size: 176.40198pt x 189.51791pt.
-<figures/svk_mat_res_2D_shear_strain_12.png, id=2125, 1051.93pt x 531.9875pt>
+<figures/svk_mat_res_2D_shear_strain_12.png, id=2350, 1051.93pt x 531.9875pt>
 File: figures/svk_mat_res_2D_shear_strain_12.png Graphic file (type png)
 <use figures/svk_mat_res_2D_shear_strain_12.png>
 Package pdftex.def Info: figures/svk_mat_res_2D_shear_strain_12.png  used on in
-put line 902.
+put line 1007.
 (pdftex.def)             Requested size: 360.0pt x 182.0585pt.
+ [53
 
-LaTeX Warning: Hyper reference `subfig:hencky_2D_shear_comparison_crit_homo_str
-ess_12_vs_n_voxels' on page 51 undefined on input line 908.
-
-
-LaTeX Warning: Reference `sub@subfig:hencky_2D_shear_comparison_crit_homo_stres
-s_12_vs_n_voxels' on page 51 undefined on input line 908.
-
-
-LaTeX Warning: Hyper reference `subfig:hencky_2D_shear_comparison_crit_cpu_time
-_vs_n_voxels' on page 51 undefined on input line 908.
-
-
-LaTeX Warning: Reference `sub@subfig:hencky_2D_shear_comparison_crit_cpu_time_v
-s_n_voxels' on page 51 undefined on input line 908.
-
-
-LaTeX Warning: Hyper reference `subfig:hencky_2D_shear_comparison_crit_homo_str
-ess_12_vs_n_voxels' on page 51 undefined on input line 908.
-
-
-LaTeX Warning: Reference `sub@subfig:hencky_2D_shear_comparison_crit_homo_stres
-s_12_vs_n_voxels' on page 51 undefined on input line 908.
-
-
-LaTeX Warning: Hyper reference `subfig:hencky_2D_shear_comparison_crit_cpu_time
-_vs_n_voxels' on page 51 undefined on input line 908.
-
-
-LaTeX Warning: Reference `sub@subfig:hencky_2D_shear_comparison_crit_cpu_time_v
-s_n_voxels' on page 51 undefined on input line 908.
-
-[51
-
-] [52 <./figures/svk_2D_normal_material_response.pdf> <./figures/svk_2D_normal_
-material_response_error.pdf
+] [54] [55 <./figures/svk_2D_normal_material_response.pdf> <./figures/svk_2D_no
+rmal_material_response_error.pdf
 
 pdfTeX warning: pdflatex (file ./figures/svk_2D_normal_material_response_error.
 pdf): PDF inclusion: multiple pdfs with page group included in a single page
-> <./figures/svk_mat_res_2D_normal_strain_11.png>] [53 <./figures/svk_2D_shear_
+> <./figures/svk_mat_res_2D_normal_strain_11.png>] [56 <./figures/svk_2D_shear_
 material_response.pdf> <./figures/svk_2D_shear_material_response_error.pdf
 
 pdfTeX warning: pdflatex (file ./figures/svk_2D_shear_material_response_error.p
 df): PDF inclusion: multiple pdfs with page group included in a single page
 > <./figures/svk_mat_res_2D_shear_strain_12.png (PNG copy)>]
-<figures/hencky_2D_normal_stress_avg_vs_stiff_ratio.pdf, id=2179, 277.10318pt x
+
+LaTeX Warning: Reference `fig:hencky_2D_stiff_contrast_normal_stress_11' on pag
+e 57 undefined on input line 1117.
+
+<figures/hencky_2D_normal_stress_avg_vs_stiff_ratio.pdf, id=2416, 277.10318pt x
  306.27449pt>
 File: figures/hencky_2D_normal_stress_avg_vs_stiff_ratio.pdf Graphic file (type
  pdf)
 <use figures/hencky_2D_normal_stress_avg_vs_stiff_ratio.pdf>
 Package pdftex.def Info: figures/hencky_2D_normal_stress_avg_vs_stiff_ratio.pdf
-  used on input line 932.
+  used on input line 1126.
 (pdftex.def)             Requested size: 176.40198pt x 194.97751pt.
-<figures/hencky_2D_normal_stress_avg_cpu_time_vs_n_voxels.pdf, id=2180, 266.856
+<figures/hencky_2D_normal_stress_avg_cpu_time_vs_n_voxels.pdf, id=2417, 266.856
 41pt x 306.27449pt>
 File: figures/hencky_2D_normal_stress_avg_cpu_time_vs_n_voxels.pdf Graphic file
  (type pdf)
 <use figures/hencky_2D_normal_stress_avg_cpu_time_vs_n_voxels.pdf>
 Package pdftex.def Info: figures/hencky_2D_normal_stress_avg_cpu_time_vs_n_voxe
-ls.pdf  used on input line 938.
+ls.pdf  used on input line 1132.
 (pdftex.def)             Requested size: 176.40198pt x 202.46423pt.
-
-
-LaTeX Warning: Hyper reference `subfig:hencky_3D_normal_comparison_crit_homo_st
-ress_11_vs_n_voxels' on page 54 undefined on input line 944.
-
-
-LaTeX Warning: Reference `sub@subfig:hencky_3D_normal_comparison_crit_homo_stre
-ss_11_vs_n_voxels' on page 54 undefined on input line 944.
-
-
-LaTeX Warning: Hyper reference `subfig:hencky_3D_normal_comparison_crit_cpu_tim
-e_vs_n_voxels' on page 54 undefined on input line 944.
-
-
-LaTeX Warning: Reference `sub@subfig:hencky_3D_normal_comparison_crit_cpu_time_
-vs_n_voxels' on page 54 undefined on input line 944.
-
-
-LaTeX Warning: Hyper reference `subfig:hencky_3D_normal_comparison_crit_homo_st
-ress_11_vs_n_voxels' on page 54 undefined on input line 944.
-
-
-LaTeX Warning: Reference `sub@subfig:hencky_3D_normal_comparison_crit_homo_stre
-ss_11_vs_n_voxels' on page 54 undefined on input line 944.
-
-
-LaTeX Warning: Hyper reference `subfig:hencky_3D_normal_comparison_crit_cpu_tim
-e_vs_n_voxels' on page 54 undefined on input line 944.
-
-
-LaTeX Warning: Reference `sub@subfig:hencky_3D_normal_comparison_crit_cpu_time_
-vs_n_voxels' on page 54 undefined on input line 944.
-
-<figures/hencky_2D_ratio_-2_normal_strain_11.png, id=2181, 1083.04625pt x 572.1
+<figures/hencky_2D_ratio_-2_normal_strain_11.png, id=2422, 1083.04625pt x 572.1
 375pt>
 File: figures/hencky_2D_ratio_-2_normal_strain_11.png Graphic file (type png)
 <use figures/hencky_2D_ratio_-2_normal_strain_11.png>
 Package pdftex.def Info: figures/hencky_2D_ratio_-2_normal_strain_11.png  used 
-on input line 952.
+on input line 1144.
 (pdftex.def)             Requested size: 360.0pt x 190.17657pt.
-<figures/hencky_2D_ratio_4_normal_strain_11.png, id=2182, 1083.04625pt x 572.13
+<figures/hencky_2D_ratio_4_normal_strain_11.png, id=2423, 1083.04625pt x 572.13
 75pt>
 File: figures/hencky_2D_ratio_4_normal_strain_11.png Graphic file (type png)
 <use figures/hencky_2D_ratio_4_normal_strain_11.png>
 Package pdftex.def Info: figures/hencky_2D_ratio_4_normal_strain_11.png  used o
-n input line 958.
+n input line 1150.
 (pdftex.def)             Requested size: 360.0pt x 190.17657pt.
+<figures/hencky_2D_ratio_-2_normal_stress_11.png, id=2428, 1083.04625pt x 572.1
+375pt>
+File: figures/hencky_2D_ratio_-2_normal_stress_11.png Graphic file (type png)
+<use figures/hencky_2D_ratio_-2_normal_stress_11.png>
+Package pdftex.def Info: figures/hencky_2D_ratio_-2_normal_stress_11.png  used 
+on input line 1167.
+(pdftex.def)             Requested size: 360.0pt x 190.17657pt.
+<figures/hencky_2D_ratio_4_normal_stress_11.png, id=2429, 1083.04625pt x 572.13
+75pt>
+File: figures/hencky_2D_ratio_4_normal_stress_11.png Graphic file (type png)
+<use figures/hencky_2D_ratio_4_normal_stress_11.png>
+Package pdftex.def Info: figures/hencky_2D_ratio_4_normal_stress_11.png  used o
+n input line 1173.
+(pdftex.def)             Requested size: 360.0pt x 190.17657pt.
+[57
 
-LaTeX Warning: Hyper reference `subfig:hencky_3D_normal_comparison_crit_homo_st
-ress_11_vs_n_voxels' on page 54 undefined on input line 964.
+] [58 <./figures/hencky_2D_normal_stress_avg_vs_stiff_ratio.pdf> <./figures/hen
+cky_2D_normal_stress_avg_cpu_time_vs_n_voxels.pdf
 
-
-LaTeX Warning: Reference `sub@subfig:hencky_3D_normal_comparison_crit_homo_stre
-ss_11_vs_n_voxels' on page 54 undefined on input line 964.
-
-
-LaTeX Warning: Hyper reference `subfig:hencky_3D_normal_comparison_crit_cpu_tim
-e_vs_n_voxels' on page 54 undefined on input line 964.
-
-
-LaTeX Warning: Reference `sub@subfig:hencky_3D_normal_comparison_crit_cpu_time_
-vs_n_voxels' on page 54 undefined on input line 964.
-
-
-LaTeX Warning: Hyper reference `subfig:hencky_3D_normal_comparison_crit_homo_st
-ress_11_vs_n_voxels' on page 54 undefined on input line 964.
-
-
-LaTeX Warning: Reference `sub@subfig:hencky_3D_normal_comparison_crit_homo_stre
-ss_11_vs_n_voxels' on page 54 undefined on input line 964.
-
-
-LaTeX Warning: Hyper reference `subfig:hencky_3D_normal_comparison_crit_cpu_tim
-e_vs_n_voxels' on page 54 undefined on input line 964.
-
-
-LaTeX Warning: Reference `sub@subfig:hencky_3D_normal_comparison_crit_cpu_time_
-vs_n_voxels' on page 54 undefined on input line 964.
-
-<figures/svk_2D_normal_stress_avg_vs_stiff_ratio.pdf, id=2183, 262.46323pt x 30
+pdfTeX warning: pdflatex (file ./figures/hencky_2D_normal_stress_avg_cpu_time_v
+s_n_voxels.pdf): PDF inclusion: multiple pdfs with page group included in a sin
+gle page
+>] [59 <./figures/hencky_2D_ratio_-2_normal_strain_11.png> <./figures/hencky_2D
+_ratio_4_normal_strain_11.png>] [60 <./figures/hencky_2D_ratio_-2_normal_stress
+_11.png> <./figures/hencky_2D_ratio_4_normal_stress_11.png>]
+<figures/svk_2D_normal_stress_avg_vs_stiff_ratio.pdf, id=2491, 262.46323pt x 30
 6.27449pt>
 File: figures/svk_2D_normal_stress_avg_vs_stiff_ratio.pdf Graphic file (type pd
 f)
 <use figures/svk_2D_normal_stress_avg_vs_stiff_ratio.pdf>
 Package pdftex.def Info: figures/svk_2D_normal_stress_avg_vs_stiff_ratio.pdf  u
-sed on input line 975.
+sed on input line 1207.
 (pdftex.def)             Requested size: 176.40198pt x 205.85243pt.
-<figures/svk_2D_normal_stress_avg_cpu_time_vs_n_voxels.pdf, id=2184, 266.85641p
+<figures/svk_2D_normal_stress_avg_cpu_time_vs_n_voxels.pdf, id=2492, 266.85641p
 t x 306.27449pt>
 File: figures/svk_2D_normal_stress_avg_cpu_time_vs_n_voxels.pdf Graphic file (t
 ype pdf)
 <use figures/svk_2D_normal_stress_avg_cpu_time_vs_n_voxels.pdf>
 Package pdftex.def Info: figures/svk_2D_normal_stress_avg_cpu_time_vs_n_voxels.
-pdf  used on input line 981.
+pdf  used on input line 1213.
 (pdftex.def)             Requested size: 176.40198pt x 202.46423pt.
-
-LaTeX Warning: Hyper reference `subfig:svk_3D_normal_comparison_crit_homo_stres
-s_11_vs_n_voxels' on page 54 undefined on input line 987.
-
-
-LaTeX Warning: Reference `sub@subfig:svk_3D_normal_comparison_crit_homo_stress_
-11_vs_n_voxels' on page 54 undefined on input line 987.
-
-
-LaTeX Warning: Hyper reference `subfig:svk_3D_normal_comparison_crit_cpu_time_v
-s_n_voxels' on page 54 undefined on input line 987.
-
-
-LaTeX Warning: Reference `sub@subfig:svk_3D_normal_comparison_crit_cpu_time_vs_
-n_voxels' on page 54 undefined on input line 987.
-
-
-LaTeX Warning: Hyper reference `subfig:svk_3D_normal_comparison_crit_homo_stres
-s_11_vs_n_voxels' on page 54 undefined on input line 987.
-
-
-LaTeX Warning: Reference `sub@subfig:svk_3D_normal_comparison_crit_homo_stress_
-11_vs_n_voxels' on page 54 undefined on input line 987.
-
-
-LaTeX Warning: Hyper reference `subfig:svk_3D_normal_comparison_crit_cpu_time_v
-s_n_voxels' on page 54 undefined on input line 987.
-
-
-LaTeX Warning: Reference `sub@subfig:svk_3D_normal_comparison_crit_cpu_time_vs_
-n_voxels' on page 54 undefined on input line 987.
-
-<figures/svk_2D_ratio_-4_normal_strain_11.png, id=2185, 1083.04625pt x 572.1375
+<figures/svk_2D_ratio_-4_normal_strain_11.png, id=2497, 1083.04625pt x 572.1375
 pt>
 File: figures/svk_2D_ratio_-4_normal_strain_11.png Graphic file (type png)
 <use figures/svk_2D_ratio_-4_normal_strain_11.png>
 Package pdftex.def Info: figures/svk_2D_ratio_-4_normal_strain_11.png  used on 
-input line 995.
+input line 1225.
 (pdftex.def)             Requested size: 360.0pt x 190.17657pt.
-<figures/svk_2D_ratio_4_normal_strain_11.png, id=2186, 1083.04625pt x 572.1375p
+<figures/svk_2D_ratio_4_normal_strain_11.png, id=2498, 1083.04625pt x 572.1375p
 t>
 File: figures/svk_2D_ratio_4_normal_strain_11.png Graphic file (type png)
 <use figures/svk_2D_ratio_4_normal_strain_11.png>
 Package pdftex.def Info: figures/svk_2D_ratio_4_normal_strain_11.png  used on i
-nput line 1001.
+nput line 1231.
 (pdftex.def)             Requested size: 360.0pt x 190.17657pt.
+ [61
 
-LaTeX Warning: Hyper reference `subfig:svk_3D_normal_comparison_crit_homo_stres
-s_11_vs_n_voxels' on page 54 undefined on input line 1007.
-
-
-LaTeX Warning: Reference `sub@subfig:svk_3D_normal_comparison_crit_homo_stress_
-11_vs_n_voxels' on page 54 undefined on input line 1007.
-
-
-LaTeX Warning: Hyper reference `subfig:svk_3D_normal_comparison_crit_cpu_time_v
-s_n_voxels' on page 54 undefined on input line 1007.
-
-
-LaTeX Warning: Reference `sub@subfig:svk_3D_normal_comparison_crit_cpu_time_vs_
-n_voxels' on page 54 undefined on input line 1007.
-
-
-LaTeX Warning: Hyper reference `subfig:svk_3D_normal_comparison_crit_homo_stres
-s_11_vs_n_voxels' on page 54 undefined on input line 1007.
-
-
-LaTeX Warning: Reference `sub@subfig:svk_3D_normal_comparison_crit_homo_stress_
-11_vs_n_voxels' on page 54 undefined on input line 1007.
-
-
-LaTeX Warning: Hyper reference `subfig:svk_3D_normal_comparison_crit_cpu_time_v
-s_n_voxels' on page 54 undefined on input line 1007.
-
-
-LaTeX Warning: Reference `sub@subfig:svk_3D_normal_comparison_crit_cpu_time_vs_
-n_voxels' on page 54 undefined on input line 1007.
-
-[54
-
- <./figures/hencky_2D_normal_stress_avg_vs_stiff_ratio.pdf> <./figures/hencky_2
-D_normal_stress_avg_cpu_time_vs_n_voxels.pdf
-
-pdfTeX warning: pdflatex (file ./figures/hencky_2D_normal_stress_avg_cpu_time_v
-s_n_voxels.pdf): PDF inclusion: multiple pdfs with page group included in a sin
-gle page
->] [55 <./figures/hencky_2D_ratio_-2_normal_strain_11.png> <./figures/hencky_2D
-_ratio_4_normal_strain_11.png>] [56 <./figures/svk_2D_normal_stress_avg_vs_stif
-f_ratio.pdf> <./figures/svk_2D_normal_stress_avg_cpu_time_vs_n_voxels.pdf
+ <./figures/svk_2D_normal_stress_avg_vs_stiff_ratio.pdf> <./figures/svk_2D_norm
+al_stress_avg_cpu_time_vs_n_voxels.pdf
 
 pdfTeX warning: pdflatex (file ./figures/svk_2D_normal_stress_avg_cpu_time_vs_n
 _voxels.pdf): PDF inclusion: multiple pdfs with page group included in a single
  page
->] [57 <./figures/svk_2D_ratio_-4_normal_strain_11.png> <./figures/svk_2D_ratio
+>] [62 <./figures/svk_2D_ratio_-4_normal_strain_11.png> <./figures/svk_2D_ratio
 _4_normal_strain_11.png>])
 \openout2 = `numerical_results_elastoplasticity.aux'.
 
- (numerical_results_elastoplasticity.tex [58
+ (numerical_results_elastoplasticity.tex
+Chapter 5.
+[63
 
 
 
 
 
 ]
-Chapter 5.
+<figures/von_mises_res_mat_small_strain_2D_normal_hardening_curve.pdf, id=2552,
+ 264.36624pt x 265.13376pt>
+File: figures/von_mises_res_mat_small_strain_2D_normal_hardening_curve.pdf Grap
+hic file (type pdf)
+<use figures/von_mises_res_mat_small_strain_2D_normal_hardening_curve.pdf>
+Package pdftex.def Info: figures/von_mises_res_mat_small_strain_2D_normal_harde
+ning_curve.pdf  used on input line 46.
+(pdftex.def)             Requested size: 180.0pt x 180.52321pt.
+ [64 <./figures/von_mises_res_mat_small_strain_2D_normal_hardening_curve.pdf>] 
+[65]
 
-LaTeX Warning: Reference `' on page 59 undefined on input line 32.
+LaTeX Warning: Reference `' on page 66 undefined on input line 173.
 
-
-Underfull \vbox (badness 2961) has occurred while \output is active []
-
- [59]
-[60] [61]
-
-LaTeX Warning: Reference `' on page 62 undefined on input line 157.
-
-<figures/von_mises_small_strain_2D_normal_homo_stress_11_vs_n_voxels.pdf, id=23
-13, 279.2974pt x 306.27449pt>
-File: figures/von_mises_small_strain_2D_normal_homo_stress_11_vs_n_voxels.pdf G
-raphic file (type pdf)
-<use figures/von_mises_small_strain_2D_normal_homo_stress_11_vs_n_voxels.pdf>
-Package pdftex.def Info: figures/von_mises_small_strain_2D_normal_homo_stress_1
-1_vs_n_voxels.pdf  used on input line 165.
-(pdftex.def)             Requested size: 176.40198pt x 193.44931pt.
-<figures/von_mises_small_strain_2D_normal_cpu_time_vs_n_voxels.pdf, id=2314, 27
-4.9066pt x 306.27449pt>
-File: figures/von_mises_small_strain_2D_normal_cpu_time_vs_n_voxels.pdf Graphic
- file (type pdf)
-<use figures/von_mises_small_strain_2D_normal_cpu_time_vs_n_voxels.pdf>
-Package pdftex.def Info: figures/von_mises_small_strain_2D_normal_cpu_time_vs_n
-_voxels.pdf  used on input line 171.
-(pdftex.def)             Requested size: 176.40198pt x 196.5384pt.
-<figures/von_mises_small_strain_2D_normal_strain_11.png, id=2315, 1083.04625pt 
-x 572.1375pt>
-File: figures/von_mises_small_strain_2D_normal_strain_11.png Graphic file (type
- png)
-<use figures/von_mises_small_strain_2D_normal_strain_11.png>
-Package pdftex.def Info: figures/von_mises_small_strain_2D_normal_strain_11.png
-  used on input line 183.
+[66]
+<figures/von_mises_res_mat_small_strain_2D_normal_material_response.pdf, id=261
+6, 266.8528pt x 299.18289pt>
+File: figures/von_mises_res_mat_small_strain_2D_normal_material_response.pdf Gr
+aphic file (type pdf)
+<use figures/von_mises_res_mat_small_strain_2D_normal_material_response.pdf>
+Package pdftex.def Info: figures/von_mises_res_mat_small_strain_2D_normal_mater
+ial_response.pdf  used on input line 243.
+(pdftex.def)             Requested size: 176.40198pt x 197.7763pt.
+<figures/von_mises_res_mat_small_strain_2D_normal_material_response_error.pdf, 
+id=2617, 281.49278pt x 299.18289pt>
+File: figures/von_mises_res_mat_small_strain_2D_normal_material_response_error.
+pdf Graphic file (type pdf)
+<use figures/von_mises_res_mat_small_strain_2D_normal_material_response_error.p
+df>
+Package pdftex.def Info: figures/von_mises_res_mat_small_strain_2D_normal_mater
+ial_response_error.pdf  used on input line 249.
+(pdftex.def)             Requested size: 176.40198pt x 187.49101pt.
+<figures/von_mises_res_mat_small_strain_2D_normal_elastic_strain_11.png, id=262
+2, 1083.04625pt x 572.1375pt>
+File: figures/von_mises_res_mat_small_strain_2D_normal_elastic_strain_11.png Gr
+aphic file (type png)
+<use figures/von_mises_res_mat_small_strain_2D_normal_elastic_strain_11.png>
+Package pdftex.def Info: figures/von_mises_res_mat_small_strain_2D_normal_elast
+ic_strain_11.png  used on input line 265.
 (pdftex.def)             Requested size: 360.0pt x 190.17657pt.
-<figures/von_mises_small_strain_2D_normal_e_p.png, id=2316, 1083.04625pt x 572.
-1375pt>
-File: figures/von_mises_small_strain_2D_normal_e_p.png Graphic file (type png)
-<use figures/von_mises_small_strain_2D_normal_e_p.png>
-Package pdftex.def Info: figures/von_mises_small_strain_2D_normal_e_p.png  used
- on input line 189.
+<figures/von_mises_res_mat_small_strain_2D_normal_palstic_strain_11.png, id=262
+3, 1083.04625pt x 572.1375pt>
+File: figures/von_mises_res_mat_small_strain_2D_normal_palstic_strain_11.png Gr
+aphic file (type png)
+<use figures/von_mises_res_mat_small_strain_2D_normal_palstic_strain_11.png>
+Package pdftex.def Info: figures/von_mises_res_mat_small_strain_2D_normal_palst
+ic_strain_11.png  used on input line 271.
+(pdftex.def)             Requested size: 360.0pt x 190.17657pt.
+<figures/von_mises_res_mat_small_strain_2D_shear_material_response.pdf, id=2628
+, 279.0062pt x 299.18289pt>
+File: figures/von_mises_res_mat_small_strain_2D_shear_material_response.pdf Gra
+phic file (type pdf)
+<use figures/von_mises_res_mat_small_strain_2D_shear_material_response.pdf>
+Package pdftex.def Info: figures/von_mises_res_mat_small_strain_2D_shear_materi
+al_response.pdf  used on input line 285.
+(pdftex.def)             Requested size: 176.40198pt x 189.16185pt.
+<figures/von_mises_res_mat_small_strain_2D_shear_material_response_error.pdf, i
+d=2629, 284.42078pt x 299.18289pt>
+File: figures/von_mises_res_mat_small_strain_2D_shear_material_response_error.p
+df Graphic file (type pdf)
+<use figures/von_mises_res_mat_small_strain_2D_shear_material_response_error.pd
+f>
+Package pdftex.def Info: figures/von_mises_res_mat_small_strain_2D_shear_materi
+al_response_error.pdf  used on input line 291.
+(pdftex.def)             Requested size: 176.40198pt x 185.56451pt.
+<figures/von_mises_res_mat_small_strain_2D_shear_elastic_strain_12.png, id=2634
+, 1083.04625pt x 572.1375pt>
+File: figures/von_mises_res_mat_small_strain_2D_shear_elastic_strain_12.png Gra
+phic file (type png)
+<use figures/von_mises_res_mat_small_strain_2D_shear_elastic_strain_12.png>
+Package pdftex.def Info: figures/von_mises_res_mat_small_strain_2D_shear_elasti
+c_strain_12.png  used on input line 307.
+(pdftex.def)             Requested size: 360.0pt x 190.17657pt.
+<figures/von_mises_res_mat_small_strain_2D_shear_palstic_strain.png, id=2635, 1
+083.04625pt x 572.1375pt>
+File: figures/von_mises_res_mat_small_strain_2D_shear_palstic_strain.png Graphi
+c file (type png)
+<use figures/von_mises_res_mat_small_strain_2D_shear_palstic_strain.png>
+Package pdftex.def Info: figures/von_mises_res_mat_small_strain_2D_shear_palsti
+c_strain.png  used on input line 313.
+(pdftex.def)             Requested size: 360.0pt x 190.17657pt.
+ [67] [68 <./figures/von_mises_res_mat_small_strain_2D_normal_material_response
+.pdf> <./figures/von_mises_res_mat_small_strain_2D_normal_material_response_err
+or.pdf
+
+pdfTeX warning: pdflatex (file ./figures/von_mises_res_mat_small_strain_2D_norm
+al_material_response_error.pdf): PDF inclusion: multiple pdfs with page group i
+ncluded in a single page
+>] [69 <./figures/von_mises_res_mat_small_strain_2D_normal_elastic_strain_11.pn
+g> <./figures/von_mises_res_mat_small_strain_2D_normal_palstic_strain_11.png>]
+[70 <./figures/von_mises_res_mat_small_strain_2D_shear_material_response.pdf> <
+./figures/von_mises_res_mat_small_strain_2D_shear_material_response_error.pdf
+
+pdfTeX warning: pdflatex (file ./figures/von_mises_res_mat_small_strain_2D_shea
+r_material_response_error.pdf): PDF inclusion: multiple pdfs with page group in
+cluded in a single page
+>] [71 <./figures/von_mises_res_mat_small_strain_2D_shear_elastic_strain_12.png
+> <./figures/von_mises_res_mat_small_strain_2D_shear_palstic_strain.png>]
+<figures/von_mises_res_mat_large_strain_2D_normal_material_response.pdf, id=271
+9, 275.6368pt x 299.18289pt>
+File: figures/von_mises_res_mat_large_strain_2D_normal_material_response.pdf Gr
+aphic file (type pdf)
+<use figures/von_mises_res_mat_large_strain_2D_normal_material_response.pdf>
+Package pdftex.def Info: figures/von_mises_res_mat_large_strain_2D_normal_mater
+ial_response.pdf  used on input line 398.
+(pdftex.def)             Requested size: 176.40198pt x 191.4764pt.
+<figures/von_mises_res_mat_large_strain_2D_normal_material_response_error.pdf, 
+id=2720, 284.42078pt x 299.18289pt>
+File: figures/von_mises_res_mat_large_strain_2D_normal_material_response_error.
+pdf Graphic file (type pdf)
+<use figures/von_mises_res_mat_large_strain_2D_normal_material_response_error.p
+df>
+Package pdftex.def Info: figures/von_mises_res_mat_large_strain_2D_normal_mater
+ial_response_error.pdf  used on input line 404.
+(pdftex.def)             Requested size: 176.40198pt x 185.56451pt.
+<figures/von_mises_res_mat_large_strain_2D_normal_elastic_strain_11.png, id=272
+5, 1083.04625pt x 572.1375pt>
+File: figures/von_mises_res_mat_large_strain_2D_normal_elastic_strain_11.png Gr
+aphic file (type png)
+<use figures/von_mises_res_mat_large_strain_2D_normal_elastic_strain_11.png>
+Package pdftex.def Info: figures/von_mises_res_mat_large_strain_2D_normal_elast
+ic_strain_11.png  used on input line 416.
+(pdftex.def)             Requested size: 360.0pt x 190.17657pt.
+<figures/von_mises_res_mat_large_strain_2D_normal_palstic_strain_11.png, id=272
+6, 1083.04625pt x 572.1375pt>
+File: figures/von_mises_res_mat_large_strain_2D_normal_palstic_strain_11.png Gr
+aphic file (type png)
+<use figures/von_mises_res_mat_large_strain_2D_normal_palstic_strain_11.png>
+Package pdftex.def Info: figures/von_mises_res_mat_large_strain_2D_normal_palst
+ic_strain_11.png  used on input line 422.
+(pdftex.def)             Requested size: 360.0pt x 190.17657pt.
+<figures/von_mises_res_mat_large_strain_2D_shear_material_response.pdf, id=2731
+, 273.15022pt x 299.27657pt>
+File: figures/von_mises_res_mat_large_strain_2D_shear_material_response.pdf Gra
+phic file (type pdf)
+<use figures/von_mises_res_mat_large_strain_2D_shear_material_response.pdf>
+Package pdftex.def Info: figures/von_mises_res_mat_large_strain_2D_shear_materi
+al_response.pdf  used on input line 436.
+(pdftex.def)             Requested size: 176.40198pt x 193.28078pt.
+<figures/von_mises_res_mat_large_strain_2D_shear_material_response_error.pdf, i
+d=2732, 284.42078pt x 299.27657pt>
+File: figures/von_mises_res_mat_large_strain_2D_shear_material_response_error.p
+df Graphic file (type pdf)
+<use figures/von_mises_res_mat_large_strain_2D_shear_material_response_error.pd
+f>
+Package pdftex.def Info: figures/von_mises_res_mat_large_strain_2D_shear_materi
+al_response_error.pdf  used on input line 442.
+(pdftex.def)             Requested size: 176.40198pt x 185.62262pt.
+
+
+LaTeX Warning: Hyper reference `subfig:linear_2D_shear_stress_avg_cpu_time_vs_n
+_voxels' on page 72 undefined on input line 446.
+
+
+LaTeX Warning: Reference `sub@subfig:linear_2D_shear_stress_avg_cpu_time_vs_n_v
+oxels' on page 72 undefined on input line 446.
+
+
+LaTeX Warning: Hyper reference `subfig:linear_2D_shear_stress_avg_cpu_time_vs_n
+_voxels' on page 72 undefined on input line 446.
+
+
+LaTeX Warning: Reference `sub@subfig:linear_2D_shear_stress_avg_cpu_time_vs_n_v
+oxels' on page 72 undefined on input line 446.
+
+<figures/von_mises_res_mat_large_strain_2D_shear_elastic_strain_12.png, id=2735
+, 1083.04625pt x 572.1375pt>
+File: figures/von_mises_res_mat_large_strain_2D_shear_elastic_strain_12.png Gra
+phic file (type png)
+<use figures/von_mises_res_mat_large_strain_2D_shear_elastic_strain_12.png>
+Package pdftex.def Info: figures/von_mises_res_mat_large_strain_2D_shear_elasti
+c_strain_12.png  used on input line 454.
+(pdftex.def)             Requested size: 360.0pt x 190.17657pt.
+<figures/von_mises_res_mat_large_strain_2D_shear_palstic_strain.png, id=2736, 1
+083.04625pt x 572.1375pt>
+File: figures/von_mises_res_mat_large_strain_2D_shear_palstic_strain.png Graphi
+c file (type png)
+<use figures/von_mises_res_mat_large_strain_2D_shear_palstic_strain.png>
+Package pdftex.def Info: figures/von_mises_res_mat_large_strain_2D_shear_palsti
+c_strain.png  used on input line 460.
 (pdftex.def)             Requested size: 360.0pt x 190.17657pt.
 
-LaTeX Warning: Hyper reference `subfig:svk_3D_normal_comparison_crit_homo_stres
-s_11_vs_n_voxels' on page 62 undefined on input line 195.
+LaTeX Warning: Hyper reference `subfig:von_mises_res_mat_large_strain_2D_shear_
+elastic_strain_11' on page 72 undefined on input line 465.
 
 
-LaTeX Warning: Reference `sub@subfig:svk_3D_normal_comparison_crit_homo_stress_
-11_vs_n_voxels' on page 62 undefined on input line 195.
+LaTeX Warning: Reference `sub@subfig:von_mises_res_mat_large_strain_2D_shear_el
+astic_strain_11' on page 72 undefined on input line 465.
 
 
-LaTeX Warning: Hyper reference `subfig:svk_3D_normal_comparison_crit_cpu_time_v
-s_n_voxels' on page 62 undefined on input line 195.
+LaTeX Warning: Hyper reference `subfig:von_mises_res_mat_large_strain_2D_shear_
+palstic_strain_11' on page 72 undefined on input line 465.
 
 
-LaTeX Warning: Reference `sub@subfig:svk_3D_normal_comparison_crit_cpu_time_vs_
-n_voxels' on page 62 undefined on input line 195.
+LaTeX Warning: Reference `sub@subfig:von_mises_res_mat_large_strain_2D_shear_pa
+lstic_strain_11' on page 72 undefined on input line 465.
 
 
-LaTeX Warning: Hyper reference `subfig:svk_3D_normal_comparison_crit_homo_stres
-s_11_vs_n_voxels' on page 62 undefined on input line 195.
+LaTeX Warning: Hyper reference `subfig:von_mises_res_mat_large_strain_2D_shear_
+elastic_strain_11' on page 72 undefined on input line 465.
 
 
-LaTeX Warning: Reference `sub@subfig:svk_3D_normal_comparison_crit_homo_stress_
-11_vs_n_voxels' on page 62 undefined on input line 195.
+LaTeX Warning: Reference `sub@subfig:von_mises_res_mat_large_strain_2D_shear_el
+astic_strain_11' on page 72 undefined on input line 465.
 
 
-LaTeX Warning: Hyper reference `subfig:svk_3D_normal_comparison_crit_cpu_time_v
-s_n_voxels' on page 62 undefined on input line 195.
+LaTeX Warning: Hyper reference `subfig:von_mises_res_mat_large_strain_2D_shear_
+palstic_strain_11' on page 72 undefined on input line 465.
 
 
-LaTeX Warning: Reference `sub@subfig:svk_3D_normal_comparison_crit_cpu_time_vs_
-n_voxels' on page 62 undefined on input line 195.
+LaTeX Warning: Reference `sub@subfig:von_mises_res_mat_large_strain_2D_shear_pa
+lstic_strain_11' on page 72 undefined on input line 465.
 
-) [62] [63 <./figures/von_mises_small_strain_2D_normal_homo_stress_11_vs_n_voxe
-ls.pdf> <./figures/von_mises_small_strain_2D_normal_cpu_time_vs_n_voxels.pdf
+) [72
 
-pdfTeX warning: pdflatex (file ./figures/von_mises_small_strain_2D_normal_cpu_t
-ime_vs_n_voxels.pdf): PDF inclusion: multiple pdfs with page group included in 
-a single page
->] [64 <./figures/von_mises_small_strain_2D_normal_strain_11.png> <./figures/vo
-n_mises_small_strain_2D_normal_e_p.png>]
+] [73 <./figures/von_mises_res_mat_large_strain_2D_normal_material_response.pdf
+> <./figures/von_mises_res_mat_large_strain_2D_normal_material_response_error.p
+df
+
+pdfTeX warning: pdflatex (file ./figures/von_mises_res_mat_large_strain_2D_norm
+al_material_response_error.pdf): PDF inclusion: multiple pdfs with page group i
+ncluded in a single page
+>] [74 <./figures/von_mises_res_mat_large_strain_2D_normal_elastic_strain_11.pn
+g> <./figures/von_mises_res_mat_large_strain_2D_normal_palstic_strain_11.png>]
+[75 <./figures/von_mises_res_mat_large_strain_2D_shear_material_response.pdf> <
+./figures/von_mises_res_mat_large_strain_2D_shear_material_response_error.pdf
+
+pdfTeX warning: pdflatex (file ./figures/von_mises_res_mat_large_strain_2D_shea
+r_material_response_error.pdf): PDF inclusion: multiple pdfs with page group in
+cluded in a single page
+>] [76 <./figures/von_mises_res_mat_large_strain_2D_shear_elastic_strain_12.png
+> <./figures/von_mises_res_mat_large_strain_2D_shear_palstic_strain.png>]
 \openout2 = `conclusions.aux'.
 
 
-No file conclusions.tex.
+(conclusions.tex
+Chapter 6.
+[77
+
+
+
+
+]) [78] [79]
 \openout2 = `annex_fdm.aux'.
+
 
 No file annex_fdm.tex.
 \openout2 = `annex_fem.aux'.
 
 No file annex_fem.tex.
-(main.bbl [65
+(main.bbl [80
 
 
 
@@ -2902,15 +2595,12 @@ No file annex_fem.tex.
 
 
 
-
-
-
-] [66] [67] [68] [69] [70]) [71] (main.aux (introduction.aux)
-(fft_based_homogenization.aux) (variational_fft.aux) (numerical_validation.aux)
-(numerical_results_elasticity.aux) (numerical_results_elastoplasticity.aux)
+] [81] [82] [83] [84] [85] [86]) [87] (main.aux (introduction.aux) (fft_based_h
+omogenization.aux) (variational_fft.aux) (numerical_validation.aux) (numerical_
+results_elasticity.aux) (numerical_results_elastoplasticity.aux)
 (conclusions.aux) (annex_fdm.aux) (annex_fem.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 13A7D32DC8D575486263C0C9EAEB26F7;2670.
+(rerunfilecheck)             Checksum: 9F72A79305BCC0240624FF7718B76430;2900.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -2924,13 +2614,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 33645 strings out of 481728
- 659870 string characters out of 2921284
- 1078217 words of memory out of 3000000
- 48740 multiletter control sequences out of 15000+200000
- 755361 words of font info for 448 fonts, out of 3000000 for 9000
+ 33844 strings out of 481728
+ 671147 string characters out of 2921284
+ 1108435 words of memory out of 3000000
+ 48882 multiletter control sequences out of 15000+200000
+ 755468 words of font info for 450 fonts, out of 3000000 for 9000
  0 hyphenation exceptions out of 8191
- 106i,21n,111p,772b,1030s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 106i,21n,111p,1086b,1030s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/home/jose/.miktex/texmfs/install/fonts/enc/dvips/base/8r.enc}</home/jose/.m
 iktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmss8.pfb></home/jose/.mikt
 ex/texmfs/install/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></home/jose/.mikt
@@ -2947,9 +2637,9 @@ install/fonts/type1/adobe/utopia/putb8a.pfb></home/jose/.miktex/texmfs/install/
 fonts/type1/adobe/utopia/putbi8a.pfb></home/jose/.miktex/texmfs/install/fonts/t
 ype1/adobe/utopia/putr8a.pfb></home/jose/.miktex/texmfs/install/fonts/type1/ado
 be/utopia/putri8a.pfb>
-Output written on main.pdf (81 pages, 3084677 bytes).
+Output written on main.pdf (99 pages, 3871983 bytes).
 PDF statistics:
- 2521 PDF objects out of 2984 (max. 8388607)
- 405 named destinations out of 1000 (max. 500000)
- 148693 words of extra memory for PDF output out of 154059 (max. 10000000)
+ 3000 PDF objects out of 3580 (max. 8388607)
+ 443 named destinations out of 1000 (max. 500000)
+ 148792 words of extra memory for PDF output out of 154059 (max. 10000000)
 

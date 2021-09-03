@@ -1,0 +1,48 @@
+\chapter{Conclusions and Future Research}
+
+\section{Conclusions and final remarks}
+
+The main goal of the present work is to document the choice of an accurate and efficient FFT-based homogenization procedure.
+Both small and large strains, as well as, elastic and elastoplastic material behavior must be taken into account.
+With this objective in mind, an overview of the FFT-based homogenization procedures available in the literature is given and the FFT-based Galerkin method approach introduced by \cite{vondrejc_fft-based_2014}, \cite{zeman_finite_2017} and \cite{de_geus_finite_2017} is determined to be the that more closely matches the requirements established.
+It also factored into this choice the availability of an implementation of this procedure \citep{}.
+Thus, a detailed description of the main method under review is also included based on \cite{zeman_finite_2017} and \cite{de_geus_finite_2017}.
+
+Using the code available at \cite{}, an implementation of the FFT-based Galerkin method homogenization procedure chosen was developed to test it against the FFT-based basic method homogenization procedure proposed by \cite{moulinec_fast_1994} and the FEM-based homogenization procedure.
+To investigate its implementation robustness, accuracy, and efficiency, several numerical applications are presented.
+The numerical results are divided into two sets of results, the first concerning elasticity and the second elastoplasticity.
+Both small and large strains are considered in each set of results.
+
+
+Regarding the elasticity at small strains, the implementation developed for the FFT-based Galerkin method homogenization scheme is validated as solutions obtained (both homogenized results and local fields) are in excellent agreement with ones obtained with the FEM-based homogenization from LINKS and the FFT-based homogenization basic scheme.
+In the linear elastic regime, the FFT-based homogenization Galerkin scheme outperforms the FEM-based homogenization both in terms of speed and memory footprint.
+This effect is much more pronounced in the three-dimensional microstructure considered than in the two-dimensional microstructure.
+However, it must be kept in mind that some of the Python libraries employed in the implementation of the FFT-based homogenization Galerkin scheme are parallelized and only one core is used in the LINKS simulations.
+Comparing both FFT-based homogenization procedures, the FFT-based homogenization basic scheme outperforms the FFT-based homogenization Galerkin scheme in terms of CPU time expended.
+Yet, consider that the implementation of the basic scheme used in this work \citep{ferreira_accurate_2020} has already undergone some performance optimization.
+This is not the case for the implementation of the FFT Galerkin scheme used.
+
+Regarding the convergence criteria used in the present implementation of the FFT-Galerkin method ...
+
+
+First, the implemented FFT-based homogenization basic scheme (Moulinec and Suquet, 1994) is validated and compared against FEM-based homogenization, both being available to perform the SCA's offline stage (linear elastic analyses under orthogonal strain loading conditions).
+From an implementation point of view, an optimization procedure is devised to avoid high computational costs associated with discrete frequency loops.
+Massive speedups are observed in the computation of the reference homogeneous material Green operator and a similar optimization approach is implemented concerning several SCA's algorithmic computations.
+In the linear elastic regime, it is clear that the FFT-based homogenization basic scheme outperforms the FEM-based homogenization both in terms of speed and memory footprint, being the obtained solutions (both homogenized results and local fields) in excellent agreement with each other.
+Therefore, it is concluded that the FFT-based homogenization methods are a suitable choice to efficiently compute the local elastic strain concentration tensors in the SCA's offline stage.
+Second and most importantly, some numerical examples are taken from Liu et al. (2016a) to validate the SCA's implementation.
+An excellent agreement is obtained and is verified that the SCA can capture the homogenized nonlinear elastoplastic behavior of both fiber and particle-reinforced composite materials (2D plane strain and \(3 \mathrm{D}\) models, respectively) with a considerable model data compression in comparison with FEM DNS analyses.
+From a numerical point of view, the expected quadratic convergence rate of Newton-Raphson's method is achieved in the solution of the Lippmann-Schwinger system of equilibrium equations.
+This suggests that the associated linearization is properly done and that the iterative procedure embedded in the self-consistent scheme is well implemented.
+Moreover, at the expense of an increased computational cost, it is clear from the results that the SCA predictions accuracy increases as the number of clusters increases.
+The tradeoff between accuracy and computational cost is further investigated and the accuracy-efficiency balance that must be made by the analyst in the choice of the degree of data compression is evidenced accuracy and computational cost lower and upper bounds, respectively, in terms of the number of clusters.
+It is remarked that fairly accurate results are obtained with significantly lower computational costs in comparison with the FEM DNS solutions.
+At last, to gain some insight into the computational cost of the main SCA algorithmic steps, a time profile analysis is performed for different degrees of model compression.
+In contrast with the clustering procedure, whose relative computational time remains essentially constant, it is verified that the relative computational cost of the cluster interaction tensors computation increases significantly with the increase of the number of clusters.
+
+\section{Future research and challenges}
+
+In the author's opinion, the Self-Consistent Clustering Analysis (SCA) proposed by Liu et al. (2016a) provides a solid and promising foundation that can still be significantly enriched in terms of accuracy and efficiency. Having this in mind, CRATE's high-modular implementation provides a suitable computational framework to perform further developments and innovative extensions. Before those, some aspects related to the present work still need to be tackled and/or further investigated: (1) the clear understanding of the numerical dependency on the
+Chapter 13
+269
+reference homogeneous material elastic properties (intrinsically related to the need of the self-consistent scheme and the nature of the introduced homogeneous far-field strain), (2) further evaluation of the SCA accuracy under complex strain/stress states and non-monotonic loading paths, and (3) the proper finite strain extension (Yu et al., 2019) implementation required to predict the behavior of polymeric materials under finite strains.

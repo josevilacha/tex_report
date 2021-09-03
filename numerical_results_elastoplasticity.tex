@@ -7,6 +7,7 @@ The constitutive model considered is von Mises material model.
 
 As in the previous chapter, all the numerical results shown in this chapter are obtained
 in the same machine with the specifications provided in Table~\ref{tab:specifications}.
+Contrary to the previous chapter, all the available cores in the machine are used in each simultation.
 
 \begin{table}[htbp]
 \caption{Specifications of the numerical testing machine.}
@@ -29,8 +30,23 @@ in the same machine with the specifications provided in Table~\ref{tab:specifica
 
 \section{Material characterization}
 
-The microstructures can be found in \ref{}
-only hardening
+The microstructures and linear elastic properties considered in the following can be found in Section~\ref{sec:microstructures}.
+The isotropic piecewise linear strain hardening law is presented in Figure~\ref{fig:von_mises_res_mat_small_strain_2D_normal_hardening_curve}.
+The yield stress, \(\sigma_y\), is given as a function of the accumulated plastic strain, \(\bar{\varepsilon}_p\) by
+\begin{equation}
+\label{von_mises_hardening_curve}
+  \sigma_y = \begin{cases}
+    0.5 + 5\bar{\varepsilon}_p,\quad 0 \leq \bar{\epsilon}_p \leq 0.04\\
+    0.7 + 2(\bar{\varepsilon}_p-0.04),\quad \bar{\epsilon}_p \geq 0.04\\
+  \end{cases},\quad\si{\mega\pascal}.
+\end{equation}
+
+\begin{figure}[hbt]
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/von_mises_res_mat_small_strain_2D_normal_hardening_curve}
+  \caption{Von Mises elastoplastic matrix isotropic piecewise linear strain hardening law.}
+\label{fig:von_mises_res_mat_small_strain_2D_normal_hardening_curve}
+\end{figure}
 
 \subsection{von Mises - small strains}
 
@@ -158,40 +174,294 @@ Regarding the spatial consistent tangent, it is obtained using the expression in
 
 \section{Comparison between FFT and FEM-based homogenization}
 
+\paragraph{Small strain}
+
+Only the two-dimensional microstructure described in Section~\ref{sec:microstructures} is again considered together with the elastic properties described in Table~\ref{tab:mat_properties}.
+The matrix is now assumed elastoplastic with a von Mises associative flow rule and the isotropic piecewise linear strain hardening law illustrated in Figure~\ref{fig:von_mises_res_mat_small_strain_2D_normal_hardening_curve}.
+Only small strains are considered.
+Periodic boundary conditions are adopted and the following two macroscale strain loading cases are considered
+\begin{equation}
+\text { uniaxial: } \bm{\varepsilon}=\left[\begin{array}{cc}
+5 & 0 \\
+0 & 0
+\end{array}\right] \times 10^{-2}, \quad \text { pure shear: } \quad \bm \varepsilon=\left[\begin{array}{cc}
+0 & 2.5 \\
+2.5 & 0
+\end{array}\right] \times 10^{-2},
+\end{equation}
+being enforced in a total of 200 increments.
+Note that in the 2D plane strain case, only the in-plane \(O_{x y}\) macroscale strain components are enforced.
+In terms of spatial discretization, a grid \(n_{v}=600 \times 600\) is considered.
+The convergence criterion used is Criterion II, as described in Section~\ref{sec:criteria}.
+
+The homogenized response of the fiber-reinforced composite under uniaxial and pure shear strain loading conditions is presented in Figures~\ref{fig:von_mises_res_mat_small_strain_2D_normal_material_response_and_error} and \ref{fig:von_mises_res_mat_small_strain_2D_shear_material_response_and_error}.
+The relative error with respect to the FEM reference solution is also shown.
+An excellent agreement between the two solutions is found.
+Moreover, the error is below 0.15\% for the whole deformation history.
+The local strain fields can be found in Figure \ref{fig:von_mises_res_mat_small_strain_2D_normal_local_fields} and \ref{fig:von_mises_res_mat_small_strain_2D_shear_local_fields}.
+Again, visually there is no detetctable difference between the local field computed using the two different approaches.
+
+In terms of computational performance, Table~\ref{tab:von_mises_small_strain_2D_cpu_time} shows that the FTT approach is around 20 times faster than the FEM approach.
+It is difficult to tell if this time difference is due to a greater efficiency of the FFT approach or a larger amount of pre- and post-processing steps used in the FEM implementation used.
+See Section~\ref{sec:hencky_accuracy_validation} for an example of the impact of pre- and post-processing operation during state update in the execution time of the FFT approach.
+
+
+\begin{table}[htbp]
+  \caption{Comparison between the CPU time required by the FFT-based and FEM-based homogenization approaches in the
+  solution of the fiber-reinforced (fibers: linear elastic; matrix: elastoplastic with a von Mises associative flow rule and the isotropic piecewise linear strain hardening law) composite equilibrium problem under uniaxial and pure
+  strain loading conditions (\(n_v = 600 \times 600\)).}
+\label{tab:von_mises_small_strain_2D_cpu_time}
+  \centering
+    \begin{tabular}{
+       c
+       S[
+       scientific-notation = true,
+         table-format=1.2e-2,
+                   round-mode=places,
+         round-precision=2
+         ]
+       S[
+       scientific-notation = true,
+         table-format=1.2e-2,
+                   round-mode=places,
+         round-precision=2
+         ]
+      }
+    & \multicolumn{2}{c}{CPU Time (s)} \\ \cline{2-3}
+    \vphantom{\Big |}Loading scheme & {FFT} & {FEM} \\
+    \hline\hline
+    \vphantom{\Big |}Uniaxial strain & 1.24e+03 & 0.1996E+05 \\
+    Pure shear strain & 2.87e+03 & 0.3636E+05  \\
+    \hline\hline
+  \end{tabular}
+\end{table}
+
 \begin{figure}[hbt]
-\centering
-	\begin{subfigure}[b]{0.49\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{figures/von_mises_small_strain_2D_normal_homo_stress_11_vs_n_voxels}
-    \caption{}
-    \label{subfig:hencky_2D_normal_homo_stress_12_vs_n_voxels}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.49\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{figures/von_mises_small_strain_2D_normal_cpu_time_vs_n_voxels}
-    \caption{}
-    \label{subfig:hencky_2D_normal_cpu_time_vs_n_voxels}
-  \end{subfigure}
-\caption{f}
-\label{fig:linear_2D_normal_comparison_crit}
+  \centering
+  	\begin{subfigure}[b]{0.49\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{figures/von_mises_res_mat_small_strain_2D_normal_material_response}
+      \caption{}
+      \label{subfig:von_mises_res_mat_small_strain_2D_normal_material_response}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.49\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{figures/von_mises_res_mat_small_strain_2D_normal_material_response_error}
+      \caption{}
+      \label{subfig:von_mises_res_mat_small_strain_2D_normal_material_response_error}
+    \end{subfigure}
+  \caption{Comparison between the FFT and FEM-based homogenization approaches in the solution
+  of the fiber-reinforced (fibers: linear elastic; matrix: elastoplastic with a von Mises associative flow rule and the isotropic piecewise linear strain hardening law) composite equilibrium problem under normal strain
+  loading conditions: \subref{subfig:von_mises_res_mat_small_strain_2D_normal_material_response} Homogenized
+  stress; \subref{subfig:linear_2D_normal_stress_avg_cpu_time_vs_n_voxels} Computational time;
+  Notation: quadratic element (Q).}
+\label{fig:von_mises_res_mat_small_strain_2D_normal_material_response_and_error}
 \end{figure}
 
 \begin{figure}[hbt]
-\centering
+  \centering
 	\begin{subfigure}[b]{\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{figures/von_mises_small_strain_2D_normal_strain_11}
+    \includegraphics[width=\textwidth]{figures/von_mises_res_mat_small_strain_2D_normal_elastic_strain_11}
     \caption{}
-    \label{subfig:svk_2D_ratio_4_normal_strain_11}
+    \label{subfig:von_mises_res_mat_small_strain_2D_normal_elastic_strain_11}
   \end{subfigure}
   \begin{subfigure}[b]{\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{figures/von_mises_small_strain_2D_normal_e_p}
+    \includegraphics[width=\textwidth]{figures/von_mises_res_mat_small_strain_2D_normal_palstic_strain_11}
     \caption{}
-    \label{subfig:svk_2D_ratio_-4_normal_strain_11}
+    \label{subfig:von_mises_res_mat_small_strain_2D_normal_palstic_strain_11}
   \end{subfigure}
-\caption{Comparison between the Criterion I and II for FFT-based homogenization approaches, Galerkin and Basic, in the
-solution of the particle-reinforced svk elastic composite equilibrium problem under uniaxial
-strain loading conditions: \subref{subfig:svk_3D_normal_comparison_crit_homo_stress_11_vs_n_voxels} Homogenized stress; \subref{subfig:svk_3D_normal_comparison_crit_cpu_time_vs_n_voxels} Computational time.}
-\label{fig:svk_3D_normal_comparison_crit}
+  \caption{Comparison between the FFT-based and FEM-based homogenization approaches in the
+  solution of the fiber-reinforced (fibers: linear elastic; matrix: elastoplastic with a von Mises associative flow rule and the isotropic piecewise linear strain hardening law) composite equilibrium problem under uniaxial
+  strain loading conditions: \subref{subfig:von_mises_res_mat_small_strain_2D_normal_elastic_strain_11} Local elastic strain field, \(\varepsilon_{\mu,xx}\), of the matrix phase at full load; \subref{subfig:von_mises_res_mat_small_strain_2D_normal_palstic_strain_11} Local accumulated plastic strain field, \(\bar{\varepsilon}_{p}\), of the matrix phase at full load.  (\(n_v = 600 \times 600\) discretization). Notation: quadratic element (Q).}
+\label{fig:von_mises_res_mat_small_strain_2D_normal_local_fields}
+\end{figure}
+
+\begin{figure}[hbt]
+  \centering
+  	\begin{subfigure}[b]{0.49\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{figures/von_mises_res_mat_small_strain_2D_shear_material_response}
+      \caption{}
+      \label{subfig:von_mises_res_mat_small_strain_2D_shear_material_response}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.49\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{figures/von_mises_res_mat_small_strain_2D_shear_material_response_error}
+      \caption{}
+      \label{subfig:von_mises_res_mat_small_strain_2D_shear_material_response_error}
+    \end{subfigure}
+  \caption{Comparison between the FFT and FEM-based homogenization approaches in the solution
+  of the fiber-reinforced (fibers: linear elastic; matrix: elastoplastic with a von Mises associative flow rule and the isotropic piecewise linear strain hardening law) composite equilibrium problem under normal strain
+  loading conditions: \subref{subfig:von_mises_res_mat_small_strain_2D_shear_material_response} Homogenized
+  stress; \subref{subfig:von_mises_res_mat_small_strain_2D_shear_material_response_error} Computational time;
+  Notation: linear element (L), quadratic element (Q).}
+\label{fig:von_mises_res_mat_small_strain_2D_shear_material_response_and_error}
+\end{figure}
+
+\begin{figure}[hbt]
+  \centering
+	\begin{subfigure}[b]{\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/von_mises_res_mat_small_strain_2D_shear_elastic_strain_12}
+    \caption{}
+    \label{subfig:von_mises_res_mat_small_strain_2D_shear_elastic_strain_12}
+  \end{subfigure}
+  \begin{subfigure}[b]{\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/von_mises_res_mat_small_strain_2D_shear_palstic_strain}
+    \caption{}
+    \label{subfig:von_mises_res_mat_small_strain_2D_shear_palstic_strain}
+  \end{subfigure}
+  \caption{Comparison between the FFT-based and FEM-based homogenization approaches in the
+  solution of the fiber-reinforced (fibers: linear elastic; matrix: elastoplastic with a von Mises associative flow rule and the isotropic piecewise linear strain hardening law) composite equilibrium problem under uniaxial
+  strain loading conditions: \subref{subfig:von_mises_res_mat_small_strain_2D_shear_elastic_strain_12} Local elastic strain field, \(\varepsilon_{\mu,xx}\), of the matrix phase at full load; \subref{subfig:von_mises_res_mat_small_strain_2D_shear_palstic_strain} Local accumulated plastic strain field, \(\bar{\varepsilon}_{p}\), of the matrix phase at full load.  (\(n_v = 600 \times 600\) discretization). Notation: quadratic element (Q).}
+\label{fig:von_mises_res_mat_small_strain_2D_shear_local_fields}
+\end{figure}
+
+
+
+\FloatBarrier
+
+\paragraph{Large strain}
+
+Only the two-dimensional microstructure described in Section~\ref{sec:microstructures} is again considered together with the elastic properties described in Table~\ref{tab:mat_properties}.
+The matrix is again assumed elastoplastic with a von Mises associative flow rule and the isotropic piecewise linear strain hardening law illustrated in Figure~\ref{fig:von_mises_res_mat_small_strain_2D_normal_hardening_curve}.
+Large strains are considered.
+Periodic boundary conditions are adopted and the following two macroscale strain loading cases are considered
+\begin{equation}
+\text { uniaxial: } \bm{F}=\left[\begin{array}{cc}
+1.1 & 0.0 \\
+0.0 & 1.0
+\end{array}\right], \quad \text { pure shear: } \quad \bm F=\left[\begin{array}{cc}
+1.0 & 0.3 \\
+0.0 & 1.0
+\end{array}\right],
+\end{equation}
+being enforced in a total of 200 increments.
+Note that in the 2D plane strain case, only the in-plane \(O_{x y}\) macroscale strain components are enforced.
+In terms of spatial discretization, a grid \(n_{v}=600 \times 600\) is considered.
+The convergence criterion used is Criterion II, as described in Section~\ref{sec:criteria}.
+
+The homogenized response of the fiber-reinforced composite under uniaxial and pure shear strain loading conditions is presented in Figures~\ref{fig:von_mises_res_mat_large_strain_2D_normal_material_response_and_error} and \ref{fig:von_mises_res_mat_large_strain_2D_shear_material_response_and_error}.
+The relative error with respect to the FEM reference solution is also shown.
+An excellent agreement between the two solutions is found for uniaxial strain loading.
+Moreover, the error is below 0.1\% for the whole deformation history.
+On the other hand, for the pure shear loading scheme the FFT-based approach fails to converge after \(F_{xy}=0.1\).
+Immediatly before the error starts to increase exponentially reaching around 1.6\%.
+
+The local strain fields can be found in Figure \ref{fig:von_mises_res_mat_large_strain_2D_normal_local_fields} and \ref{fig:von_mises_res_mat_large_strain_2D_shear_local_fields}.
+Again, visually there is no detetctable difference between the local field computed using the two different approaches for the uniaxial strain loading scheme.
+For the FFT-based approach, the local fields are not available at full load.
+However, it can be gathered from the maximum values of the accumulated plastic strain, shown in Figure~\ref{subfig:von_mises_res_mat_large_strain_2D_shear_palstic_strain}, that it reaches values as a high as 1.4.
+It is  substantially larger than the maximum value found for the uniaxial strain loading scheme, \(\bar{\varepsilon}_p\approx 0.7\), thus making the pure shear strain loading scheme more demanding.
+This helps explain why only the uniaxial strain loading scheme reached full load.
+
+In terms of computational performance, Table~\ref{tab:von_mises_large_strain_2D_cpu_time} shows that the FTT approach is around 1.5 times faster than the FEM approach for the uniaxial strain loading scheme.
+Howver, as already mentioned, it fails to reach full load for the pure shear strain loading scheme.
+
+\begin{table}[htbp]
+  \caption{Comparison between the CPU time required by the FFT-based and FEM-based homogenization approaches in the
+  solution of the fiber-reinforced (fibers: hyperelastic (Hencky constitutive model); matrix: elastoplastic with a von Mises associative flow rule and the isotropic piecewise linear strain hardening law) composite equilibrium problem under uniaxial and pure
+  strain loading conditions (\(n_v = 600 \times 600\)).}
+\label{tab:von_mises_large_strain_2D_cpu_time}
+  \centering
+    \begin{tabular}{
+       c
+       S[
+       scientific-notation = true,
+         table-format=1.2e-2,
+                   round-mode=places,
+         round-precision=2
+         ]
+       S[
+       scientific-notation = true,
+         table-format=1.2e-2,
+                   round-mode=places,
+         round-precision=2
+         ]
+      }
+    & \multicolumn{2}{c}{CPU Time (s)} \\ \cline{2-3}
+    \vphantom{\Big |}Loading scheme & {FFT} & {FEM} \\
+    \hline\hline
+    \vphantom{\Big |}Uniaxial strain & 16554.911 & 0.2357E+05 \\
+    Pure shear strain & {-} & 0.6014E+05  \\
+    \hline\hline
+  \end{tabular}
+\end{table}
+
+\begin{figure}[hbt]
+  \centering
+  	\begin{subfigure}[b]{0.49\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{figures/von_mises_res_mat_large_strain_2D_normal_material_response}
+      \caption{}
+      \label{subfig:von_mises_res_mat_large_strain_2D_normal_material_response}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.49\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{figures/von_mises_res_mat_large_strain_2D_normal_material_response_error}
+      \caption{}
+      \label{subfig:von_mises_res_mat_large_strain_2D_normal_material_response_error}
+    \end{subfigure}
+  \caption{Comparison between the FFT and FEM-based homogenization approaches in the solution of the fiber-reinforced (fibers: hyperelastic (Hencky constitutive model); matrix: elastoplastic with a von Mises associative flow rule and the isotropic piecewise linear strain hardening law) composite equilibrium problem under normal strain loading conditions: \subref{subfig:von_mises_res_mat_small_strain_2D_normal_material_response} Homogenized stress; \subref{subfig:linear_2D_normal_stress_avg_cpu_time_vs_n_voxels} Computational time; Notation: quadratic element (Q).}
+\label{fig:von_mises_res_mat_large_strain_2D_normal_material_response_and_error}
+\end{figure}
+
+\begin{figure}[hbt]
+  \centering
+	\begin{subfigure}[b]{\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/von_mises_res_mat_large_strain_2D_normal_elastic_strain_11}
+    \caption{}
+    \label{subfig:von_mises_res_mat_large_strain_2D_normal_elastic_strain_11}
+  \end{subfigure}
+  \begin{subfigure}[b]{\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/von_mises_res_mat_large_strain_2D_normal_palstic_strain_11}
+    \caption{}
+    \label{subfig:von_mises_res_mat_large_strain_2D_normal_palstic_strain_11}
+  \end{subfigure}
+  \caption{Comparison between the FFT-based and FEM-based homogenization approaches in the
+  solution of the fiber-reinforced (fibers: hyperelastic (Hencky constitutive model); matrix: elastoplastic with a von Mises associative flow rule and the isotropic piecewise linear strain hardening law) composite equilibrium problem under uniaxial
+  strain loading conditions: \subref{subfig:von_mises_res_mat_large_strain_2D_normal_elastic_strain_11} Local elastic strain field, \(\varepsilon_{\mu,xx}\), of the matrix phase at full load; \subref{subfig:von_mises_res_mat_large_strain_2D_normal_palstic_strain_11} Local accumulated plastic strain field, \(\bar{\varepsilon}_{p}\), of the matrix phase at full load.  (\(n_v = 600 \times 600\) discretization). Notation: quadratic element (Q).}
+\label{fig:von_mises_res_mat_large_strain_2D_normal_local_fields}
+\end{figure}
+
+\begin{figure}[hbt]
+  \centering
+  	\begin{subfigure}[b]{0.49\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{figures/von_mises_res_mat_large_strain_2D_shear_material_response}
+      \caption{}
+      \label{subfig:von_mises_res_mat_large_strain_2D_shear_material_response}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.49\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{figures/von_mises_res_mat_large_strain_2D_shear_material_response_error}
+      \caption{}
+      \label{subfig:von_mises_res_mat_large_strain_2D_shear_material_response_error}
+    \end{subfigure}
+  \caption{Comparison between the FFT and FEM-based homogenization approaches in the solution of the fiber-reinforced (fibers: hyperelastic (Hencky constitutive model); matrix: elastoplastic with a von Mises associative flow rule and the isotropic piecewise linear strain hardening law) composite equilibrium problem under pure shear strain loading conditions: \subref{subfig:von_mises_res_mat_small_strain_2D_shear_material_response} Homogenized stress; \subref{subfig:linear_2D_shear_stress_avg_cpu_time_vs_n_voxels} Computational time; Notation: quadratic element (Q).}
+\label{fig:von_mises_res_mat_large_strain_2D_shear_material_response_and_error}
+\end{figure}
+
+\begin{figure}[hbt]
+  \centering
+	\begin{subfigure}[b]{\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/von_mises_res_mat_large_strain_2D_shear_elastic_strain_12}
+    \caption{}
+    \label{subfig:von_mises_res_mat_large_strain_2D_shear_elastic_strain_12}
+  \end{subfigure}
+  \begin{subfigure}[b]{\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/von_mises_res_mat_large_strain_2D_shear_palstic_strain}
+    \caption{}
+    \label{subfig:von_mises_res_mat_large_strain_2D_shear_palstic_strain}
+  \end{subfigure}
+  \caption{Comparison between the FFT-based and FEM-based homogenization approaches in the
+  solution of the fiber-reinforced (fibers: hyperelastic (Hencky constitutive model); matrix: elastoplastic with a von Mises associative flow rule and the isotropic piecewise linear strain hardening law) composite equilibrium problem under pure shear strain loading conditions: \subref{subfig:von_mises_res_mat_large_strain_2D_shear_elastic_strain_11} Local elastic strain field, \(\varepsilon_{\mu,xx}\), of the matrix phase at full load; \subref{subfig:von_mises_res_mat_large_strain_2D_shear_palstic_strain_11} Local accumulated plastic strain field, \(\bar{\varepsilon}_{p}\), of the matrix phase at full load  - Only FEM available since the FFT solution did not reach full load (\(n_v = 600 \times 600\) discretization). Notation: quadratic element (Q).}
+\label{fig:von_mises_res_mat_large_strain_2D_shear_local_fields}
 \end{figure}

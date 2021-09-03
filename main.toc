@@ -1,6 +1,6 @@
 \babel@toc {american}{}
 \contentsline {chapter}{List of Figures}{v}{chapter*.2}%
-\contentsline {chapter}{List of Tables}{ix}{chapter*.3}%
+\contentsline {chapter}{List of Tables}{xi}{chapter*.3}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {chapter}{\numberline {2}FFT-based methods for mechanical problems}{3}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Conventional FFT}{4}{section.2.1}%
@@ -43,19 +43,24 @@
 \contentsline {paragraph}{Mesh convergency studies}{44}{section*.31}%
 \contentsline {subparagraph}{Hencky}{44}{section*.32}%
 \contentsline {subparagraph}{Saint Venant-Kirchhoff model}{47}{section*.35}%
-\contentsline {paragraph}{Accuracy validation}{47}{section*.37}%
-\contentsline {subparagraph}{Hencky}{47}{figure.caption.42}%
-\contentsline {subparagraph}{Saint Venant-Kirchhoff model}{51}{figure.caption.47}%
-\contentsline {paragraph}{Extreme stiffness ratios between phases}{54}{section*.48}%
-\contentsline {subparagraph}{Hencky}{54}{figure.caption.51}%
-\contentsline {subparagraph}{Saint Venant-Kirchhoff model}{54}{figure.caption.54}%
-\contentsline {chapter}{\numberline {5}Numerical Results - Elastoplasticity}{59}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Material characterization}{59}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}von Mises - small strains}{60}{subsection.5.1.1}%
-\contentsline {paragraph}{Constitutive model}{60}{section*.56}%
-\contentsline {paragraph}{Consistent constitutive tangent}{61}{section*.57}%
-\contentsline {subsection}{\numberline {5.1.2}von Mises - large strains}{62}{subsection.5.1.2}%
-\contentsline {paragraph}{Pre-processing}{62}{section*.58}%
-\contentsline {paragraph}{Post-processing}{62}{section*.59}%
-\contentsline {section}{\numberline {5.2}Comparison between FFT and FEM-based homogenization}{62}{section.5.2}%
-\contentsline {chapter}{Bibliography}{65}{appendix*.62}%
+\contentsline {paragraph}{Accuracy validation}{49}{section*.37}%
+\contentsline {subparagraph}{Hencky}{49}{section*.38}%
+\contentsline {subparagraph}{Saint Venant-Kirchhoff model}{53}{section*.43}%
+\contentsline {paragraph}{Extreme stiffness ratios between phases}{57}{section*.48}%
+\contentsline {subparagraph}{Hencky}{57}{section*.49}%
+\contentsline {subparagraph}{Saint Venant-Kirchhoff model}{61}{section*.53}%
+\contentsline {chapter}{\numberline {5}Numerical Results - Elastoplasticity}{63}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Material characterization}{63}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}von Mises - small strains}{64}{subsection.5.1.1}%
+\contentsline {paragraph}{Constitutive model}{64}{section*.58}%
+\contentsline {paragraph}{Consistent constitutive tangent}{66}{section*.59}%
+\contentsline {subsection}{\numberline {5.1.2}von Mises - large strains}{66}{subsection.5.1.2}%
+\contentsline {paragraph}{Pre-processing}{66}{section*.60}%
+\contentsline {paragraph}{Post-processing}{66}{section*.61}%
+\contentsline {section}{\numberline {5.2}Comparison between FFT and FEM-based homogenization}{67}{section.5.2}%
+\contentsline {paragraph}{Small strain}{67}{section*.62}%
+\contentsline {paragraph}{Large strain}{72}{section*.68}%
+\contentsline {chapter}{\numberline {6}Conclusions and Future Research}{77}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Conclusions and final remarks}{77}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Future research and challenges}{78}{section.6.2}%
+\contentsline {chapter}{Bibliography}{81}{appendix*.74}%
