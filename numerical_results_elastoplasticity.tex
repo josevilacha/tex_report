@@ -177,6 +177,7 @@ Regarding the spatial consistent tangent, it is obtained using the expression in
 \paragraph{Small strain}
 
 Only the two-dimensional microstructure described in Section~\ref{sec:microstructures} is again considered together with the elastic properties described in Table~\ref{tab:mat_properties}.
+Due to time constraints results for the three-dimensional microstructure are not included.
 The matrix is now assumed elastoplastic with a von Mises associative flow rule and the isotropic piecewise linear strain hardening law illustrated in Figure~\ref{fig:von_mises_res_mat_small_strain_2D_normal_hardening_curve}.
 Only small strains are considered.
 Periodic boundary conditions are adopted and the following two macroscale strain loading cases are considered
@@ -205,6 +206,12 @@ In terms of computational performance, Table~\ref{tab:von_mises_small_strain_2D_
 It is difficult to tell if this time difference is due to a greater efficiency of the FFT approach or a larger amount of pre- and post-processing steps used in the FEM implementation used.
 See Section~\ref{sec:hencky_accuracy_validation} for an example of the impact of pre- and post-processing operation during state update in the execution time of the FFT approach.
 
+From these results, it follows regarding the application of the FFT-Gakerin method to an elastoplastic material that:
+\begin{itemize}
+  \item At small strains, the homogenized response is accurate and the error, when compared with the FEM solution, is very small (\(<0.15\%\));
+  \item The local fields are also in agreement with the FEM solution.
+  \item Regarding efficiency, the FTT-Galerkin method is 20 times faster than the FEM method for both loading schemes considered.
+\end{itemize}
 
 \begin{table}[htbp]
   \caption{Comparison between the CPU time required by the FFT-based and FEM-based homogenization approaches in the
@@ -360,6 +367,14 @@ This helps explain why only the uniaxial strain loading scheme reached full load
 
 In terms of computational performance, Table~\ref{tab:von_mises_large_strain_2D_cpu_time} shows that the FTT approach is around 1.5 times faster than the FEM approach for the uniaxial strain loading scheme.
 Howver, as already mentioned, it fails to reach full load for the pure shear strain loading scheme.
+
+From these results, it follows regarding the application of the FFT-Gakerin method to an elastoplastic material at large strains that:
+\begin{itemize}
+  \item The homogenized response is accurate and the error, when compared with the FEM solution, is very small (\(<0.15\%\)) for the more conservative uniaxial strain loading scheme prescribed.
+  The local fields are also in agreement with the FEM solution and the FTT-Galerkin method is 1.5 times faster than the FEM method.
+  \item For the more demanding pure shear loading scheme, the FFT-Galerkin method was not able to apply the full load.
+  However, the homogenized response before failure is moderately accurate with errors relative to the FEM solution below \(1.6\%\).
+\end{itemize}
 
 \begin{table}[htbp]
   \caption{Comparison between the CPU time required by the FFT-based and FEM-based homogenization approaches in the

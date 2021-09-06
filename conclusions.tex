@@ -4,8 +4,8 @@
 
 The main goal of the present work is to document the choice of an accurate and efficient FFT-based homogenization procedure.
 Both small and large strains, as well as, elastic and elastoplastic material behavior must be taken into account.
-With this objective in mind, an overview of the FFT-based homogenization procedures available in the literature is given and the FFT-based Galerkin method approach introduced by \cite{vondrejc_fft-based_2014}, \cite{zeman_finite_2017} and \cite{de_geus_finite_2017} is determined to be the that more closely matches the requirements established.
-It also factored into this choice the availability of an implementation of this procedure \citep{}.
+With this objective in mind, an overview of the FFT-based homogenization procedures available in the literature is given and the FFT-based Galerkin method approach introduced by \cite{vondrejc_fft-based_2014}, \cite{zeman_finite_2017} and \cite{de_geus_finite_2017} is determined to be the one that more closely matches the requirements established.
+It also factored into this choice the availability of an implementation of this procedure at \cite{}.
 Thus, a detailed description of the main method under review is also included based on \cite{zeman_finite_2017} and \cite{de_geus_finite_2017}.
 
 Using the code available at \cite{}, an implementation of the FFT-based Galerkin method homogenization procedure chosen was developed to test it against the FFT-based basic method homogenization procedure proposed by \cite{moulinec_fast_1994} and the FEM-based homogenization procedure.
@@ -13,8 +13,7 @@ To investigate its implementation robustness, accuracy, and efficiency, several 
 The numerical results are divided into two sets of results, the first concerning elasticity and the second elastoplasticity.
 Both small and large strains are considered in each set of results.
 
-
-Regarding the elasticity at small strains, the implementation developed for the FFT-based Galerkin method homogenization scheme is validated as solutions obtained (both homogenized results and local fields) are in excellent agreement with ones obtained with the FEM-based homogenization from LINKS and the FFT-based homogenization basic scheme.
+Regarding elasticity at small strains, the implementation developed for the FFT-based Galerkin method homogenization scheme is validated as the solutions obtained (both homogenized results and local fields) are in excellent agreement with ones obtained with the FEM-based homogenization from LINKS and the FFT-based homogenization basic scheme.
 In the linear elastic regime, the FFT-based homogenization Galerkin scheme outperforms the FEM-based homogenization both in terms of speed and memory footprint.
 This effect is much more pronounced in the three-dimensional microstructure considered than in the two-dimensional microstructure.
 However, it must be kept in mind that some of the Python libraries employed in the implementation of the FFT-based homogenization Galerkin scheme are parallelized and only one core is used in the LINKS simulations.
@@ -22,27 +21,88 @@ Comparing both FFT-based homogenization procedures, the FFT-based homogenization
 Yet, consider that the implementation of the basic scheme used in this work \citep{ferreira_accurate_2020} has already undergone some performance optimization.
 This is not the case for the implementation of the FFT Galerkin scheme used.
 
-Regarding the convergence criteria used in the present implementation of the FFT-Galerkin method ...
+Regarding the convergence criteria used in the present implementation of the FFT-Galerkin method, it can be gathered from the numerical results presented that both of the convergence criteria considered for the FFT-Galerkin method lead to accurate solutions.
+However, Criterion II is markedly faster than Criterion I, without compromising accuracy.
+Hence, it should be the default choice.
 
+When it comes to the effect of the stiffness contrast between phases in the accuracy of the solution found using the FFT-based homogenization additional numerical experiments are conducted.
+From these results, it follows regarding the FFT-Gakerin method that,
+for the two-dimensional microstructure, the homogenized solutions, as well as, the local fields, found using both of the FFT-based approaches are accurate, matching the solutions found using FEM.
+The FFT-Galerkin method converges for all the stiffness constrasts considered \((\num{e-6} \leq K \leq \num{e4})\), in constrast with the FFT-basic scheme which failed for more demanding sitffness constrasts (\(K<\num{e-3}\) and \(K>\num{e2.5}\)).
+For the three-dimensional microstructure, the homogenized solutions, as well as, the local fields, found using the FFT-Galerkin approach are accurate, matching the solutions found using FEM.
+On the other hand, the homogenized solutions, as well as, the local fields, found using the FFT-basic approach are not accurate for more demanding stiffness contrasts (\(K<\num{e-1}\) and \(K>\num{e1}\)).
+For both microstructures, the local fields inside the fibers/particles obtained using both of the FFT-based approaches are not accurate for more demanding stiffness contrast, as strong oscillations whose extreme values are large when compared with the FEM solution can be found.
+This phenomenon has already been widely reported in the literature concerning the FFT-based homogenization procedure.
+However, regarding the FFT-Gakerkin scheme in specific, to the author's knowledge, this fragility is not mentioned in the literature.
+Regarding computational efficiency, the FFT-basic scheme is by far the fastest of the methods considered.
+The FFT-Galerkin scheme is faster than the FEM, in particular in three dimensions.
+This time improvement lessens as the stiffness contrast strengthens.
 
-First, the implemented FFT-based homogenization basic scheme (Moulinec and Suquet, 1994) is validated and compared against FEM-based homogenization, both being available to perform the SCA's offline stage (linear elastic analyses under orthogonal strain loading conditions).
-From an implementation point of view, an optimization procedure is devised to avoid high computational costs associated with discrete frequency loops.
-Massive speedups are observed in the computation of the reference homogeneous material Green operator and a similar optimization approach is implemented concerning several SCA's algorithmic computations.
-In the linear elastic regime, it is clear that the FFT-based homogenization basic scheme outperforms the FEM-based homogenization both in terms of speed and memory footprint, being the obtained solutions (both homogenized results and local fields) in excellent agreement with each other.
-Therefore, it is concluded that the FFT-based homogenization methods are a suitable choice to efficiently compute the local elastic strain concentration tensors in the SCA's offline stage.
-Second and most importantly, some numerical examples are taken from Liu et al. (2016a) to validate the SCA's implementation.
-An excellent agreement is obtained and is verified that the SCA can capture the homogenized nonlinear elastoplastic behavior of both fiber and particle-reinforced composite materials (2D plane strain and \(3 \mathrm{D}\) models, respectively) with a considerable model data compression in comparison with FEM DNS analyses.
-From a numerical point of view, the expected quadratic convergence rate of Newton-Raphson's method is achieved in the solution of the Lippmann-Schwinger system of equilibrium equations.
-This suggests that the associated linearization is properly done and that the iterative procedure embedded in the self-consistent scheme is well implemented.
-Moreover, at the expense of an increased computational cost, it is clear from the results that the SCA predictions accuracy increases as the number of clusters increases.
-The tradeoff between accuracy and computational cost is further investigated and the accuracy-efficiency balance that must be made by the analyst in the choice of the degree of data compression is evidenced accuracy and computational cost lower and upper bounds, respectively, in terms of the number of clusters.
-It is remarked that fairly accurate results are obtained with significantly lower computational costs in comparison with the FEM DNS solutions.
-At last, to gain some insight into the computational cost of the main SCA algorithmic steps, a time profile analysis is performed for different degrees of model compression.
-In contrast with the clustering procedure, whose relative computational time remains essentially constant, it is verified that the relative computational cost of the cluster interaction tensors computation increases significantly with the increase of the number of clusters.
+Regarding hyperelasticity, two constitutive models are considered, the Hencky constitutive model and the Saint Venant-Kirchhoff constitutive model.
+From the numerical experiments carried out, it can be concluded that there is a good agreement between the FFT-Galerkin and the FEM solutions for both hyperelastic constitutive models and both strain loading schemes.
+It must be mentioned, however, that the FEM was not able to enforce the full load in the pure shear strain loading scheme when using the Saint Venant-Kirchhoff constitutive model.
+Moreover, the relatively conservative deformation gradients are chosen to avoid failed convergency by the FEM in the number of increments prescribed.
+On the other hand, the FFT-Galerkin method was able to reach convergence for more demanding loading schemes than the ones presented.
+
+In what concerns efficiency a different behavior is found for the two constitutive materials considered.
+Remember that for this set of results all cores of the machine are used by both procedures wherever the code is parallelized.
+For the Hencky constitutive materials, there is virtually no difference between the time taken by the FFT-Galerkin method and the FEM method.
+For the Saint Venant-Kirchhoff constitutive model, however, the FFF-Galerkin method is three times faster than the FEM method.
+It is hard to tease out if this is due to higher efficiency on the part of the FFT-Galerkin method in the solution of the equilibrium problem or because this specific implementation carries out a smaller number of pre and post-processing steps for the Saint Venant-Kirchhoff constitutive model, in particular.
+
+The conclusions regarding the effects of marked stiffness contrasts between the phases are much the same as the ones regarding linear elasticity.
+For the stiffness contrasts where convergence is achieved, there is good agreement between the homogenized response found by the FFT-Galerkin method and the FEM method.
+However,  for the Hencky constitutive model, the FFT-Galerkin method was not able to solve for all stiffness ratios, failing for softer particles (\(K<2\)).
+This is not the case when the Saint Venant-Kirchhoff constitutive model is used, as the FFT-Galerkin method was always able to find a solution.
+Regarding the local strain fields, the same kind of errors mentioned previously inside the particle phase can be observed at higher and lower stiffness contrasts.
+When it comes to efficiency, the FFT-Galerkin method is consistently faster than the FEM method across the complete range of stiffness ratios explored.
+It must be kept in mind, however, that some of the Python libraries are parallelized and that the FEM simulations for this set of results are run with only one core.
+
+Regarding the results concerning elastoplasticity, the matrix is assumed elastoplastic with a von Mises associative flow rule and the isotropic piecewise linear strain hardening law.
+At small strains, the homogenized response is accurate and the error, when compared with the FEM solution, is very small (\(<0.15\%\)).
+The local fields are also in agreement with the FEM solution.
+Regarding efficiency, the FTT-Galerkin method is 20 times faster than the FEM method for both loading schemes considered.
+Due to time constraints results for the three-dimensional microstructure are not included.
+
+Regarding elastoplasticity at large strains, the homogenized response is accurate and the error, when compared with the FEM solution, is very small (\(<0.15\%\)) for the more conservative uniaxial strain loading scheme prescribed.
+The local fields are also in agreement with the FEM solution and the FTT-Galerkin method is 1.5 times faster than the FEM method.
+For the more demanding pure shear loading scheme, the FFT-Galerkin method was not able to apply the full load.
+However, the homogenized response before failure is moderately accurate with errors relative to the FEM solution below \(1.6\%\).
+
+The FFT-Galerkin method proposed by \cite{vondrejc_fft-based_2014}, \cite{zeman_finite_2017} and \cite{de_geus_finite_2017} and the corresponding implementation developed using as a starting point the code available at \cite{} is shown to be accurate, time and memory-efficient; and able to deal with both large and small strains, and elastic or elastoplastic behavior.
+The efficiency gains are more pronounced in three dimensions, and as such, it is in that context that it most strongly presents itself as an efficient alternative to FEM.
+Table~\ref{tab:comparison_fft_galerkin_fem} presents a summary of the conclusions for quick reference.
+
+\begin{table}[htbp]
+  \caption{Summary of the comparison between the FFT-Galerkin method.}
+\label{tab:comparison_fft_galerkin_fem}
+  \centering
+    \begin{tabular}{ccc cccc}
+    &                           &                               & \multicolumn{4}{c}{Comparison with FEM} \\ \cline{4-7}
+    &                           &                               & \makecell[c]{\vphantom{\Big |}Homogenized\\Response} & \makecell[c]{Local Fields} & Efficiency & \makecell[c]{Ability to \\Converge}\\
+    \hline\hline
+    \multirow{4}{*}{Elasticity} & \multirow{2}{*}{\makecell[c]{Small\\strains}} & \vphantom{\Big |}2D & = & =${}^{*}$ & > & =\\
+                                &                               & 3D  & = & =${}^{*}$ & $\gg$ & =\\ \cline{2-7}
+                                & \multirow{2}{*}{\makecell[c]{Large\\strains}} & \vphantom{\Big |}2D & = & =${}^{*}$ & > & >\\
+                                &                               & 3D & = & = & $\gg$ & >${}^{\dagger}$\\
+
+    \hline
+    \multirow{4}{*}{\makecell[c]{Elasto-\\plasticity}} & \multirow{2}{*}{\makecell[c]{Small\\strains}} & \vphantom{\Big |}2D & = & =${}^{*}$ & $\gg$ & =\\
+                                     &                              & 3D & - & - & - & -\\ \cline{2-7}
+                                     & \multirow{2}{*}{\makecell[c]{Large\\strains}} & \vphantom{\Big |}2D & = & =${}^{*}$ & $\approx$ & <\\
+                                     &                              & 3D & - & - & - & -\\
+
+  \hline\hline
+  \multicolumn{7}{l}{\vphantom{\Huge |}\parbox{\textwidth}{\footnotesize{${}^*$ Accuracy of the local fields inside the fiber/particle phase dimishes as the stiffness contrast increases; ${}^\dagger$ The FEM shows convergence difficulties when dealing with the pure shear loading scheme and the Saint Venant-Kirchhoff constitutive model.}}}
+  \end{tabular}
+\end{table}
 
 \section{Future research and challenges}
 
-In the author's opinion, the Self-Consistent Clustering Analysis (SCA) proposed by Liu et al. (2016a) provides a solid and promising foundation that can still be significantly enriched in terms of accuracy and efficiency. Having this in mind, CRATE's high-modular implementation provides a suitable computational framework to perform further developments and innovative extensions. Before those, some aspects related to the present work still need to be tackled and/or further investigated: (1) the clear understanding of the numerical dependency on the
-Chapter 13
-269
-reference homogeneous material elastic properties (intrinsically related to the need of the self-consistent scheme and the nature of the introduced homogeneous far-field strain), (2) further evaluation of the SCA accuracy under complex strain/stress states and non-monotonic loading paths, and (3) the proper finite strain extension (Yu et al., 2019) implementation required to predict the behavior of polymeric materials under finite strains.
+The main challenges and directions for future research in the context of the FFT-Galerkin method under review \citep{vondrejc_fft-based_2014, zeman_finite_2017, de_geus_finite_2017} and the implementation developed in this work are:
+\begin{itemize}
+  \item Development of a strategy to deal with the artifacts in the local field when there are pronounced contrasts between the different material phases;
+  \item Experiment with different numerical methods for the solution of the equilibrium problem, e.g., quasi-Newton methods;
+  \item Code optimization for improved efficiency;
+  \item Development of strategies able to cope with more demanding loading schemes for elastoplastic materials in large strains.
+\end{itemize}

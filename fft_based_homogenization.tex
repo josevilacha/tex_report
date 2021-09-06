@@ -2,21 +2,26 @@
 
 In the following, an overview of the literature on FFT-based methods for the determination of the overall and local response of a composite material from actual images or morphological simulations of its microstructure is presented.
 
-To establish some context, let the microstructure of the material be represented by a periodic cell \(\Omega\).
-The material response at a point \(\bm x \in \Omega\) is specified by the constitutive relation \(\bm \sigma(\bm x, \bm\varepsilon(\bm x))\) assigning the stress response \(\bm\sigma\) to a given strain \(\bm\varepsilon\) locally at \(\bm x\).
-Furthermore, the total strain \(\bm\varepsilon\) is split into a homogeneous average strain tensor \(\boldsymbol{E}\) and an \(\Omega\) -periodic fluctuating strain field \(\bm\varepsilon^{*}\), i.e.
+To establish some context, let the microstructure of the material be represented by a periodic cell \(\Omega_\mu\).
+The material response at a point \(\bm Y \in \Omega_\mu\) is specified by the constitutive relation \(\bm{\sigma}_\mu(\bm{Y}\), \(\bm\varepsilon_\mu(\bm{Y}))\) assigning the stress response \(\bm\sigma_\mu\) to a given strain \(\bm\varepsilon_\mu\) locally at \(\bm Y\).
+Furthermore, the total strain \(\bm\varepsilon_\mu\) is split into a homogeneous average strain tensor present at the macroscopic point \(\bm X\), \(\bm \varepsilon(\bm X)\), and an \(\Omega_\mu\)-periodic fluctuating strain field \(\tilde{\bm \varepsilon}_\mu(\bm Y)\), i.e.
 \begin{equation}
-\bm \varepsilon(\boldsymbol{x})=\boldsymbol{E}+\bm\varepsilon^{*}(\boldsymbol{x}) \text { for } \boldsymbol{x} \in \Omega, \quad \int_{\Omega} \bm\varepsilon^{*}(\boldsymbol{x}) \mathrm{d} \boldsymbol{x}=\mathbf{0} .
+\bm\varepsilon_\mu(\bm{Y})=\bm \varepsilon(\bm X)+\tilde{\bm \varepsilon}_\mu(\bm{Y}) \text { for } \bm Y \in \Omega_{\mu,0}, \quad \int_{\Omega_{\mu,0} } \tilde{\bm\varepsilon}_\mu(\bm{Y}) \mathrm{d} v=\bm{0}.
 \end{equation}
-The average strain \(\bm E\) represents a given macro-scale excitation, while the fluctuating micro-scale strain field \(\pmb \varepsilon^{*}\) is the primary unknown.
+The average strain \(\bm \varepsilon(\bm X)\) represents a given macro-scale excitation, while the fluctuating micro-scale strain field \(\tilde{\bm\varepsilon}_\mu\) is the primary unknown.
 
-The fluctuating strain field \(\bm \varepsilon^{*}\) is determined by the stress equilibrium and strain compatibility conditions, which under quasi-static assumptions and in small strains read as,
-\begin{gather}
--\bm{\nabla} \cdot \bm\sigma\left(\bm x, \bm E+\bm\varepsilon^{*}(\bm x)\right)=0 \text { for } \bm x \in \Omega,\label{eq:equilibrium_equation}\\
-\bm\varepsilon^{*} \in \pazocal{E}=\left\{\boldsymbol{\nabla}_{\mathrm{s}} \boldsymbol{u}^{*}, \text{\(\boldsymbol{u}^{*}\) is an \(\Omega\)-periodic displacement field}\right\} \label{eq:compatibility_equation},
+The fluctuating strain field \(\tilde{\bm\varepsilon}_\mu\) is determined by the stress equilibrium and strain compatibility conditions, which under quasi-static assumptions and in small strains read as,
+\begin{gather}\label{eq:diff_equilibrium_equation}
+\operatorname{div}\left[\bm{\sigma}_\mu\left(\bm Y, \bm \varepsilon(\bm X)+\tilde{\bm\varepsilon}_\mu(\bm Y)\right)\right]=0 \text { for } \bm Y \in \Omega_{\mu,0},\\
+\label{eq:compatibility_equations}
+\tilde{\bm\varepsilon}_\mu \in \pazocal{E}=\left\{\bm{\nabla}_0^{\mathrm{s}} \tilde{\bm{u}}_\mu\ |\ \text{\(\tilde{\bm{u}}_\mu\) is an \(\Omega_\mu\)-periodic displacement field}\right\},
 \end{gather}
- where \(\nabla \cdot\) stands for the divergence operator and \(\nabla_{\mathrm{s}}\) stands for the symmetrized gradient operator.
- The goal of the methods presented in the following is to solve Equation~\eqref{eq:equilibrium_equation} under the compatibility restriction expressed by Equation~\eqref{eq:compatibility_equation}.
+where \(\bm{\nabla}_0^{\mathrm{s}}\)\nomenclature[V]{\bm{\nabla}_0^{\mathrm{s}}}{Symmetrized gradient operator} stands for the symmetrized gradient operator.
+For the numerical treatment, the local problem \eqref{eq:diff_equilibrium_equation} is recast into the weak form, which amounts to finding \(\tilde{\bm\varepsilon}_\mu \in \pazocal{E}\) such that
+\begin{equation} \label{eq:weak_form_equilibrium_eq}
+\int_{\Omega_{\mu,0}} \delta \tilde{\bm\varepsilon}_\mu(\bm{Y}): \bm{\sigma}_\mu\left(\bm Y, \bm \varepsilon(\bm X)+\tilde{\bm\varepsilon}_\mu(\bm Y)\right) \mathrm{d}v = 0,
+\end{equation}
+holds for all \(\delta \tilde{\bm\varepsilon}_\mu \in \pazocal{E}\) (where use has been made of the periodicity of the problem eliminate the boundary term).
 
 The FFT based methods, first introduced by \cite{moulinec_fast_1994, moulinec_fft-based_1995}, enjoy wide usage across many domains.
 They have been integrated into efficient and robust two-scale FE-FFT-based computatinal approaches \citep{kochmann_efficient_2018-1} and now even figure in comercial software such as DAMASK \citep{roters_damaskdusseldorf_2019} and FeelMath \citep{schwichow_geodict_2020, fraunhofer_itwm_feelmath_2020}.

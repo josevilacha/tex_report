@@ -1,6 +1,6 @@
 \chapter{Numerical Results - Elasticity}
 
-In the following chapter, results pertaining to elasticity are presented.
+In the following chapter, results on elasticity are presented.
 The validation of the FFT-based Galerkin formulation is performed on elastic materials at
 small strains and large strains.
 At large strains two different models are considered, the Saint Venant-Kirchhoff
@@ -31,7 +31,7 @@ Unless otherwise stated, each numerical simulation is performed only with 1 CPU 
 
 \section{Material characterization} \label{sec:microstructures}
 
-In order to perform several numerical applications in a systematic way, the same microstructures are considered throughout the entire chapter.
+To perform several numerical applications systematically, the same microstructures are considered throughout the entire chapter.
 Without any loss of generality in what concerns the objectives of the following studies, two types of periodic microstructures are addressed following \cite{ferreira_accurate_2020}:
 
 \begin{description}
@@ -108,7 +108,7 @@ and of the first Piola-Kirchhoff stress
 \end{equation}
 
 \paragraph{Consistent tangent}
-The constitutive model is linearized in the reference configuration in accordance with Equation~\eqref{eq:newton_increment}.
+The constitutive model is linearized in the reference configuration following Equation~\eqref{eq:newton_increment}.
 Its derivation is straightforward.
 The first step is to linearize the stress relation in Equation~\eqref{eq:stress_relation_saint_venant_kirchhoff}, leading to
 \begin{equation} \label{eq:saint_venant_kirchhoff_stress_lin}
@@ -195,7 +195,7 @@ To better gauge the accuracy and efficiency of the FFT-based Galerkin formulatio
 Their goals is to (1) validate the implementation of the FFT-based homogenization Galerkin scheme \citep{vondrejc_fft-based_2014, zeman_finite_2017, de_geus_finite_2017}, (2) compare the accuracy and computational performance between the FFT, basic \citep{moulinec_fast_1994} and Galerkin formulation, and FEM-based homogenization approaches and (3) choose the suitable spatial discretization refinement to evaluate the microstructures in Figure~\ref{fig:microstructure}.
 
 Concerning the FFT-based homogenization, the same discretization is performed in the different problem dimensions \(\left(n_{v, 1}=n_{v, 2}=n_{v, 3}\right)\).
-In order to generate the FEM finite element meshes, the FFT-FEM mesh conversion strategy adopted is to convert the pixels (2D) and voxels (3D) into quadrilateral (2D) and brick (3D) finite elements.
+To generate the FEM finite element meshes, the FFT-FEM mesh conversion strategy adopted is to convert the pixels (2D) and voxels (3D) into quadrilateral (2D) and brick (3D) finite elements.
 It is employed with both linear (QUAD4, HEXA8) and quadratic finite elements (QUAD8, HEXA20) such that \(n_{e}=n_{v}\).
 Moreover, given the solver library available in LINKS, two types of solvers are considered in the FEM-based homogenization simulations: the direct solver MKL PARDISO \citep{schenk2001pardiso, schenk2004solving} and the iterative solver WSMP (Watson Sparse Matrix Package) \citep{gupta_improved_2002, gupta_wsmp_2002} with an SSOR (Symmetric Successive Over-relaxation) preconditioner.
 Extensive preliminary research has shown that these are the overall (solver time and memory footprint) best direct and iterative solvers available in Links \citep{cardoso_coelho_election_2019}.
@@ -274,6 +274,12 @@ This effect is stronger for the FFT Basic scheme.
   Computational time.} \label{fig:linear_3D_normal_comparison_crit}
 \end{figure}
 
+From these results a few conclusions can be gathered:
+\begin{itemize}
+  \item Both of the convergence criteria considered for the FFT-Galerkin method are accurate;
+  \item Criterion II is markedly faster than Criterion I, without compromising accuracy.
+\end{itemize}
+
 \FloatBarrier
 
 \paragraph{Accuracy validation}
@@ -293,7 +299,7 @@ being enforced in a single load increment.
 Note that in the 2D plane strain case, only the inplane \(O_{x y}\) macroscale strain components are enforced.
 The convergence criterion used is Criterion II, as described in Section~\ref{sec:criteria}.
 
-The numerical results of the fiber-reinforced linear elastic composite equilibrium problem are shown in Figures~\ref{fig:linear_2D_normal} and \ref{fig:shear_2D_normal} for the uniaxial and pure shear loading cases, respectively.
+The numerical results of the fiber-reinforced linear elastic composite equilibrium problem are shown in Figures~\ref{fig:linear_2D_normal} and \ref{fig:linear_2D_shear} for the uniaxial and pure shear loading cases, respectively.
 In both cases there is an excellent agreement between the FFT and FEM-based homogenization solutions concerning both the homogenized response (see Figures~\ref{subfig:linear_2D_normal_homo_stress_11_vs_n_voxels} and \ref{subfig:linear_2D_shear_homo_stress_12_vs_n_voxels} and the local strain fields (see Figures \ref{subfig:linear_2D_normal_strain_11} and \ref{subfig:linear_2D_shear_strain_12}.
 In terms of computational performance, Figures~\ref{subfig:linear_2D_normal_cpu_time_vs_n_voxels} and \ref{subfig:linear_2D_shear_cpu_time_vs_n_voxels} show that the FFT-based homogenization Galerkin scheme outperforms the FEM-based homogenization with speedups of around 2 relative to the direct solver with linear finite elements.
 There is however a caveat, regarding this direct comparison.
@@ -301,7 +307,7 @@ The Python libraries used in the implementation of the FFT-based homogenization 
 On the other hand, the FEM simulations are run using only one core.
 When compared with the FFT-based homogenization basic scheme, the CPU time expended differs by more than an order of magnitude, with the Galerkin scheme being slower.
 
-\begin{figure}[hbt] % fig:linear_2D_normal
+\begin{figure}[hbt]
   \centering
 	\begin{subfigure}[b]{0.49\textwidth}
     \centering
@@ -329,10 +335,10 @@ When compared with the FFT-based homogenization basic scheme, the CPU time expen
   \subref{subfig:linear_2D_normal_strain_11} Local strain field (\(n_v = 600 \times 600\)
   discretization). Notation: linear element (L), quadratic element (Q), direct solver (DS)
   and iterative solver (IS)}
-  \label{fig:linear_2D_normal}
+\label{fig:linear_2D_normal}
 \end{figure}
 
-\begin{figure}[hbt] % fig:linear_2D_shear
+\begin{figure}[hbt]
   \centering
 	\begin{subfigure}[b]{0.49\textwidth}
     \centering
@@ -360,7 +366,7 @@ When compared with the FFT-based homogenization basic scheme, the CPU time expen
   \subref{subfig:linear_2D_normal_strain_11} Local strain field (\(n_v = 600 \times 600\)
   discretization). Notation: linear element (L), quadratic element (Q), direct solver (DS)
   and iterative solver (IS)}
-  \label{fig:linear_2D_shear}
+\label{fig:linear_2D_shear}
 \end{figure}
 
 The numerical results of the particle-reinforced linear elastic composite equilibrium problem are shown in Figures~\ref{fig:linear_3D_normal} and \ref{fig:linear_3D_shear} for the uniaxial and pure shear loading cases, respectively.
@@ -578,6 +584,18 @@ There is also good agreement regarding the local field in the particle phase for
 On the other hand, the strain field at the low stiffness ratio and the strain field at the high stiffness ratio exhibit strong oscillations in the particle phase.
 This mirrors the previous results concerning two-dimensional microstructures.
 
+From these results, it follows regarding the FFT-Gakerin method that:
+\begin{itemize}
+  \item For the two-dimensional microstructure, the homogenized solutions found using both of the FFT-based approaches are accurate, matching the solutions found using FEM.
+  \item The FFT-Galerkin method converges for all the stiffness constrasts considered \((\num{e-6} \leq K \leq \num{e4})\), in constrast with the FFT-basic scheme which failed for more demanding sitffness constrasts (\(K<\num{e-3}\) and \(K>\num{e2.5}\)).
+  \item For the three-dimensional microstructure, the homogenized solutions, as well as, the local fields, found using the FFT-Galerkin approach is accurate, matching the solutions found using FEM.
+  \item For the three-dimensional microstructure, the homogenized solutions found using the FFT-basic approach are not accurate for more demanding stiffness contrasts (\(K<\num{e-1}\) and \(K>\num{e1}\)).
+  \item For both microstructures, the local fields inside the fibers/particles obtained using both of the FFT-based approaches are not accurate for more demanding stiffness constrast, as strong oscillations whose extreme values are large when compared with the FEM solution can be found.
+  \item Regarding computational efficiency, the FFT-basic scheme is by far the fastest of the methods considered.
+  The FFT-Galerkin scheme is faster than the FEM, in particular in three dimensions.
+  This time improvement lessens as the stiffness contrast strengthens.
+\end{itemize}
+
 \begin{figure}[hbt]
   \centering
   	\begin{subfigure}[b]{0.49\textwidth}
@@ -677,6 +695,12 @@ In what concerns, the local strain fields (see Figures \ref{subfig:hencky_2D_nor
 In terms of computational performance, Figures~\ref{subfig:hencky_2D_normal_cpu_time_vs_n_voxels} and \ref{subfig:hencky_2D_shear_cpu_time_vs_n_voxels} show that the FFT-based homogenization Galerkin scheme outperforms the FEM-based homogenization with speedups of around 2 relative to the direct solver with linear quadratic elements.
 However, the caveat regarding parallelization still applies.
 
+From these results, it follows regarding the application of the FFT-Gakerin method to the Hencky constitutive model that:
+\begin{itemize}
+  \item A discretization of \(n_v=600\times 600\) is not enough to achieve convergence between the FFT-Galerkin and FEM homogenized solutions when using the Hencky constitutive model;
+  \item The local strain fields obtained by the FFT-Galerkin method and the FEM agree visually.
+\end{itemize}
+
 \begin{figure}[hbt]
   \centering
 	\begin{subfigure}[b]{0.49\textwidth}
@@ -742,11 +766,17 @@ However, the caveat regarding parallelization still applies.
 
 The numerical results of the fiber-reinforced Saint Venant-Kirchhoff hyperelastic composite equilibrium problem are shown in Figure
 ~\ref{fig:svk_2D_normal} for the uniaxial loading case.
-Neither the FFT-based nor the FEM-based homogenization procedures are able to solve the equilibrium problem for the pure shear loading cases when the load is enforced in a single increment, as such these results are not presented.
+Neither the FFT-based nor the FEM-based homogenization procedures can solve the equilibrium problem for the pure shear loading cases when the load is enforced in a single increment, as such these results are not presented.
 There is an excellent agreement between the FFT and FEM-based homogenization solutions concerning both the homogenized response (see Figure~\ref{subfig:svk_2D_normal_homo_stress_11_vs_n_voxels}) and the local strain fields (see Figure~\ref{subfig:svk_2D_normal_strain_11}).
 In terms of computational performance, Figure~\ref{subfig:svk_2D_normal_cpu_time_vs_n_voxels} shows that the FFT-based homogenization Galerkin scheme outperforms the FEM-based homogenization with speedups of around 2 to 10 relative to the direct solver with quadratic finite elements as the number of voxels increases.
 The caveat previously mentioned regarding the parallelization of both schemes still applies.
 Comparing the convergence criteria for the FFT schemes, Criterion I remains the most efficient without compromising accuracy.
+
+From these results, it follows regarding the application of the FFT-Gakerin method to the Saint-Venant constitutive model that:
+\begin{itemize}
+  \item A discretization of \(n_v=600\times 600\) is enough to achieve convergence between the FFT-Galerkin and FEM homogenized solutions when using the Saint Venant-Kirchhoff constitutive model;
+  \item The local strain fields obtained by the FFT-Galerkin method and the FEM agree visually.
+\end{itemize}
 
 \begin{figure}[hbt]
   \centering
@@ -797,7 +827,7 @@ being enforced in 200 load increments.
 The convergence criterion used for the FFT Galerkin method scheme is Criterion II (see Section~\ref{sec:criteria}).
 Both schemes (FFT and FEM) use all the cores available in the machine.
 % Only the 2D microstructure is considered due to time and memory constraints.
-The mesh used is \(n_e=600\times 600\) for both models, despite the fact that for the Henkcy constitutive model convergence with the FEM solution is not achieved.
+The mesh used is \(n_e=600\times 600\) for both models, even though for the Henkcy constitutive model convergence with the FEM solution is not achieved.
 
 \subparagraph{Hencky}
 \label{sec:hencky_accuracy_validation}
@@ -809,13 +839,19 @@ Moreover, the relative error of the FFT solution when compared for both loading 
 Under 0.1\% for the uniaxial load and under 0.015\% for the pure shear load.
 However, it must be kept in mind that the enforced deformation is not very large as can be seen from the relatively small deviation of the material response from linear behavior.
 The deformation values are conservative for a hyperelastic material because the FEM solutions fail to converge for more demanding values with 200 load increments.
-The FFT-based Galerkin method homogenization scheme is able to obtain the correct solution for uniaxial strains \(F_{xx}\) as high as 1.5 in a single load increment.
+The FFT-based Galerkin method homogenization scheme can obtain the correct solution for uniaxial strains \(F_{xx}\) as high as 1.5 in a single load increment.
 This is found from numerical experience using a coarser mesh and more than 200 increments.
 
 In terms of computational performance, Table~\ref{tab:hencky_2D_cpu_time} shows that FFT and FEM approaches take about the same CPU time for both loading schemes, i.e, around three hours and twenty minutes.
 Table~\ref{tab:hencky_normal_2D_time_profile} shows the time profile for the FFT-based homogenization approach in the solution of the fiber-reinforced hyperelastic (Hencky constitutive model) composite equilibrium problem under uniaxial strain loading conditions (\(n_v=600\times 600\)).
 The phase of the solution procedure that takes the majority of the time is the state update (\(\approx 92\%)\).
-The applicattion of the projection operator, repeated during the solution using the conjugate gradient method takes only \(\approx 6\%\) of the time.
+The application of the projection operator, repeated during the solution using the conjugate gradient method takes only \(\approx 6\%\) of the time.
+
+This is set of results lead to the following conclusions:
+\begin{itemize}
+  \item There is good agreement between the FFT-Galerkin and FEM solutions (homogenized response and local strain fields);
+  \item The efficiency of both methods is about the same.
+\end{itemize}
 
 \begin{figure}[hbt]
   \centering
@@ -957,12 +993,18 @@ The deformation values are conservative for a hyperelastic material because the 
 In Figure~\ref{fig:svk_mat_res_2D_shear}, it can be seen that the FEM procedure did not reach the full load for the pure shear loading scheme enforced in 200 increments.
 
 In terms of computational performance, Table~\ref{tab:svk_2D_cpu_time} shows that the FTT approach is three times faster than the FEM approach.
-Comparing with Table~\ref{tab:svk_2D_cpu_time}, one can also conclude that solving the fiber-reinforced hyperelastic composite equilibrium problem using FFT is also three times faster when modelling both phases using the Saint Venant-Kirchhoff constitutive model than the Hencky constitutive model.
+Comparing with Table~\ref{tab:svk_2D_cpu_time}, one can also conclude that solving the fiber-reinforced hyperelastic composite equilibrium problem using FFT is also three times faster when modeling both phases using the Saint Venant-Kirchhoff constitutive model than the Hencky constitutive model.
 Looking at Table~\ref{tab:svk_normal_2D_time_profile}, where the time profile for the FFT-based homogenization approach under uniaxial loading conditions is shown it can be understood why.
-The difference can be found in the time taken by the state update procedure, as the application of the projection operator takes abut the same time \((\SI{7e2}{\second})\).
-This is due to the more convoluted pre- and post-processing needed to use the Henkcy constitutive model.
-These procedures are also possibly present in the FEM implementation for both models explaining the time difference observed for to obtain the final solution.
+The difference can be found in the time taken by the state update procedure, as the application of the projection operator takes about the same time \((\SI{7e2}{\second})\).
+This is due to the more convoluted pre and post-processing needed to use the Henkcy constitutive model.
+These procedures are also possibly present in the FEM implementation for both models explaining the time difference observed to obtain the final solution.
 
+This is set of results lead to the following conclusions:
+\begin{itemize}
+  \item There is good agreement between the FFT-Galerkin and FEM solutions (homogenized response and local strain fields);
+  \item The FFT-Galerkin method is much faster than the FEM for the Saint Venant-Kirchhoff constitutive model;
+  \item The FEM is not able to apply the full load corresponding to the pure shear strain loading scheme in the prescribed number of iterations (200).
+\end{itemize}
 
 \begin{figure}[hbt]
   \centering
@@ -1044,7 +1086,6 @@ These procedures are also possibly present in the FEM implementation for both mo
   \end{tabular}
 \end{table}
 
-
 \begin{table}[htbp]
   \caption{Time profile for the FFT-based homogenization approach in the
   solution of the fiber-reinforced hyperelastic (Saint Venat-Kirchhoff constitutive model) composite equilibrium problem under uniaxial loading conditions (\(n_v = 600 \times 600\)).}
@@ -1109,7 +1150,7 @@ Only the 2D microstructure is considered due to time and memory constraints.
 
 The numerical results of the fiber-reinforced hyperelastic (Hencky constitutive model) composite equilibrium problem are shown in Figures~\ref{fig:hencky_2D_normal_stiff_contrast} for the uniaxial loading case.
 The FFT approach is not able to converge for very soft particles, more precisely, for stiffness ratios below \num{e-2} using Criterion II.
-Criterion I exhibted an even poorer behavior, failing to converge for ratios below \num{e-0.5} and above \num{e2.5}.
+Criterion I exhibited an even poorer behavior, failing to converge for ratios below \num{e-0.5} and above \num{e2.5}.
 For the stiffness ratios where convergence is achieved, there is an excellent agreement between the FFT and FEM-based homogenization solutions concerning the homogenized response as attested by Figure~\ref{subfig:hencky_2D_normal_stress_avg_vs_stiff_ratio}.
 In terms of computational performance, Figure~\ref{subfig:hencky_2D_normal_stress_avg_cpu_time_vs_n_voxels} shows that the FFT-based homogenization Galerkin scheme outperforms the FEM-based homogenization with speedups from around 5 at low stiffness contrast to around 2 at the strongest stiffness contrasts, both high and low, relative to the direct solver with quadratic finite elements.
 As before, the caveat regarding the parallelization of the Python libraries still applies.
@@ -1118,6 +1159,15 @@ Concerning the local field, an excellent agreement can be observed at both high 
 There is also good agreement regarding the local field in the particle phase for the strain field at the low stiffness ratio and the stress field at the high stiffness ratio.
 On the other hand, the strain field at the low stiffness ratio and the stress field at the high stiffness ratio exhibit strong oscillations in the particle phase.
 In closing, it bears mentioning that this does not affect the accuracy of the homogenized response.
+
+This is set of results lead to the following conclusions:
+\begin{itemize}
+  \item For the stiffness contrasts where convergence is achieved, there is good agreement between the homogenized response found by the FFT-Galerkin method and the FEM method;
+  \item The FFT-Galerkin method was not able to solve for all stiffness ratios, failing for softer particles (\(K<2\));
+  \item Regarding the local strain fields, oscillations inside the particle phase can be observed at higher and lower stiffness contrasts;
+  \item Efficiency-wise, the FFT-Galerkin method is consistently faster than the FEM method across the complete range of stiffness ratios explored.
+  It must be kept in mind, however, that some of the Python libraries are parallelized and that the FEM simulations for this set of results are run with only one core.
+\end{itemize}
 
 \begin{figure}[hbt]
   \centering
@@ -1189,7 +1239,7 @@ In closing, it bears mentioning that this does not affect the accuracy of the ho
 
 The numerical results of the fiber-reinforced hyperelastic (Saint Venat-Kirchhoff constitutive model) composite equilibrium problem are shown in Figures~\ref{fig:svk_2D_normal_stiff_contrast} for the uniaxial loading case.
 The FFT approach when using Criterion I is not able to converge for stiffness ratios below \num{e-2} and above \num{e2}.
-On the other hand, using Criterion II, convergence is achieve for all stiffness ratios.
+On the other hand, using Criterion II, convergence is achieved for all stiffness ratios.
 Moreover, there is an excellent agreement between the FFT and FEM-based homogenization solutions concerning the homogenized response as attested by Figure~\ref{subfig:svk_2D_normal_stress_avg_vs_stiff_ratio}.
 In terms of computational performance, Figure~\ref{subfig:svk_2D_normal_stress_avg_cpu_time_vs_n_voxels} shows that the FFT-based homogenization Galerkin scheme outperforms the FEM-based homogenization with speedups from around 25 at low stiffness contrast to around 2 at the strongest stiffness contrasts, both high and low, relative to the direct solver with quadratic finite elements.
 As before, the caveat regarding the parallelization of the Python libraries still applies.
@@ -1197,8 +1247,17 @@ As before, the caveat regarding the parallelization of the Python libraries stil
 Concerning the local field, an excellent agreement can be observed at both high \((K=E_1/E_2=\num{e4})\) and low \((K=E_1/E_2=\num{e-4})\) stiffness ratios in the matrix phase, as can be seen in Figure~\ref{fig:svk_2D_stiff_contrast_normal_strain_11}.
 There is also good agreement regarding the local field in the particle phase for the strain field at the low stiffness ratio.
 On the other hand, the strain field at the low stiffness ratio exhibits strong oscillations in the particle phase.
-Results for the stress fields are not presented as the same stress measure was not available for both homogenization schemes using the Saint Venant-Kirchhoff constituive model.
+Results for the stress fields are not presented as the same stress measure was not available for both homogenization schemes using the Saint Venant-Kirchhoff constitutive model.
 In closing, it bears mentioning that this does not affect the accuracy of the homogenized response.
+
+This is set of results lead to the following conclusions:
+\begin{itemize}
+  \item There is good agreement between the homogenized response found by the FFT-Galerkin method and the FEM method;
+  \item The FFT-Galerkin method was able to solve for all stiffness ratios;
+  \item Regarding the local strain fields, oscillations inside the particle phase can be observed at higher and lower stiffness contrasts;
+  \item Efficiency-wise, the FFT-Galerkin method is consistently faster than the FEM method across the complete range of stiffness ratios explored.
+  It must be kept in mind, however, that some of the Python libraries are parallelized and that the FEM simulations for this set of results are run with only one core.
+\end{itemize}
 
 \begin{figure}[hbt]
   \centering
