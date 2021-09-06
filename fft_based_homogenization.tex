@@ -44,15 +44,16 @@ In the last section, a few methods not fitting this classification scheme are al
 \section{Conventional FFT}
 
 % Lippmann-Schwinger
-Following \cite{zeman_finite_2017}, the "Conventional FFT" methods, based on the basic scheme by \cite{moulinec_fast_1994}, are derived from the following integral equation for the fluctuating strains \(\bm\varepsilon^{*} \in \pazocal{E}\),
+Following \cite{zeman_finite_2017}, the "Conventional FFT" methods, based on the basic scheme by \cite{moulinec_fast_1994}, are derived from the following integral equation for the fluctuating strains \(\tilde{\bm\varepsilon}_\mu \in \pazocal{E}\),
 \begin{equation} \label{eq:int_lippmann_schwinger}
-\int_{\Omega} \Gamma^{\mathrm{ref}}(\boldsymbol{x}-\boldsymbol{y}): \boldsymbol{\sigma}\left(\boldsymbol{y}, \boldsymbol{E}+\bm \varepsilon^{*}(\boldsymbol{y})\right) \mathrm{d} \boldsymbol{y}=\mathbf{0} \text { for all } \boldsymbol{x} \in \Omega,
+\int_{\Omega_\mu} \bm \Gamma^{\mathrm{ref}}(\bm{Y}-\bm{Z}): \bm{\sigma}_\mu\left(\bm{Z}, \bm{\varepsilon}(\bm X)+\tilde{\bm \varepsilon}_\mu(\bm{Z})\right) \mathrm{d} \bm{Z}=\mathbf{0}\quad \text { for all } \bm{Y} \in \Omega_\mu,
 \end{equation}
-where \(\Gamma^{\text {ref }}\) is the Green function of the reference problem.
+where \(\bm \Gamma^{\text {ref }}\) is the Green function of the reference problem.
 This reference problem is an auxiliary local problem with the homogeneous constitutive relation
 \begin{equation}
-\sigma(\boldsymbol{x}, \varepsilon(\boldsymbol{x}))=C^{\mathrm{ref}}: \bm\varepsilon(\boldsymbol{x}) \text { for } \boldsymbol{x} \in \Omega.
+\bm \sigma_\mu(\bm{Y}, \bm \varepsilon(\bm{Y}))=\boldsf C^{\mathrm{ref}}: \bm\varepsilon(\bm{Y}) \text { for } \bm{Y} \in \Omega_\mu,
 \end{equation}
+where \(\boldsf C^\mathrm{ref}\) is the elasticity tensor of the reference material.
 % normal
 In the seminal contribution by \cite{moulinec_fast_1994, moulinec_fft-based_1995}, Equation~\eqref{eq:int_lippmann_schwinger} is solved using a fixed-point iteration scheme after discretizing it through a point collocation method, the basis function being trigonometric polynomials \citep{zeman_finite_2017}.
 It is originally formulated for linear elasticity and small strains.
@@ -75,10 +76,10 @@ Exceptions are \cite{bonnet_effective_2007}, \cite{monchiet_polarization-based_2
 In the first three, the exact Fourier transforms of the elasticity tensor are used.
 This can be achieved because the Fourier transforms of the characteristic functions of the inclusion phases are known, being limited to circles and ellipses.
 The last work uses the approximate Fourier transform of the elasticity tensor, but the phases are not limited to circles and ellipses.
-More complex phase domains are approximated through the union of polygon and polyhedra (e.g. flower-shaped inclusions in 2D and torus-shaped inclusion in 3D) for which the Fourier transforms of the characteristic functions are known.
+More complex phase domains are approximated through the union of polygons and polyhedra (e.g. flower-shaped inclusions in 2D and torus-shaped inclusion in 3D) for which the Fourier transforms of the characteristic functions are known.
 
 
-A further classification of the "Conventional methods" can be introduced, according to \cite{schneider_barzilai-borwein_2019}.
+A further sub-classification for the "Conventional FFT" methods can be introduced, according to \cite{schneider_barzilai-borwein_2019}.
 For the first kind, each iterate satisfies the mechanical compatibility condition, whereas, for the second kind, compatibility is only ensured upon convergence.
 The polarization schemes and solvers based on the Hashin-Shtrikman principle constitute the former kind.
 The latter includes the conjugate gradient method, the Newton-scheme (coupled to different linear solvers), and the fast gradient methods.
@@ -103,7 +104,7 @@ Beyond the "basic scheme" of \cite{moulinec_fast_1994} further improvements with
 % linear small strain
 In the first place improvements still dealing with linear behavior at small strains are introduced.
 In the original approach, a fixed point iteration/Richardson iteration/Neumann series-based scheme is used (see \cite{moulinec_convergence_2018} for an in-depth convergence analysis).
-It is the most memory-efficient method available in its class and is also robust, but slow for highly contrasted problems.
+It is the most memory-efficient method available in its class and it is also robust, but slow for highly contrasted problems.
 Moreover, the only role of the (material-dependent) reference problem is to ensure the convergence of the Richardson iteration scheme used to solve the resulting system of linear equations.
 As an alternative, \cite{zeman_accelerating_2010} propose a conjugate gradient-based approach.
 It proceeds from the discretization of the governing integral equation by the trigonometric collocation method to give a linear system that can be efficiently solved by conjugate gradient methods.
@@ -182,11 +183,11 @@ Table~\ref{tab:methods} reproduces a Table found in \cite{wicht_quasinewton_2019
 
 According to \cite{zeman_finite_2017} the so-called "Variational FFT" schemes, are based on the weak form of the equilibrium equation
 \begin{equation} \label{eq:weak_equilibrium_equations}
-\int_{\Omega} \delta \bm\varepsilon^{*}(\boldsymbol{x}): \boldsymbol{\sigma}\left(\boldsymbol{x}, \boldsymbol{E}+\bm\varepsilon^{*}(\boldsymbol{x})\right) \mathrm{d} \boldsymbol{x}=0,
+\int_{\Omega_\mu} \delta \tilde{\bm\varepsilon}_\mu(\bm{Y}): \bm{\sigma}_\mu\left(\bm{Y}, \bm{\varepsilon}(\bm X)+\tilde{\bm\varepsilon}(\bm{Y})\right) \mathrm{d} \bm{Y}=0,
 \end{equation}
 with the compatibility constraint enforced by
 \begin{equation}
-\delta \bm\varepsilon^{*}(\bm x)=[\bm G * \bm\zeta](\bm x)=\int_{\Omega} \bm G(\bm x-\bm y): \bm\zeta(\bm y) \mathrm{d} \bm y \text { for } \bm x \in \Omega,
+\delta \tilde{\bm\varepsilon}(\bm Y)=[\bm G * \bm\zeta](\bm Y)=\int_{\Omega_\mu} \bm G(\bm Y-\bm Z): \bm\zeta(\bm Z) \mathrm{d} \bm Z \quad\text { for } \bm Y \in \Omega_\mu,
 \end{equation}
 where \(\bm G\) is a projection operator, \(\bm \zeta\) is a test function and \(*\) stands for the convolution.
 
@@ -196,7 +197,7 @@ Such a feature is particularly attractive for non-linear problems, for which the
 From a conceptual standpoint, this framework has the benefit that discretization, quadrature, constitutive linearization, and the
 solution of a linear system can be properly distinguished and optimized individually (see e.g. \cite{mishra_block_2015}, \cite{mishra_comparative_2016} and \cite{vondrejc_energy-based_2020}).
 
-\cite{zeman_finite_2017} offers a very clear presentation of this approach and supplies the demonstrations regarding robust convergence for several types of non-linear constitutive behavior in small strains.
+\cite{zeman_finite_2017} offers a very clear presentation of this approach and supplies numerical examples regarding robust convergence for several types of non-linear constitutive behavior in small strains.
 In \cite{de_geus_finite_2017} the extension to finite strain is achieved, and the corresponding Python code of only 59 lines (without comments) is also supplied for a linear hyperelastic material.
 A further extension is advanced in \cite{lucarini_algorithm_2019}, where stress and mixed control of the macroscopic load history is achieved using a direct method based on a modified project operator and preserving the computational performance of the original method.
 
@@ -214,9 +215,9 @@ The only difference is found in the Green operator, nevertheless, it leads to mu
 The convergence rate is also found to be much faster compared with the different methods employing the original operator, in particular for highly-contrasted media.
 Different finite difference and finite element discretizations have also been introduced \citep{schneider_computational_2016, schneider_fft-based_2017, djaka_field_2017, eloh_development_2019}.
 \cite{brisard_fft-based_2010, brisard_combining_2012} introduced a discretization by voxel-wise constant finite elements based on the Hashin-Shtrikman variational principle \citep{hashin_variational_1962}.
-Also based on the same principle, \cite{tu_implementation_2020} discretizes the problem using splines instead.
+Also based on the same principle, \cite{tu_implementation_2020} discretize the problem using splines instead.
 
-In \cite{yvonnet_fast_2012}, unlike other algorithms presented so far based on the Fourier transform, the scheme put forth strictly operates in the real-space domain and removes the numerical Fourier and inverse Fourier transforms at each iteration. For this purpose, the linear operator related to the Lippmann–Schwinger equation is constructed numerically employing transformation tensors in the real-space domain.
+In \cite{yvonnet_fast_2012}, unlike other algorithms presented so far that are based on the Fourier transform, the scheme put forth strictly operates in the real-space domain and removes the numerical Fourier and inverse Fourier transforms at each iteration. For this purpose, the linear operator related to the Lippmann–Schwinger equation is constructed numerically employing transformation tensors in the real-space domain.
 
 Concerning the approximate discretization of microstructure features, more precisely of the voxels which include the interface between phases, \cite{mareau_different_2017} proposes the use of composite voxel methods.
 These methods use simple homogenization rules to calculate the effective behavior of heterogeneous voxels, capturing more accurately, the fact they contain material that belongs to different phases.
