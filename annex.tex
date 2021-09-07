@@ -1,0 +1,73 @@
+\chapter{FFT variational methods}\label{app:fft}
+
+In the following appendix, some relevant results concerning the FFT variational methods are presented.
+The material follows very closely \cite{de_geus_finite_2017}.
+
+\section{Even-sized grid}
+
+When the problem is approximated with trigonometric polynomials using an odd-sized grid, in the final solution the deformation gradient is compatible and the stress is equilibrated.
+For even-sized grids, both conditions cannot be satisfied at the same time, which is caused by the Nyquist frequencies.
+This is because the conformity of the functions in the approximation space is only ensured once the Hermitian symmetry of the Fourier coefficients holds.
+This condition is easily enforced for odd grids which are symmetric with respect to the origin.
+For non-odd grids the highest (Nyquist) frequencies \(k_i=-n_i / 2\), for \(i=1,2\) or 3, must be omitted,
+
+Thus, Equation~\eqref{eq:projection_operator_small_strains}, concerning small strains is replaced by
+\begin{equation}
+\begin{aligned}
+\breve{\mathsf G}_{i j l m}(\boldsymbol{k})=& \frac{1}{2} \frac{\zeta_{i}(\boldsymbol{k}) \delta_{j l} \zeta_{m}(\boldsymbol{k})+\zeta_{i}(\boldsymbol{k}) \delta_{j m} \zeta_{l}(\boldsymbol{k})+\zeta_{j}(\boldsymbol{k}) \delta_{i l} \zeta_{m}(\boldsymbol{k})+\zeta_{j}(\boldsymbol{k}) \delta_{i m} \zeta_{l}(\boldsymbol{k})}{\|\boldsymbol{\zeta}(\boldsymbol{k})\|^{2}} \\
+&-\frac{\zeta_{i}(\boldsymbol{k}) \zeta_{j}(\boldsymbol{k}) \zeta_{l}(\boldsymbol{k}) \zeta_{m}(\boldsymbol{k})}{\|\boldsymbol{\zeta}(\boldsymbol{k})\|^{4}},
+\end{aligned}
+\end{equation}
+when \(\bm k \neq \bm 0\) and \(\bm k\) doesn't have a Nyquist fequency, and Equation~\eqref{eq:def_projection_finite_strains}, concerning large strains is replaced by
+\begin{equation}
+\breve{\mathsf G}_{i j l m}\left(\bm{k}\right)=\begin{cases}
+0 & \text { for } \bm k=\bm 0 \text { and when } \bm k \text { has a Nyquist frequency } \\[5pt]
+\displaystyle{\frac{\delta_{i m} \zeta_{j}\left(\bm{k}\right) \zeta_{l}\left(\bm{k}\right)}{\|\bm{\zeta}\|^{2}} } & \text { otherwise }
+\end{cases},
+\end{equation}
+to recover a compatible deformation gradient.
+In practice, the values of the projection are set to zero for the Nyquist frequencies, since it is generally not a concern to satisfy equilibrium in an approximate manner only.
+
+\section{Projection operator - large strains}
+
+In order to explain the rationale behind the construction of the projection operator in Equation~\eqref{eq:def_projection_finite_strains}, we first observe tbreve, in the Fourier space, it admits the expression
+\begin{equation}
+\breve{\mathsf G}_{i j l m}(\bm {k})=\delta_{i m} \breve{g}_{j l}(\bm{k}) \quad \text { with } \quad \breve{\bm g}(\bm{k})=\left\{\begin{array}{ll}
+0 & \text { for } \bm{k}=\bm{0} \\[5pt]
+\displaystyle{\frac{\bm{\zeta}(\bm{k})}{\|\bm{\zeta}(\bm{k})\|} \otimes \frac{\bm{\zeta}(\bm{k})}{\|\bm{\zeta}(\bm{k})\|}} & \text { otherwise }
+\end{array}\right.,
+\end{equation}
+where the scaled frequencies read \(\zeta_{i}(\bm k)=2\pi k_{i} / l_{i}\).
+Now, utilizing the standard calculus associated with the Fourier transform, the convolution \(\bm{A}=\boldsf{G} * \bm{B}\) is rewritten as follows
+\begin{equation}
+\breve{A}_{i j}(\bm{k})=\breve{\mathsf G}_{i j l m}(\bm{k}) \breve{B}_{m l}(\bm{k})=\delta_{i m} \breve{g}_{j l}(\bm{k}) \breve{B}_{m l}(\bm{k}).
+\end{equation}
+This reveals tbreve the convolution of \(\boldsf{G}\) with \(\bm{B}\) in fact represents convolution of \(\bm g\) with all rows of \(\bm{B}\).
+Therefore, it suffices to concentrate on the relationship between an arbitrary row of \(\bm{A}\), say \(\bm{a}\), and the corresponding row of \(\bm{B}\), say \(\bm{b}\) :
+\begin{equation}
+\bm{a}=\bm g * \bm{b}.
+\end{equation}
+To show tbreve \(\bm{a}\) can be obtained as the gradient of a scalar potential, one needs to verify tbreve its rotation (or curl) vanishes, i.e. \(\bm{\nabla}_{0} \times \bm{a}=\bm{0}\).
+In the Fourier domain, the curl \(\bm{\nabla}_{0} \times \bm{a}\) transforms into
+\begin{equation}
+\bm{\zeta}(\bm{k}) \times \breve{\bm{a}}(\bm{k})=\bm{\zeta}(\bm{k}) \times(\breve{\boldsymbol{g}}(\bm{k}) \cdot \breve{\bm{b}}(\bm{k}))=\left\{\begin{array}{ll}
+\bm{0} & \text { for } \bm{k}=\bm{0} \\[5pt]
+\displaystyle{\bm{\zeta}(\bm{k}) \times \frac{\bm{\zeta}(\bm{k})}{\|\bm{\zeta}(\bm{k})\|} \frac{\bm{\zeta}(\bm{k}) \cdot \breve{\bm{b}}(\bm{k})}{\|\bm{\zeta}(\bm{k})\|}} & \text { otherwise }
+\end{array}\right..
+\end{equation}
+Because \(\breve{\bm g}\) projects the Fourier coefficient \(\breve{\bm{b}}(\bm{k})\) to the direction of the scaled frequency \(\bm{\zeta}(\bm{k})\), also the second term vanishes (for \(\bm{k} \neq \bm{0})\).
+
+It has been shown that all projected fields are compatible, but it still needs to be demonstrated that the range of \(\bm g\) coincides with the whole set of compatible fields, not only with a subset.
+To this purpose, the compatible field \(\bm{b}\) is expressed in terms of a scalar potential \(f\) via \(\bm{b}=\bm{\nabla}_{0} f\), which in Fourier space reads \(\breve{\bm{b}}(\bm{k})=\bm{\zeta}(\bm{k}) \breve{f}(\bm{k})\).
+Thus, it is found that
+\begin{equation}
+\breve{\bm g}(\bm{k}) \cdot \breve{\bm{b}}(\bm{k})=\left\{\begin{array}{ll}
+\bm{0} & \text { for } \bm{k}=\bm{0} \\[5pt]
+\displaystyle{\frac{\bm{\zeta}(\bm{k})}{\|\bm{\zeta}(\bm{k})\|} \frac{\bm{\zeta}(\bm{k}) \cdot \bm{\zeta}(\bm{k})}{\|\bm{\zeta}(\bm{k})\|} \breve{f}(\bm{k}) }& \text { otherwise }
+\end{array}\right.,
+\end{equation}
+or simply
+\begin{equation}
+\breve{\boldsymbol{g}}(\bm{k}) \cdot \breve{\bm{b}}(\bm{k})=\bm{\zeta}(\bm{k}) \breve{f}(\bm{k})=\breve{\bm{b}}(\bm{k}).
+\end{equation}
+Altogether, this shows that operator \(\boldsf{G}\) maps square-integrable second-order tensorial fields onto the zero-mean compatible ones.

@@ -46,14 +46,14 @@ In the last section, a few methods not fitting this classification scheme are al
 % Lippmann-Schwinger
 Following \cite{zeman_finite_2017}, the "Conventional FFT" methods, based on the basic scheme by \cite{moulinec_fast_1994}, are derived from the following integral equation for the fluctuating strains \(\tilde{\bm\varepsilon}_\mu \in \pazocal{E}\),
 \begin{equation} \label{eq:int_lippmann_schwinger}
-\int_{\Omega_\mu} \bm \Gamma^{\mathrm{ref}}(\bm{Y}-\bm{Z}): \bm{\sigma}_\mu\left(\bm{Z}, \bm{\varepsilon}(\bm X)+\tilde{\bm \varepsilon}_\mu(\bm{Z})\right) \mathrm{d} \bm{Z}=\mathbf{0}\quad \text { for all } \bm{Y} \in \Omega_\mu,
+\int_{\Omega_\mu} \bm \Gamma^{\mathrm{ref}}(\bm{Y}-\bm{Y}'): \bm{\sigma}_\mu\left(\bm{Y}', \bm{\varepsilon}(\bm X)+\tilde{\bm \varepsilon}_\mu(\bm{Y}')\right) \mathrm{d} v'=\mathbf{0}\quad \text { for all } \bm{Y} \in \Omega_\mu,
 \end{equation}
 where \(\bm \Gamma^{\text {ref }}\) is the Green function of the reference problem.
 This reference problem is an auxiliary local problem with the homogeneous constitutive relation
 \begin{equation}
-\bm \sigma_\mu(\bm{Y}, \bm \varepsilon(\bm{Y}))=\boldsf C^{\mathrm{ref}}: \bm\varepsilon(\bm{Y}) \text { for } \bm{Y} \in \Omega_\mu,
+\bm \sigma_\mu(\bm{Y}, \bm \varepsilon(\bm{Y}))=\boldsf D^{\mathrm{ref}}: \bm\varepsilon(\bm{Y}) \text { for } \bm{Y} \in \Omega_\mu,
 \end{equation}
-where \(\boldsf C^\mathrm{ref}\) is the elasticity tensor of the reference material.
+where \(\boldsf D^\mathrm{ref}\) is the elasticity tensor of the reference material.
 % normal
 In the seminal contribution by \cite{moulinec_fast_1994, moulinec_fft-based_1995}, Equation~\eqref{eq:int_lippmann_schwinger} is solved using a fixed-point iteration scheme after discretizing it through a point collocation method, the basis function being trigonometric polynomials \citep{zeman_finite_2017}.
 It is originally formulated for linear elasticity and small strains.
@@ -104,7 +104,7 @@ Beyond the "basic scheme" of \cite{moulinec_fast_1994} further improvements with
 % linear small strain
 In the first place improvements still dealing with linear behavior at small strains are introduced.
 In the original approach, a fixed point iteration/Richardson iteration/Neumann series-based scheme is used (see \cite{moulinec_convergence_2018} for an in-depth convergence analysis).
-It is the most memory-efficient method available in its class and it is also robust, but slow for highly contrasted problems.
+It is the most memory-efficient method available in its class and it is also robust but slow for highly contrasted problems.
 Moreover, the only role of the (material-dependent) reference problem is to ensure the convergence of the Richardson iteration scheme used to solve the resulting system of linear equations.
 As an alternative, \cite{zeman_accelerating_2010} propose a conjugate gradient-based approach.
 It proceeds from the discretization of the governing integral equation by the trigonometric collocation method to give a linear system that can be efficiently solved by conjugate gradient methods.
@@ -123,7 +123,7 @@ Alternatively, one can use the Newton or quasi-Newton methods to tackle the nonl
 % newton
 % conjugate gradient
 In the context of small strains, \cite{gelebart_non-linear_2013} solve the linearized equations found through the Newton method using the conjugate gradient scheme.
-Low sensitivity to the reference material and an improved efficiency, for a soft or a stiff inclusion, when compared to the "basic scheme" is reported.
+Low sensitivity to the reference material and improved efficiency, for a soft or a stiff inclusion, when compared to the "basic scheme" is reported.
 In addition to prescribed macroscopic strain, the proposed method is extended to mixed loadings.
 
 % large strain
@@ -151,7 +151,7 @@ In \cite{schneider_barzilai-borwein_2019} the Barzilai-Borwein is applied to the
 It may be interpreted as the basic scheme with adaptive time-stepping (or, equivalently, adaptive reference material).
 Thus, it has a low memory footprint but is competitive in terms of convergence speed when compared to the solvers mentioned above.
 However, it is an intrinsically non-monotone method, ie, the residual is not monotonically decreasing from one iteration to the next.
-This behavior is unfamiliar and may limit the applicability for industrial applications.
+This behavior is unfamiliar and may limit its applicability for industrial applications.
 
 Table~\ref{tab:methods} reproduces a Table found in \cite{wicht_quasinewton_2019} detailing the memory footprint and other characteristics regarding the different solvers available.
 
@@ -183,11 +183,11 @@ Table~\ref{tab:methods} reproduces a Table found in \cite{wicht_quasinewton_2019
 
 According to \cite{zeman_finite_2017} the so-called "Variational FFT" schemes, are based on the weak form of the equilibrium equation
 \begin{equation} \label{eq:weak_equilibrium_equations}
-\int_{\Omega_\mu} \delta \tilde{\bm\varepsilon}_\mu(\bm{Y}): \bm{\sigma}_\mu\left(\bm{Y}, \bm{\varepsilon}(\bm X)+\tilde{\bm\varepsilon}(\bm{Y})\right) \mathrm{d} \bm{Y}=0,
+\int_{\Omega_\mu} \delta \tilde{\bm\varepsilon}_\mu(\bm{Y}): \bm{\sigma}_\mu\left(\bm{Y}, \bm{\varepsilon}(\bm X)+\tilde{\bm\varepsilon}(\bm{Y})\right) \mathrm{d} v=0,
 \end{equation}
 with the compatibility constraint enforced by
 \begin{equation}
-\delta \tilde{\bm\varepsilon}(\bm Y)=[\bm G * \bm\zeta](\bm Y)=\int_{\Omega_\mu} \bm G(\bm Y-\bm Z): \bm\zeta(\bm Z) \mathrm{d} \bm Z \quad\text { for } \bm Y \in \Omega_\mu,
+\delta \tilde{\bm\varepsilon}(\bm Y)=[\bm G * \bm\zeta](\bm Y)=\int_{\Omega_\mu} \bm G(\bm Y-\bm Y'): \bm\zeta(\bm Y') \mathrm{d} v' \quad\text { for } \bm Y \in \Omega_\mu,
 \end{equation}
 where \(\bm G\) is a projection operator, \(\bm \zeta\) is a test function and \(*\) stands for the convolution.
 
@@ -201,7 +201,30 @@ solution of a linear system can be properly distinguished and optimized individu
 In \cite{de_geus_finite_2017} the extension to finite strain is achieved, and the corresponding Python code of only 59 lines (without comments) is also supplied for a linear hyperelastic material.
 A further extension is advanced in \cite{lucarini_algorithm_2019}, where stress and mixed control of the macroscopic load history is achieved using a direct method based on a modified project operator and preserving the computational performance of the original method.
 
-Having arrived at the set of non-linear equations found from the descritization of Equation~\eqref{eq:weak_equilibrium_equations}, the methods used to solve them can, in principle, be the ones detailed above for the "Conventional FFT".
+Having arrived at the set of non-linear equations found from the discretization of Equation~\eqref{eq:weak_equilibrium_equations}, the methods used to solve them can, in principle, be the ones detailed above for the "Conventional FFT".
+
+Table~\ref{tab:comparison_fem_fft} compares both classes of FFT methods with FEM with regards to the most important algorithmic steps.
+
+\begin{table}
+  \caption{Comparison of FFT-based and Finite Element methods \citep{zeman_finite_2017}.}
+\label{tab:comparison_fem_fft}
+  \begin{tabular}{lccc}
+  \hline & \vphantom{\Big |}Finite elements & Conventional FFT & Variational FFT \\
+  \hline\hline \makecell[l]{Discretization\\approach} & \vphantom{\Big |}Galerkin & collocation & Galerkin \\
+  Computational grid & general & regular & regular \\
+  Basis functions & \vphantom{\Big |}Lagrange & trigonometric & trigonometric \\
+  Unknown & \vphantom{\Big |}displacement & strain & strain \\
+  \makecell[l]{Compatibility\\of solution} & automatic & linear solver & linear solver \\
+  \makecell[l]{Compatibility\\of test fields} & automatic & \(\times\) & projection matrix \(\bm{G}\) \\
+  Equilibrium & \vphantom{\Big |}static matrix \(\bm{B}^{\mathrm{T}}\) & Green matrix \(\bm{\Gamma}^{\text {ref}}\) & projection matrix \(\bm{G}\) \\
+  Reference problem & \(\times\) & yes & \\
+  Quadrature & Gauss & \(\times\) & trapezoidal \\
+  Linear system & \makecell[c]{regular\\symmetric,\\sparse} & \makecell[c]{singular\\non-symmetric,\\structurally\\sparse} & \makecell[c]{singular\\non-symmetric,\\structurally\\sparse} \\
+  Linear system solver & direct/iterative & iterative & iterative \\
+  \hline\hline
+  \end{tabular}
+\end{table}
+
 
 \section{Other methods}
 
@@ -225,7 +248,7 @@ Another example of similar techniques can be found in \cite{kabel_composite_2017
 
 \cite{lucarini_dbfft_2019} present a method completely distinct from the ones presented so far in that the unknown field is not the strain field but the displacement field.
 It is shown that the algorithm does not require the definition of a reference medium and that the linear systems which arise in the method are fully ranked and therefore admit the use of preconditioners.
-Furthermore, in the iterative solution procedure, the convergence rate is higher than the FFT-based variational approach, and the memory usage lower.
+Furthermore, in the iterative solution procedure, the convergence rate is higher than the FFT-based variational approach, and the memory usage is lower.
 % displacement
 
 In \cite{to_fft_2020} an FFT-based numerical scheme to compute the effective conductivity of porous materials is developed.
