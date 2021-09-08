@@ -1,4 +1,4 @@
-\chapter{FFT-based methods for mechanical problems}
+\chapter{FFT-based methods for mechanical problems} \label{chapter:fft_based_homogenization}
 
 In the following, an overview of the literature on FFT-based methods for the determination of the overall and local response of a composite material from actual images or morphological simulations of its microstructure is presented.
 
@@ -187,9 +187,9 @@ According to \cite{zeman_finite_2017} the so-called "Variational FFT" schemes, a
 \end{equation}
 with the compatibility constraint enforced by
 \begin{equation}
-\delta \tilde{\bm\varepsilon}(\bm Y)=[\bm G * \bm\zeta](\bm Y)=\int_{\Omega_\mu} \bm G(\bm Y-\bm Y'): \bm\zeta(\bm Y') \mathrm{d} v' \quad\text { for } \bm Y \in \Omega_\mu,
+\delta \tilde{\bm\varepsilon}(\bm Y)=[\boldsf G * \bm\zeta](\bm Y)=\int_{\Omega_\mu} \boldsf G(\bm Y-\bm Y'): \bm\zeta(\bm Y') \mathrm{d} v' \quad\text { for } \bm Y \in \Omega_\mu,
 \end{equation}
-where \(\bm G\) is a projection operator, \(\bm \zeta\) is a test function and \(*\) stands for the convolution.
+where \(\boldsf G\) is a projection operator, \(\bm \zeta\) is a test function and \(*\) stands for the convolution.
 
 Vondřejc and co-workers first established the connection between FFT-based schemes and Finite Elements in the framework of conventional Galerkin methods with a specific choice of basis functions and numerical quadrature \citep{vondrejc_fft-based_2014}  or exact integration \citep{vondrejc_guaranteed_2015} for small strains.
 The main advantage of this approach is the fact that it does not rely on the notion of a reference problem.
@@ -199,7 +199,7 @@ solution of a linear system can be properly distinguished and optimized individu
 
 \cite{zeman_finite_2017} offers a very clear presentation of this approach and supplies numerical examples regarding robust convergence for several types of non-linear constitutive behavior in small strains.
 In \cite{de_geus_finite_2017} the extension to finite strain is achieved, and the corresponding Python code of only 59 lines (without comments) is also supplied for a linear hyperelastic material.
-A further extension is advanced in \cite{lucarini_algorithm_2019}, where stress and mixed control of the macroscopic load history is achieved using a direct method based on a modified project operator and preserving the computational performance of the original method.
+A further extension is advanced in \cite{lucarini_algorithm_2019}, where stress and mixed control of the macroscopic load history is achieved using a direct method based on a modified projection operator and preserving the computational performance of the original method.
 
 Having arrived at the set of non-linear equations found from the discretization of Equation~\eqref{eq:weak_equilibrium_equations}, the methods used to solve them can, in principle, be the ones detailed above for the "Conventional FFT".
 
@@ -254,3 +254,5 @@ Furthermore, in the iterative solution procedure, the convergence rate is higher
 In \cite{to_fft_2020} an FFT-based numerical scheme to compute the effective conductivity of porous materials is developed.
 To avoid the convergence issues due to the nonuniqueness of the full field solution, the problem is reformulated using the temperature field in the skeleton as an unknown variable.
 Thus, in the derived governing equation, the internal temperature field can be computed from the value on the pore boundary.
+
+\newpage\null\thispagestyle{blank}\newpage

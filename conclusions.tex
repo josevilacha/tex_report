@@ -1,14 +1,14 @@
-\chapter{Conclusions and Future Research}
+\chapter{Conclusions and Future Research} \label{chapter:conclusions}
 
 \section{Conclusions and final remarks}
 
 The main goal of the present work is to document the choice of an accurate and efficient FFT-based homogenization procedure.
 Both small and large strains, as well as, elastic and elastoplastic material behavior must be taken into account.
 With this objective in mind, an overview of the FFT-based homogenization procedures available in the literature is given and the FFT-based Galerkin method approach introduced by \cite{vondrejc_fft-based_2014}, \cite{zeman_finite_2017} and \cite{de_geus_finite_2017} is determined to be the one that more closely matches the requirements established.
-It also factored into this choice the availability of an implementation of this procedure at \cite{}.
+It also factored into this choice the availability of an implementation of this procedure at \cite{de_geus_notitle_nodate}.
 Thus, a detailed description of the main method under review is also included based on \cite{zeman_finite_2017} and \cite{de_geus_finite_2017}.
 
-Using the code available at \cite{}, an implementation of the FFT-based Galerkin method homogenization procedure chosen was developed to test it against the FFT-based basic method homogenization procedure proposed by \cite{moulinec_fast_1994} and the FEM-based homogenization procedure.
+Using the code available at \cite{de_geus_notitle_nodate}, an implementation of the FFT-based Galerkin method homogenization procedure chosen was developed to test it against the FFT-based basic method homogenization procedure proposed by \cite{moulinec_fast_1994} and the FEM-based homogenization procedure.
 To investigate its implementation robustness, accuracy, and efficiency, several numerical applications are presented.
 The numerical results are divided into two sets of results, the first concerning elasticity and the second elastoplasticity.
 Both small and large strains are considered in each set of results.
@@ -46,9 +46,10 @@ On the other hand, the FFT-Galerkin method was able to reach convergence for mor
 
 In what concerns efficiency a different behavior is found for the two constitutive materials considered.
 Remember that for this set of results all cores of the machine are used by both procedures wherever the code is parallelized.
-For the Hencky constitutive materials, there is virtually no difference between the time taken by the FFT-Galerkin method and the FEM method.
+In two dimensions, for the Hencky constitutive materials, there is virtually no difference between the time taken by the FFT-Galerkin method and the FEM method.
 For the Saint Venant-Kirchhoff constitutive model, however, the FFF-Galerkin method is three times faster than the FEM method.
 It is hard to tease out if this is due to higher efficiency on the part of the FFT-Galerkin method in the solution of the equilibrium problem or because this specific implementation carries out a smaller number of pre and post-processing steps for the Saint Venant-Kirchhoff constitutive model, in particular.
+In three-dimensions, a massive efficiency improvement can be observed when comparing the FFT-Galerkin method with the FEM for both materials.
 
 The conclusions regarding the effects of marked stiffness contrasts between the phases are much the same as the ones regarding linear elasticity.
 For the stiffness contrasts where convergence is achieved, there is good agreement between the homogenized response found by the FFT-Galerkin method and the FEM method.
@@ -69,7 +70,7 @@ The local fields are also in agreement with the FEM solution and the FTT-Galerki
 For the more demanding pure shear loading scheme, the FFT-Galerkin method was not able to apply the full load.
 However, the homogenized response before failure is moderately accurate with errors relative to the FEM solution below \(1.6\%\).
 
-The FFT-Galerkin method proposed by \cite{vondrejc_fft-based_2014}, \cite{zeman_finite_2017} and \cite{de_geus_finite_2017} and the corresponding implementation developed using as a starting point the code available at \cite{} is shown to be accurate, time and memory-efficient; and able to deal with both large and small strains, and elastic or elastoplastic behavior.
+The FFT-Galerkin method proposed by \cite{vondrejc_fft-based_2014}, \cite{zeman_finite_2017} and \cite{de_geus_finite_2017} and the corresponding implementation developed using as a starting point the code available at \cite{de_geus_notitle_nodate} is shown to be accurate, time and memory-efficient; and able to deal with both large and small strains, and elastic or elastoplastic behavior.
 The efficiency gains are more pronounced in three dimensions, and as such, it is in that context that it most strongly presents itself as an efficient alternative to FEM.
 Table~\ref{tab:comparison_fft_galerkin_fem} presents a summary of the conclusions for quick reference.
 

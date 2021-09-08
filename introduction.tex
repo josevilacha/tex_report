@@ -1,1 +1,72 @@
 \chapter{Introduction}
+
+\section{Motivation}
+
+The goal of computational micromechanics of materials is to establish a link between the mechanical response of two interacting scales in heterogeneous media, commonly referred to as the macro and micro-scale.
+It generally involves the numerical solution of the mechanical equilibrium of a periodic unit cell.
+It is a boundary value problem defined on a representative microscale sample that involves local constitutive laws, balance equations, and, most typically, periodic boundary conditions.
+The solution of this problem plays a pivotal role in bridging the two scales considered.
+The effective macroscopic response is then extracted from the solution of the local problem for a given macroscopic excitation.
+
+For virtually all cases of practical relevance, the local problem must be solved approximately by discretizing the microstructure and the unknown microscopic fields.
+Such a unit-cell thereby provides a representative geometrical representation of the microstructure - which is often complex.
+An accurate representation of reality, therefore, necessitates a high-resolution numerical method, which remains efficient in three dimensions.
+The prevailing technique employed for this purpose is the Finite Element Method.
+However, the ever-increasing desire to use finely discretized unit cells, even in 3D, calls for more efficient methods.
+In particular, advances in experimental characterization of microstructures by high-resolution images triggers the need for efficient solvers that use these images directly as computational grids.
+A regular grid in combination with periodic boundary conditions naturally promotes solvers based on the Fast Fourier Transform (FFT) \citep{zeman_finite_2017, de_geus_finite_2017}.
+An attractive competitor to the Finite Element Method was developed by \cite{moulinec_fast_1994, moulinec_fft-based_1995}.
+It employs the Fast Fourier Transform (FFT) to obtain a significant gain in efficiency compared to Finite Elements, both in terms of speed and in terms of memory footprint.
+In the meantime extensions and different FFT-based approaches have been proposed.
+This work pretends to give an overview of the relevant literature on FFT-based homogenization procedures.
+
+The improvements in efficiency obtained using the FFT-based procedures are of special relevance in the context of the data-driven design of materials, where the number of mechanical simulations needed to populate the database can be very large.
+Structural and material design is a highly iterative process where an optimal design for a chosen set of quantities of interest and a given set of restrictions is sought.
+For the particular case of material systems design, the high dimensionality of the engineering design space is striking when considering the overwhelming amount of possible combinations that lead to different materials \citep{bessa_framework_2017}, which often result in suboptimal and/or unexplored solutions.
+
+\section{Computational Framework}
+
+The computational implementations and numerical simulations performed in the scope of the present work are carried out in two distinct programs described in what follows.
+
+All the numerical simulations based on the Finite Element Method (FEM), either macroscale analyses or multi-scale analyses based on computational homogenization, are held in the in-house Fortran (IBM Mathematical Formula Translation System) program LINKS (Large Strain Implicit Non-linear Analysis of Solids Linking Scales), a multi-scale finite element code for implicit infinitesimal and finite strain analyses of hyperelastic and elastoplastic solids, that is continuously developed by the CM2S research group (Computational Multi-Scale Modeling of Solids and Structures) at the Faculty of Engineering of University of Porto.
+
+Concerning the multi-scale analyses relying on FFT-based homogenization methods, an implementation is developed based on the code available at \cite{de_geus_notitle_nodate} being designed and implemented in the popular high-level object-oriented language Python under the scope of the present work.
+
+\section{Objectives}
+
+The main goals of this work are:
+\begin{itemize}
+    \item Provide an overview of the available FFT-based homogenization approaches in the literature;
+    \item To determine an FFT-based homogenization approach able to efficiently and accurately deal with elastic and elastoplastic materials at both small and large strains;
+    \item Validate the implementation developed for later use;
+    \item Compare the selected FFT-based homogenization with the FEM regarding efficiency and memory footprint.
+\end{itemize}
+
+\section{Document structure}
+
+The remainder of this document is structured as follows:
+
+\paragraph{Chapter \ref{chapter:fft_based_homogenization}}
+In Chapter~\ref{chapter:fft_based_homogenization} an overview of the available FFT-based homogenization procedures in the literature is provided.
+According to the requirements outlined in the context of this work the FFT-Galerkin method is selected.
+
+\paragraph{Chapter \ref{chapter:variational_fft}}
+In Chapter~\ref{chapter:variational_fft} a detailed account of the FFT-Galerkin method is provided.
+Its application to both small and large strains is discussed.
+
+\paragraph{Chapter \ref{chapter:numerical_results_elasticity}}
+In Chapter~\ref{chapter:numerical_results_elasticity} the numerical results concerning elasticity, at both small and large strains are collected.
+These aim to answer questions related to the efficiency and accuracy of the FFT-Galerkin method.
+The FEM is used as a comparison standard.
+The hyperelastic constitutive models considered are the Saint Venat-Kirchhoff and the Hencky constitutive models.
+
+\paragraph{Chapter \ref{chapter:numerical_results_elastoplasticity}}
+In Chapter~\ref{chapter:numerical_results_elastoplasticity} the numerical results concerning elastoplasticity, at both small and large strains are collected.
+These aim to answer questions related to the efficiency and accuracy of the FFT-Galerkin method.
+The FEM is used as a comparison standard.
+The elastoplastic model considered is the von  Mises  model  with  associative  potential  and  isotropic  hardening,
+
+\paragraph{Chapter \ref{chapter:conclusions}}
+In Chapter~\ref{chapter:conclusions} the conclusions reached in this work are present and some future directions of research are suggested.
+
+\newpage\null\thispagestyle{blank}\newpage
